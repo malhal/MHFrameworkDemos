@@ -179,8 +179,8 @@
 		ECAE23741D908AA100806031 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EC136F8F21484A7800AFECE8 /* MHFoundation.xcodeproj */,
 				EC136F8221484A1300AFECE8 /* MUIKit.xcodeproj */,
+				EC136F8F21484A7800AFECE8 /* MHFoundation.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
