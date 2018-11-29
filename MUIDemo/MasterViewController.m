@@ -14,13 +14,13 @@
 @interface MasterViewController ()<MUITableViewDelegate>
 
 @property NSMutableArray *objects;
+
 @end
 
 @implementation MasterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.tableView.delegate = self;
     //test
     //[self.navigationItem mhu_beginTitleRefreshing];
