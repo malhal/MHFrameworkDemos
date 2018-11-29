@@ -9,9 +9,9 @@
 #import "AppDelegate.h"
 #import "DetailViewController.h"
 
-@interface AppDelegate () <MUIDetailSplitterDelegate>
+@interface AppDelegate () <MUIDetailItemSplitterDelegate>
 
-@property (nonatomic, strong) MUIDetailSplitter *splitter;
+@property (nonatomic, strong) MUIDetailItemSplitter *splitter;
 
 @end
 
@@ -25,7 +25,7 @@
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     //splitViewController.delegate = self;
     
-    self.splitter = [MUIDetailSplitter.alloc initWithSplitViewController:splitViewController];
+    self.splitter = [MUIDetailItemSplitter.alloc initWithSplitViewController:splitViewController];
     self.splitter.delegate = self;
     
     return YES;
@@ -83,8 +83,8 @@
 //    return [splitViewController.storyboard instantiateViewControllerWithIdentifier:@"DetailNavigationController"];
 //}
 
-- (UIViewController *)createDetailViewControllerForDetailSplitter:(MUIDetailSplitter *)detailSplitter{
-    return [detailSplitter.splitController.storyboard instantiateViewControllerWithIdentifier:@"DetailNavigationController"];
+- (UIViewController *)createDetailViewControllerForDetailSplitter:(MUIDetailItemSplitter *)detailItemSplitter{
+    return [detailItemSplitter.splitController.storyboard instantiateViewControllerWithIdentifier:@"DetailNavigationController"];
 }
 
 @end

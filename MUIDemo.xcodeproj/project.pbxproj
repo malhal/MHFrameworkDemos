@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		ECF493B121AED6F100A58030 /* Setup Workspace */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = ECF493B621AED6F100A58030 /* Build configuration list for PBXAggregateTarget "Setup Workspace" */;
+			buildPhases = (
+				ECF493B721AED6FA00A58030 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Setup Workspace";
+			productName = Setup;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		EC136F8B21484A2000AFECE8 /* MUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC136F8821484A1300AFECE8 /* MUIKit.framework */; };
 		EC136F8C21484A2000AFECE8 /* MUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC136F8821484A1300AFECE8 /* MUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -220,6 +234,11 @@
 					ECAE234C1D908A5F00806031 = {
 						CreatedOnToolsVersion = 7.3;
 					};
+					ECF493B121AED6F100A58030 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = HUK6B7UUU2;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = ECAE23481D908A5F00806031 /* Build configuration list for PBXProject "MUIDemo" */;
@@ -246,6 +265,7 @@
 			projectRoot = "";
 			targets = (
 				ECAE234C1D908A5F00806031 /* MUIDemo */,
+				ECF493B121AED6F100A58030 /* Setup Workspace */,
 			);
 		};
 /* End PBXProject section */
@@ -293,6 +313,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ECF493B721AED6FA00A58030 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncd MUIKit\nrm -r MHFoundation\nln -s ../MHFoundation MHFoundation\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ECAE23491D908A5F00806031 /* Sources */ = {
@@ -468,6 +508,24 @@
 			};
 			name = Release;
 		};
+		ECF493B221AED6F100A58030 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HUK6B7UUU2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		ECF493B321AED6F100A58030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HUK6B7UUU2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -485,6 +543,15 @@
 			buildConfigurations = (
 				ECAE23681D908A5F00806031 /* Debug */,
 				ECAE23691D908A5F00806031 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECF493B621AED6F100A58030 /* Build configuration list for PBXAggregateTarget "Setup Workspace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECF493B221AED6F100A58030 /* Debug */,
+				ECF493B321AED6F100A58030 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
