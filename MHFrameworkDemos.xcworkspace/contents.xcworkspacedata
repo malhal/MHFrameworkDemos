@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:MHNetworkingDemo.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:RootMasterDetail.xcodeproj">
    </FileRef>
    <FileRef

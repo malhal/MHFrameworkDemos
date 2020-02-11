@@ -6,28 +6,14 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		ECF493B121AED6F100A58030 /* Setup Workspace */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = ECF493B621AED6F100A58030 /* Build configuration list for PBXAggregateTarget "Setup Workspace" */;
-			buildPhases = (
-				ECF493B721AED6FA00A58030 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = "Setup Workspace";
-			productName = Setup;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		EC1E12A520129D4B0036130D /* DemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1E12A420129D4B0036130D /* DemoCell.m */; };
-		EC90CB1921AF81D9001A7883 /* MUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC90CB1621AF81C4001A7883 /* MUIKit.framework */; };
-		EC90CB1A21AF81D9001A7883 /* MUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC90CB1621AF81C4001A7883 /* MUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC90CB2E21AF8282001A7883 /* MHFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC90CB2B21AF8276001A7883 /* MHFoundation.framework */; };
-		EC90CB2F21AF8282001A7883 /* MHFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC90CB2B21AF8276001A7883 /* MHFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC90CB3B21AF8299001A7883 /* MCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC90CB3821AF8291001A7883 /* MCoreData.framework */; };
-		EC90CB3C21AF8299001A7883 /* MCoreData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC90CB3821AF8291001A7883 /* MCoreData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC8D866D23F2CF9F008B7A7A /* MCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8D866A23F2CF8D008B7A7A /* MCoreData.framework */; };
+		EC8D866E23F2CF9F008B7A7A /* MCoreData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC8D866A23F2CF8D008B7A7A /* MCoreData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC8D866F23F2CF9F008B7A7A /* MHFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8D865823F2CF85008B7A7A /* MHFoundation.framework */; };
+		EC8D867023F2CF9F008B7A7A /* MHFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC8D865823F2CF85008B7A7A /* MHFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC8D867123F2CF9F008B7A7A /* MUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8D866123F2CF87008B7A7A /* MUIKit.framework */; };
+		EC8D867223F2CF9F008B7A7A /* MUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC8D866123F2CF87008B7A7A /* MUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ECAE23521D908A5F00806031 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAE23511D908A5F00806031 /* main.m */; };
 		ECAE23551D908A5F00806031 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAE23541D908A5F00806031 /* AppDelegate.m */; };
 		ECAE23581D908A5F00806031 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAE23571D908A5F00806031 /* MasterViewController.m */; };
@@ -38,68 +24,68 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EC90CB1521AF81C4001A7883 /* PBXContainerItemProxy */ = {
+		EC8D865723F2CF85008B7A7A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EC90CB0D21AF81C4001A7883 /* MUIKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EC3145261D0740C70025F669;
-			remoteInfo = MUIKit;
-		};
-		EC90CB1721AF81C4001A7883 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC90CB0D21AF81C4001A7883 /* MUIKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EC3145301D0740C80025F669;
-			remoteInfo = MUIKitTests;
-		};
-		EC90CB1B21AF81D9001A7883 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC90CB0D21AF81C4001A7883 /* MUIKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = EC3145251D0740C70025F669;
-			remoteInfo = MUIKit;
-		};
-		EC90CB2A21AF8276001A7883 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC90CB2521AF8276001A7883 /* MHFoundation.xcodeproj */;
+			containerPortal = EC8D865223F2CF85008B7A7A /* MHFoundation.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EC31444D1D073A1A0025F669;
 			remoteInfo = MHFoundation;
 		};
-		EC90CB2C21AF8276001A7883 /* PBXContainerItemProxy */ = {
+		EC8D865923F2CF85008B7A7A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EC90CB2521AF8276001A7883 /* MHFoundation.xcodeproj */;
+			containerPortal = EC8D865223F2CF85008B7A7A /* MHFoundation.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EC3144571D073A1A0025F669;
 			remoteInfo = MHFoundationTests;
 		};
-		EC90CB3021AF8282001A7883 /* PBXContainerItemProxy */ = {
+		EC8D866023F2CF87008B7A7A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EC90CB2521AF8276001A7883 /* MHFoundation.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = EC31444C1D073A1A0025F669;
-			remoteInfo = MHFoundation;
+			containerPortal = EC8D865B23F2CF87008B7A7A /* MUIKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC3145261D0740C70025F669;
+			remoteInfo = MUIKit;
 		};
-		EC90CB3721AF8291001A7883 /* PBXContainerItemProxy */ = {
+		EC8D866223F2CF87008B7A7A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EC90CB3221AF8291001A7883 /* MCoreData.xcodeproj */;
+			containerPortal = EC8D865B23F2CF87008B7A7A /* MUIKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC3145301D0740C80025F669;
+			remoteInfo = MUIKitTests;
+		};
+		EC8D866923F2CF8D008B7A7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC8D866423F2CF8D008B7A7A /* MCoreData.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EC3144DA1D073E010025F669;
 			remoteInfo = MCoreData;
 		};
-		EC90CB3921AF8291001A7883 /* PBXContainerItemProxy */ = {
+		EC8D866B23F2CF8D008B7A7A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EC90CB3221AF8291001A7883 /* MCoreData.xcodeproj */;
+			containerPortal = EC8D866423F2CF8D008B7A7A /* MCoreData.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EC3144E41D073E010025F669;
 			remoteInfo = MCoreDataTests;
 		};
-		EC90CB3D21AF8299001A7883 /* PBXContainerItemProxy */ = {
+		EC8D867323F2CFA8008B7A7A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EC90CB3221AF8291001A7883 /* MCoreData.xcodeproj */;
+			containerPortal = EC8D866423F2CF8D008B7A7A /* MCoreData.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = EC3144D91D073E010025F669;
 			remoteInfo = MCoreData;
+		};
+		EC8D867523F2CFA8008B7A7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC8D865223F2CF85008B7A7A /* MHFoundation.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EC31444C1D073A1A0025F669;
+			remoteInfo = MHFoundation;
+		};
+		EC8D867723F2CFA8008B7A7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC8D865B23F2CF87008B7A7A /* MUIKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EC3145251D0740C70025F669;
+			remoteInfo = MUIKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -110,9 +96,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EC90CB2F21AF8282001A7883 /* MHFoundation.framework in Embed Frameworks */,
-				EC90CB1A21AF81D9001A7883 /* MUIKit.framework in Embed Frameworks */,
-				EC90CB3C21AF8299001A7883 /* MCoreData.framework in Embed Frameworks */,
+				EC8D867223F2CF9F008B7A7A /* MUIKit.framework in Embed Frameworks */,
+				EC8D867023F2CF9F008B7A7A /* MHFoundation.framework in Embed Frameworks */,
+				EC8D866E23F2CF9F008B7A7A /* MCoreData.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,9 +108,9 @@
 /* Begin PBXFileReference section */
 		EC1E12A320129D4B0036130D /* DemoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoCell.h; sourceTree = "<group>"; };
 		EC1E12A420129D4B0036130D /* DemoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoCell.m; sourceTree = "<group>"; };
-		EC90CB0D21AF81C4001A7883 /* MUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MUIKit.xcodeproj; path = MUIKit/MUIKit.xcodeproj; sourceTree = "<group>"; };
-		EC90CB2521AF8276001A7883 /* MHFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MHFoundation.xcodeproj; path = MHFoundation/MHFoundation.xcodeproj; sourceTree = "<group>"; };
-		EC90CB3221AF8291001A7883 /* MCoreData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MCoreData.xcodeproj; path = MCoreData/MCoreData.xcodeproj; sourceTree = "<group>"; };
+		EC8D865223F2CF85008B7A7A /* MHFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MHFoundation.xcodeproj; path = MHFrameworks/MHFoundation/MHFoundation.xcodeproj; sourceTree = "<group>"; };
+		EC8D865B23F2CF87008B7A7A /* MUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MUIKit.xcodeproj; path = MHFrameworks/MUIKit/MUIKit.xcodeproj; sourceTree = "<group>"; };
+		EC8D866423F2CF8D008B7A7A /* MCoreData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MCoreData.xcodeproj; path = MHFrameworks/MCoreData/MCoreData.xcodeproj; sourceTree = "<group>"; };
 		ECAE234D1D908A5F00806031 /* MUIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MUIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECAE23511D908A5F00806031 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ECAE23531D908A5F00806031 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -144,38 +130,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC90CB2E21AF8282001A7883 /* MHFoundation.framework in Frameworks */,
-				EC90CB1921AF81D9001A7883 /* MUIKit.framework in Frameworks */,
-				EC90CB3B21AF8299001A7883 /* MCoreData.framework in Frameworks */,
+				EC8D867123F2CF9F008B7A7A /* MUIKit.framework in Frameworks */,
+				EC8D866F23F2CF9F008B7A7A /* MHFoundation.framework in Frameworks */,
+				EC8D866D23F2CF9F008B7A7A /* MCoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EC90CB0E21AF81C4001A7883 /* Products */ = {
+		EC8D865323F2CF85008B7A7A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EC90CB1621AF81C4001A7883 /* MUIKit.framework */,
-				EC90CB1821AF81C4001A7883 /* MUIKitTests.xctest */,
+				EC8D865823F2CF85008B7A7A /* MHFoundation.framework */,
+				EC8D865A23F2CF85008B7A7A /* MHFoundationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EC90CB2621AF8276001A7883 /* Products */ = {
+		EC8D865C23F2CF87008B7A7A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EC90CB2B21AF8276001A7883 /* MHFoundation.framework */,
-				EC90CB2D21AF8276001A7883 /* MHFoundationTests.xctest */,
+				EC8D866123F2CF87008B7A7A /* MUIKit.framework */,
+				EC8D866323F2CF87008B7A7A /* MUIKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EC90CB3321AF8291001A7883 /* Products */ = {
+		EC8D866523F2CF8D008B7A7A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EC90CB3821AF8291001A7883 /* MCoreData.framework */,
-				EC90CB3A21AF8291001A7883 /* MCoreDataTests.xctest */,
+				EC8D866A23F2CF8D008B7A7A /* MCoreData.framework */,
+				EC8D866C23F2CF8D008B7A7A /* MCoreDataTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -228,9 +214,9 @@
 		ECAE23741D908AA100806031 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EC90CB3221AF8291001A7883 /* MCoreData.xcodeproj */,
-				EC90CB2521AF8276001A7883 /* MHFoundation.xcodeproj */,
-				EC90CB0D21AF81C4001A7883 /* MUIKit.xcodeproj */,
+				EC8D866423F2CF8D008B7A7A /* MCoreData.xcodeproj */,
+				EC8D865B23F2CF87008B7A7A /* MUIKit.xcodeproj */,
+				EC8D865223F2CF85008B7A7A /* MHFoundation.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -250,9 +236,9 @@
 			buildRules = (
 			);
 			dependencies = (
-				EC90CB1C21AF81D9001A7883 /* PBXTargetDependency */,
-				EC90CB3121AF8282001A7883 /* PBXTargetDependency */,
-				EC90CB3E21AF8299001A7883 /* PBXTargetDependency */,
+				EC8D867423F2CFA8008B7A7A /* PBXTargetDependency */,
+				EC8D867623F2CFA8008B7A7A /* PBXTargetDependency */,
+				EC8D867823F2CFA8008B7A7A /* PBXTargetDependency */,
 			);
 			name = MUIDemo;
 			productName = MHUDemo;
@@ -271,11 +257,6 @@
 					ECAE234C1D908A5F00806031 = {
 						CreatedOnToolsVersion = 7.3;
 					};
-					ECF493B121AED6F100A58030 = {
-						CreatedOnToolsVersion = 10.1;
-						DevelopmentTeam = HUK6B7UUU2;
-						ProvisioningStyle = Automatic;
-					};
 				};
 			};
 			buildConfigurationList = ECAE23481D908A5F00806031 /* Build configuration list for PBXProject "MUIDemo" */;
@@ -292,67 +273,66 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = EC90CB3321AF8291001A7883 /* Products */;
-					ProjectRef = EC90CB3221AF8291001A7883 /* MCoreData.xcodeproj */;
+					ProductGroup = EC8D866523F2CF8D008B7A7A /* Products */;
+					ProjectRef = EC8D866423F2CF8D008B7A7A /* MCoreData.xcodeproj */;
 				},
 				{
-					ProductGroup = EC90CB2621AF8276001A7883 /* Products */;
-					ProjectRef = EC90CB2521AF8276001A7883 /* MHFoundation.xcodeproj */;
+					ProductGroup = EC8D865323F2CF85008B7A7A /* Products */;
+					ProjectRef = EC8D865223F2CF85008B7A7A /* MHFoundation.xcodeproj */;
 				},
 				{
-					ProductGroup = EC90CB0E21AF81C4001A7883 /* Products */;
-					ProjectRef = EC90CB0D21AF81C4001A7883 /* MUIKit.xcodeproj */;
+					ProductGroup = EC8D865C23F2CF87008B7A7A /* Products */;
+					ProjectRef = EC8D865B23F2CF87008B7A7A /* MUIKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
 				ECAE234C1D908A5F00806031 /* MUIDemo */,
-				ECF493B121AED6F100A58030 /* Setup Workspace */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		EC90CB1621AF81C4001A7883 /* MUIKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MUIKit.framework;
-			remoteRef = EC90CB1521AF81C4001A7883 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		EC90CB1821AF81C4001A7883 /* MUIKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = MUIKitTests.xctest;
-			remoteRef = EC90CB1721AF81C4001A7883 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		EC90CB2B21AF8276001A7883 /* MHFoundation.framework */ = {
+		EC8D865823F2CF85008B7A7A /* MHFoundation.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = MHFoundation.framework;
-			remoteRef = EC90CB2A21AF8276001A7883 /* PBXContainerItemProxy */;
+			remoteRef = EC8D865723F2CF85008B7A7A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		EC90CB2D21AF8276001A7883 /* MHFoundationTests.xctest */ = {
+		EC8D865A23F2CF85008B7A7A /* MHFoundationTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = MHFoundationTests.xctest;
-			remoteRef = EC90CB2C21AF8276001A7883 /* PBXContainerItemProxy */;
+			remoteRef = EC8D865923F2CF85008B7A7A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		EC90CB3821AF8291001A7883 /* MCoreData.framework */ = {
+		EC8D866123F2CF87008B7A7A /* MUIKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MUIKit.framework;
+			remoteRef = EC8D866023F2CF87008B7A7A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC8D866323F2CF87008B7A7A /* MUIKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MUIKitTests.xctest;
+			remoteRef = EC8D866223F2CF87008B7A7A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC8D866A23F2CF8D008B7A7A /* MCoreData.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = MCoreData.framework;
-			remoteRef = EC90CB3721AF8291001A7883 /* PBXContainerItemProxy */;
+			remoteRef = EC8D866923F2CF8D008B7A7A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		EC90CB3A21AF8291001A7883 /* MCoreDataTests.xctest */ = {
+		EC8D866C23F2CF8D008B7A7A /* MCoreDataTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = MCoreDataTests.xctest;
-			remoteRef = EC90CB3921AF8291001A7883 /* PBXContainerItemProxy */;
+			remoteRef = EC8D866B23F2CF8D008B7A7A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -370,26 +350,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		ECF493B721AED6FA00A58030 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#cd MUIKit\n#rm -r MHFoundation\nln -s ../MHFoundation MHFoundation\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		ECAE23491D908A5F00806031 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -406,20 +366,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EC90CB1C21AF81D9001A7883 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MUIKit;
-			targetProxy = EC90CB1B21AF81D9001A7883 /* PBXContainerItemProxy */;
-		};
-		EC90CB3121AF8282001A7883 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MHFoundation;
-			targetProxy = EC90CB3021AF8282001A7883 /* PBXContainerItemProxy */;
-		};
-		EC90CB3E21AF8299001A7883 /* PBXTargetDependency */ = {
+		EC8D867423F2CFA8008B7A7A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MCoreData;
-			targetProxy = EC90CB3D21AF8299001A7883 /* PBXContainerItemProxy */;
+			targetProxy = EC8D867323F2CFA8008B7A7A /* PBXContainerItemProxy */;
+		};
+		EC8D867623F2CFA8008B7A7A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MHFoundation;
+			targetProxy = EC8D867523F2CFA8008B7A7A /* PBXContainerItemProxy */;
+		};
+		EC8D867823F2CFA8008B7A7A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MUIKit;
+			targetProxy = EC8D867723F2CFA8008B7A7A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -490,7 +450,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -538,7 +497,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -569,24 +527,6 @@
 			};
 			name = Release;
 		};
-		ECF493B221AED6F100A58030 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HUK6B7UUU2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		ECF493B321AED6F100A58030 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HUK6B7UUU2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -604,15 +544,6 @@
 			buildConfigurations = (
 				ECAE23681D908A5F00806031 /* Debug */,
 				ECAE23691D908A5F00806031 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ECF493B621AED6F100A58030 /* Build configuration list for PBXAggregateTarget "Setup Workspace" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ECF493B221AED6F100A58030 /* Debug */,
-				ECF493B321AED6F100A58030 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
