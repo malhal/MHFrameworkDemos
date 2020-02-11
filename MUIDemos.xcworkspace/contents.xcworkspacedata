@@ -16,13 +16,4 @@
    <FileRef
       location = "group:MUIDemo.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:MUIKit/MUIKit.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:MCoreData/MCoreData.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:MHFoundation/MHFoundation.xcodeproj">
-   </FileRef>
 </Workspace>
