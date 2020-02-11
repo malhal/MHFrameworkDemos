@@ -6,7 +6,7 @@
 //  Copyright © 2018 Malcolm Hall. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <MUIKit/MUIKit.h>
 
 @interface DetailViewController : UIViewController
 

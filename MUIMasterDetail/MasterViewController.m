@@ -8,11 +8,15 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "TableDatesController.h"
 
-@interface MasterViewController () <MUIMasterControllerDelegate, MUIMasterControllerDataSource>
+@interface MasterViewController () //<MUIMasterControllerDelegate, MUIMasterControllerDataSource>
 
-@property NSMutableArray *objects;
-@property (strong, nonatomic) MUIMasterController *masterController;
+
+//@property (strong, nonatomic) MUIMasterController *masterController;
+
+@property (strong, nonatomic) TableDatesController *tableDatesController;
+@property (strong, nonatomic) MUIMasterTable *masterTable;
 
 @end
 
@@ -31,10 +35,14 @@
     
 //    id d = self.navigationController.navigationBar.delegate;
     
-    self.masterController = [MUIMasterController.alloc initWithTableViewController:self];
-    self.masterController.delegate = self;
-    self.masterController.dataSource = self;
-    self.masterController.tableDelegate = self;
+//    self.masterController = [MUIMasterController.alloc initWithTableViewController:self];
+//    self.masterController.delegate = self;
+//    self.masterController.dataSource = self;
+//    self.masterController.tableDelegate = self;
+    self.tableDatesController = [TableDatesController.alloc initWithTableView:self.tableView];
+    self.tableDatesController.dataSource = self;
+    
+    self.masterTable = [MUIMasterTable.alloc initWithTableViewObjectsController:self.tableDatesController];
 }
 
 //- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
@@ -52,91 +60,49 @@
 }
 
 - (void)insertNewObject:(id)sender {
-    if (!self.objects) {
-        self.objects = [[NSMutableArray alloc] init];
-    }
-    [self.objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableDatesController addObject:NSDate.date];
 }
 
-- (NSIndexPath *)masterController:(MUIMasterController *)masterController indexPathForMasterItem:(id)item{
-    return [NSIndexPath indexPathForRow:[self.objects indexOfObject:item] inSection:0];
-}
-
-- (id)masterController:(nonnull MUIMasterController *)masterController masterItemAtIndexPath:(NSIndexPath *)indexPath{
-    return [self.objects objectAtIndex:indexPath.row];
-}
-
-- (void)showSelectedItemForMasterController:(MUIMasterController *)masterController{
+//- (NSIndexPath *)masterController:(MUIMasterController *)masterController indexPathForMasterItem:(id)item{
+//    return [NSIndexPath indexPathForRow:[self.objects indexOfObject:item] inSection:0];
+//}
+//
+//- (id)masterController:(nonnull MUIMasterController *)masterController masterItemAtIndexPath:(NSIndexPath *)indexPath{
+//    return [self.objects objectAtIndex:indexPath.row];
+//}
+//
+- (void)didSelectObject:(id)object{
     [self performSegueWithIdentifier:@"showDetail" sender:nil];
+}
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    return [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+}
+
+- (void)tableObjectsController:(MUIObjectsTable *)tableObjectsController updateCell:(UITableViewCell *)cell withObject:(id)object{
+        cell.textLabel.text = [object description];
 }
 
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        //NSDate *object = self.objects[indexPath.row];
-        NSDate *object = self.masterController.selectedMasterItem;
+      //  NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+      //  NSDate *object = self.objects[indexPath.row];
+        
+//        MUIDetailNavigationController *dnc = segue.destinationViewController;
+        //dnc.detailObject = object;
+      //  self.mui_splitViewController.selectedObject = object;
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-        [controller setDetailItem:object];
+        
+        NSDate *object = self.masterTable.selectedObject;
+        if(object){
+            [controller setDetailItem:object];
+        }
+        
 //        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
 //        controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
 }
-
-#pragma mark - Table View
-
-//- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    NSLog(@"");
-//    return indexPath;
-//}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.objects.count;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
-    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
-    return cell;
-}
-
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        NSDate *object = self.objects[indexPath.row];
-        [self.objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
-        if(object == self.masterController.selectedMasterItem){
-            [self.masterController selectMasterItemNearIndexPath:indexPath];
-        }
-        
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }
-}
-
-- (BOOL)mui_containsDetailItem:(id)detailItem{
-    return YES;
-}
-
 
 @end

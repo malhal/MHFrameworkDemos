@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="DetailItem" representedClassName="DetailItem" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO">
+            <userInfo/>
+        </attribute>
+        <relationship name="venue" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Venue" inverseName="detailItems" inverseEntity="Venue" syncable="YES"/>
+    </entity>
+    <entity name="Employee" representedClassName="Employee" parentEntity="DetailItem" syncable="YES" codeGenerationType="class"/>
+    <entity name="Event" representedClassName="Event" parentEntity="DetailItem" codeGenerationType="class">
+        <userInfo/>
+    </entity>
+    <entity name="Venue" representedClassName="Venue" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <relationship name="detailItems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DetailItem" inverseName="venue" inverseEntity="DetailItem" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="DetailItem" positionX="279" positionY="234" width="128" height="90"/>
+        <element name="Employee" positionX="270" positionY="216" width="128" height="45"/>
+        <element name="Event" positionX="261" positionY="189" width="128" height="45"/>
+        <element name="Venue" positionX="261" positionY="198" width="128" height="75"/>
+    </elements>
+</model>

@@ -1,0 +1,550 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EC08B98422E66843009BA3F3 /* MUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2CDBE822B6BA2A00F9C25F /* MUIKit.framework */; };
+		EC08B98522E66843009BA3F3 /* MUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC2CDBE822B6BA2A00F9C25F /* MUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC08B98922E66854009BA3F3 /* MCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC08B98822E66854009BA3F3 /* MCoreData.framework */; };
+		EC08B98A22E66854009BA3F3 /* MCoreData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC08B98822E66854009BA3F3 /* MCoreData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC08B98B22E66857009BA3F3 /* MHFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2CDBF122B6BA2A00F9C25F /* MHFoundation.framework */; };
+		EC08B98C22E66857009BA3F3 /* MHFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC2CDBF122B6BA2A00F9C25F /* MHFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC1B8FD72365C1CE005DBD0A /* MasterFetchedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1B8FD62365C1CE005DBD0A /* MasterFetchedTableViewController.m */; };
+		EC2CDBC422B6BA0500F9C25F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2CDBC322B6BA0500F9C25F /* AppDelegate.m */; };
+		EC2CDBC722B6BA0500F9C25F /* MUIFetchedMasterDetail.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC2CDBC522B6BA0500F9C25F /* MUIFetchedMasterDetail.xcdatamodeld */; };
+		EC2CDBCA22B6BA0500F9C25F /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2CDBC922B6BA0500F9C25F /* MasterViewController.m */; };
+		EC2CDBCD22B6BA0500F9C25F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2CDBCC22B6BA0500F9C25F /* DetailViewController.m */; };
+		EC2CDBD022B6BA0500F9C25F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2CDBCE22B6BA0500F9C25F /* Main.storyboard */; };
+		EC2CDBD222B6BA0600F9C25F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC2CDBD122B6BA0600F9C25F /* Assets.xcassets */; };
+		EC2CDBD522B6BA0600F9C25F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2CDBD322B6BA0600F9C25F /* LaunchScreen.storyboard */; };
+		EC2CDBD822B6BA0600F9C25F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2CDBD722B6BA0600F9C25F /* main.m */; };
+		EC2CDBE022B6BA2100F9C25F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2CDBDF22B6BA2100F9C25F /* UIKit.framework */; };
+		EC345039232BC19300B6136E /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC345038232BC19300B6136E /* TestViewController.m */; };
+		EC560F85232B92930072A1B6 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC560F84232B92930072A1B6 /* RootViewController.m */; };
+		ECC30B4623DB2221008E485B /* SplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC30B4123DB2221008E485B /* SplitViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EC2CDBE722B6BA2A00F9C25F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2CDBE122B6BA2900F9C25F /* MUIKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC3145261D0740C70025F669;
+			remoteInfo = MUIKit;
+		};
+		EC2CDBE922B6BA2A00F9C25F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2CDBE122B6BA2900F9C25F /* MUIKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC3145301D0740C80025F669;
+			remoteInfo = MUIKitTests;
+		};
+		EC2CDBF022B6BA2A00F9C25F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2CDBEB22B6BA2A00F9C25F /* MHFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC31444D1D073A1A0025F669;
+			remoteInfo = MHFoundation;
+		};
+		EC2CDBF222B6BA2A00F9C25F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2CDBEB22B6BA2A00F9C25F /* MHFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC3144571D073A1A0025F669;
+			remoteInfo = MHFoundationTests;
+		};
+		EC2CDBF422B6BA3700F9C25F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2CDBE122B6BA2900F9C25F /* MUIKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EC3145251D0740C70025F669;
+			remoteInfo = MUIKit;
+		};
+		EC2CDBF622B6BA4100F9C25F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2CDBEB22B6BA2A00F9C25F /* MHFoundation.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EC31444C1D073A1A0025F669;
+			remoteInfo = MHFoundation;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EC08B98622E66843009BA3F3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EC08B98522E66843009BA3F3 /* MUIKit.framework in Embed Frameworks */,
+				EC08B98A22E66854009BA3F3 /* MCoreData.framework in Embed Frameworks */,
+				EC08B98C22E66857009BA3F3 /* MHFoundation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		EC08B98822E66854009BA3F3 /* MCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC1B8FD52365C1CE005DBD0A /* MasterFetchedTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterFetchedTableViewController.h; sourceTree = "<group>"; };
+		EC1B8FD62365C1CE005DBD0A /* MasterFetchedTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterFetchedTableViewController.m; sourceTree = "<group>"; };
+		EC2CDBBF22B6BA0500F9C25F /* MUIFetchedMasterDetail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MUIFetchedMasterDetail.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC2CDBC222B6BA0500F9C25F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EC2CDBC322B6BA0500F9C25F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EC2CDBC622B6BA0500F9C25F /* MUIFetchedMasterDetail.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MUIFetchedMasterDetail.xcdatamodel; sourceTree = "<group>"; };
+		EC2CDBC822B6BA0500F9C25F /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		EC2CDBC922B6BA0500F9C25F /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		EC2CDBCB22B6BA0500F9C25F /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		EC2CDBCC22B6BA0500F9C25F /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		EC2CDBCF22B6BA0500F9C25F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EC2CDBD122B6BA0600F9C25F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EC2CDBD422B6BA0600F9C25F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EC2CDBD622B6BA0600F9C25F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC2CDBD722B6BA0600F9C25F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EC2CDBDF22B6BA2100F9C25F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EC2CDBE122B6BA2900F9C25F /* MUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MUIKit.xcodeproj; path = ../MUIKit/MUIKit.xcodeproj; sourceTree = "<group>"; };
+		EC2CDBEB22B6BA2A00F9C25F /* MHFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MHFoundation.xcodeproj; path = ../MHFoundation/MHFoundation.xcodeproj; sourceTree = "<group>"; };
+		EC345037232BC19300B6136E /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		EC345038232BC19300B6136E /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		EC560F83232B92930072A1B6 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		EC560F84232B92930072A1B6 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		ECC30B4123DB2221008E485B /* SplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitViewController.m; sourceTree = "<group>"; };
+		ECC30B4523DB2221008E485B /* SplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitViewController.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EC2CDBBC22B6BA0500F9C25F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC2CDBE022B6BA2100F9C25F /* UIKit.framework in Frameworks */,
+				EC08B98422E66843009BA3F3 /* MUIKit.framework in Frameworks */,
+				EC08B98B22E66857009BA3F3 /* MHFoundation.framework in Frameworks */,
+				EC08B98922E66854009BA3F3 /* MCoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EC2CDBB622B6BA0500F9C25F = {
+			isa = PBXGroup;
+			children = (
+				EC2CDBC122B6BA0500F9C25F /* MUIFetchedMasterDetail */,
+				EC2CDBC022B6BA0500F9C25F /* Products */,
+				EC2CDBDE22B6BA2100F9C25F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EC2CDBC022B6BA0500F9C25F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC2CDBBF22B6BA0500F9C25F /* MUIFetchedMasterDetail.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC2CDBC122B6BA0500F9C25F /* MUIFetchedMasterDetail */ = {
+			isa = PBXGroup;
+			children = (
+				EC2CDBC222B6BA0500F9C25F /* AppDelegate.h */,
+				EC2CDBC322B6BA0500F9C25F /* AppDelegate.m */,
+				ECC30B4523DB2221008E485B /* SplitViewController.h */,
+				ECC30B4123DB2221008E485B /* SplitViewController.m */,
+				EC560F83232B92930072A1B6 /* RootViewController.h */,
+				EC560F84232B92930072A1B6 /* RootViewController.m */,
+				EC2CDBC822B6BA0500F9C25F /* MasterViewController.h */,
+				EC2CDBC922B6BA0500F9C25F /* MasterViewController.m */,
+				EC1B8FD52365C1CE005DBD0A /* MasterFetchedTableViewController.h */,
+				EC1B8FD62365C1CE005DBD0A /* MasterFetchedTableViewController.m */,
+				EC2CDBCB22B6BA0500F9C25F /* DetailViewController.h */,
+				EC2CDBCC22B6BA0500F9C25F /* DetailViewController.m */,
+				EC2CDBCE22B6BA0500F9C25F /* Main.storyboard */,
+				EC2CDBD122B6BA0600F9C25F /* Assets.xcassets */,
+				EC2CDBD322B6BA0600F9C25F /* LaunchScreen.storyboard */,
+				EC2CDBD622B6BA0600F9C25F /* Info.plist */,
+				EC2CDBD722B6BA0600F9C25F /* main.m */,
+				EC2CDBC522B6BA0500F9C25F /* MUIFetchedMasterDetail.xcdatamodeld */,
+				EC345037232BC19300B6136E /* TestViewController.h */,
+				EC345038232BC19300B6136E /* TestViewController.m */,
+			);
+			path = MUIFetchedMasterDetail;
+			sourceTree = "<group>";
+		};
+		EC2CDBDE22B6BA2100F9C25F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC08B98822E66854009BA3F3 /* MCoreData.framework */,
+				EC2CDBE122B6BA2900F9C25F /* MUIKit.xcodeproj */,
+				EC2CDBEB22B6BA2A00F9C25F /* MHFoundation.xcodeproj */,
+				EC2CDBDF22B6BA2100F9C25F /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC2CDBE222B6BA2900F9C25F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC2CDBE822B6BA2A00F9C25F /* MUIKit.framework */,
+				EC2CDBEA22B6BA2A00F9C25F /* MUIKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC2CDBEC22B6BA2A00F9C25F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC2CDBF122B6BA2A00F9C25F /* MHFoundation.framework */,
+				EC2CDBF322B6BA2A00F9C25F /* MHFoundationTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EC2CDBBE22B6BA0500F9C25F /* MUIFetchedMasterDetail */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC2CDBDB22B6BA0600F9C25F /* Build configuration list for PBXNativeTarget "MUIFetchedMasterDetail" */;
+			buildPhases = (
+				EC2CDBBB22B6BA0500F9C25F /* Sources */,
+				EC2CDBBC22B6BA0500F9C25F /* Frameworks */,
+				EC2CDBBD22B6BA0500F9C25F /* Resources */,
+				EC08B98622E66843009BA3F3 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC2CDBF722B6BA4100F9C25F /* PBXTargetDependency */,
+				EC2CDBF522B6BA3700F9C25F /* PBXTargetDependency */,
+			);
+			name = MUIFetchedMasterDetail;
+			productName = MUIFetchedMasterDetail;
+			productReference = EC2CDBBF22B6BA0500F9C25F /* MUIFetchedMasterDetail.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC2CDBB722B6BA0500F9C25F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = "Malcolm Hall";
+				TargetAttributes = {
+					EC2CDBBE22B6BA0500F9C25F = {
+						CreatedOnToolsVersion = 11.0;
+					};
+				};
+			};
+			buildConfigurationList = EC2CDBBA22B6BA0500F9C25F /* Build configuration list for PBXProject "MUIFetchedMasterDetail" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EC2CDBB622B6BA0500F9C25F;
+			productRefGroup = EC2CDBC022B6BA0500F9C25F /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EC2CDBEC22B6BA2A00F9C25F /* Products */;
+					ProjectRef = EC2CDBEB22B6BA2A00F9C25F /* MHFoundation.xcodeproj */;
+				},
+				{
+					ProductGroup = EC2CDBE222B6BA2900F9C25F /* Products */;
+					ProjectRef = EC2CDBE122B6BA2900F9C25F /* MUIKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				EC2CDBBE22B6BA0500F9C25F /* MUIFetchedMasterDetail */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EC2CDBE822B6BA2A00F9C25F /* MUIKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MUIKit.framework;
+			remoteRef = EC2CDBE722B6BA2A00F9C25F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC2CDBEA22B6BA2A00F9C25F /* MUIKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MUIKitTests.xctest;
+			remoteRef = EC2CDBE922B6BA2A00F9C25F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC2CDBF122B6BA2A00F9C25F /* MHFoundation.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MHFoundation.framework;
+			remoteRef = EC2CDBF022B6BA2A00F9C25F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC2CDBF322B6BA2A00F9C25F /* MHFoundationTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MHFoundationTests.xctest;
+			remoteRef = EC2CDBF222B6BA2A00F9C25F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC2CDBBD22B6BA0500F9C25F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC2CDBD522B6BA0600F9C25F /* LaunchScreen.storyboard in Resources */,
+				EC2CDBD222B6BA0600F9C25F /* Assets.xcassets in Resources */,
+				EC2CDBD022B6BA0500F9C25F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC2CDBBB22B6BA0500F9C25F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC2CDBD822B6BA0600F9C25F /* main.m in Sources */,
+				EC1B8FD72365C1CE005DBD0A /* MasterFetchedTableViewController.m in Sources */,
+				EC560F85232B92930072A1B6 /* RootViewController.m in Sources */,
+				EC2CDBC722B6BA0500F9C25F /* MUIFetchedMasterDetail.xcdatamodeld in Sources */,
+				EC2CDBCA22B6BA0500F9C25F /* MasterViewController.m in Sources */,
+				EC2CDBC422B6BA0500F9C25F /* AppDelegate.m in Sources */,
+				EC2CDBCD22B6BA0500F9C25F /* DetailViewController.m in Sources */,
+				ECC30B4623DB2221008E485B /* SplitViewController.m in Sources */,
+				EC345039232BC19300B6136E /* TestViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EC2CDBF522B6BA3700F9C25F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MUIKit;
+			targetProxy = EC2CDBF422B6BA3700F9C25F /* PBXContainerItemProxy */;
+		};
+		EC2CDBF722B6BA4100F9C25F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MHFoundation;
+			targetProxy = EC2CDBF622B6BA4100F9C25F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EC2CDBCE22B6BA0500F9C25F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC2CDBCF22B6BA0500F9C25F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EC2CDBD322B6BA0600F9C25F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC2CDBD422B6BA0600F9C25F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EC2CDBD922B6BA0600F9C25F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EC2CDBDA22B6BA0600F9C25F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EC2CDBDC22B6BA0600F9C25F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HUK6B7UUU2;
+				INFOPLIST_FILE = MUIFetchedMasterDetail/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.malcolmhall.MUIFetchedMasterDetail;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EC2CDBDD22B6BA0600F9C25F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HUK6B7UUU2;
+				INFOPLIST_FILE = MUIFetchedMasterDetail/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.malcolmhall.MUIFetchedMasterDetail;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EC2CDBBA22B6BA0500F9C25F /* Build configuration list for PBXProject "MUIFetchedMasterDetail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC2CDBD922B6BA0600F9C25F /* Debug */,
+				EC2CDBDA22B6BA0600F9C25F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC2CDBDB22B6BA0600F9C25F /* Build configuration list for PBXNativeTarget "MUIFetchedMasterDetail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC2CDBDC22B6BA0600F9C25F /* Debug */,
+				EC2CDBDD22B6BA0600F9C25F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EC2CDBC522B6BA0500F9C25F /* MUIFetchedMasterDetail.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EC2CDBC622B6BA0500F9C25F /* MUIFetchedMasterDetail.xcdatamodel */,
+			);
+			currentVersion = EC2CDBC622B6BA0500F9C25F /* MUIFetchedMasterDetail.xcdatamodel */;
+			path = MUIFetchedMasterDetail.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EC2CDBB722B6BA0500F9C25F /* Project object */;
+}

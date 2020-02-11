@@ -9,9 +9,9 @@
 #import "AppDelegate.h"
 #import "DetailViewController.h"
 
-@interface AppDelegate () <MUIDetailItemSplitterDelegate>
+@interface AppDelegate () <UISplitViewControllerDelegate>// <MUIDetailItemSplitterDelegate>
 
-@property (nonatomic, strong) MUIDetailItemSplitter *splitter;
+//@property (nonatomic, strong) MUIDetailItemSplitter *splitter;
 
 @end
 
@@ -23,14 +23,18 @@
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
-    //splitViewController.delegate = self;
+    splitViewController.delegate = self;
     
-    self.splitter = [MUIDetailItemSplitter.alloc initWithSplitViewController:splitViewController];
-    self.splitter.delegate = self;
+ //   self.splitter = [MUIDetailItemSplitter.alloc initWithSplitViewController:splitViewController];
+//    self.splitter.delegate = self;
     
     return YES;
 }
 
+//- (BOOL)splitViewController:(UISplitViewController *)splitViewController showDetailViewController:(UIViewController *)vc sender:(id)sender{
+//
+//    return NO;
+//}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -62,15 +66,15 @@
 #pragma mark - Split view
 
 //- (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController {
-//    //if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[DetailViewController class]] && ([(DetailViewController *)[(UINavigationController *)secondaryViewController topViewController] mui_detailItem] == nil)) {
-//    if(secondaryViewController.mui_detailItem){
-//        return NO;
-//        // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+    //if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[DetailViewController class]] && ([(DetailViewController *)[(UINavigationController *)secondaryViewController topViewController] mui_detailItem] == nil)) {
+ //   if(!secondaryViewController.mui_detailItem){
+   //     return YES;
+        // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+ //   }
+//    } else {
+//
 //    }
-////    } else {
-////
-////    }
-//     return YES;
+ //    return NO;
 //}
 //
 //- (UIViewController *)splitViewController:(UISplitViewController *)splitViewController separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)primaryViewController
@@ -83,8 +87,8 @@
 //    return [splitViewController.storyboard instantiateViewControllerWithIdentifier:@"DetailNavigationController"];
 //}
 
-- (UIViewController *)createDetailViewControllerForDetailSplitter:(MUIDetailItemSplitter *)detailItemSplitter{
-    return [detailItemSplitter.splitController.storyboard instantiateViewControllerWithIdentifier:@"DetailNavigationController"];
-}
+//- (UIViewController *)createDetailViewControllerForDetailSplitter:(MUIDetailItemSplitter *)detailItemSplitter{
+//    return [detailItemSplitter.splitController.storyboard instantiateViewControllerWithIdentifier:@"DetailNavigationController"];
+//}
 
 @end

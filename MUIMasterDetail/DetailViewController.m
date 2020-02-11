@@ -31,6 +31,12 @@
     self.navigationItem.leftItemsSupplementBackButton = YES;
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //self.detailItem = self.mui_detailNavigationController.detailObject;
+    //self.detailItem = self.mui_splitViewController.selectedObject;
+}
+
 
 #pragma mark - Managing the detail item
 

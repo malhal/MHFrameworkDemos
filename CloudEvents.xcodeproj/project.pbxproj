@@ -1,0 +1,586 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EC1F4BB723464AEA0067FCCD /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1F4BB523464AEA0067FCCD /* Venue.m */; };
+		EC31E6512343FC62003A874B /* PersistentContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC31E6502343FC62003A874B /* PersistentContainer.m */; };
+		EC39701C22A83220007FDCE1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC39701B22A83220007FDCE1 /* UIKit.framework */; };
+		EC39702222A85BE4007FDCE1 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC39702122A85BE4007FDCE1 /* RootViewController.m */; };
+		EC43B5DD22C3757F00E1DB2C /* CityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC43B5DC22C3757F00E1DB2C /* CityListViewController.m */; };
+		EC53897022C932CE00EACD40 /* MCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53896F22C932CE00EACD40 /* MCoreData.framework */; };
+		EC53897122C932CE00EACD40 /* MCoreData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC53896F22C932CE00EACD40 /* MCoreData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC53897622C932D400EACD40 /* MHFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2CDC1D22B7931E00F9C25F /* MHFoundation.framework */; };
+		EC53897722C932D400EACD40 /* MHFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC2CDC1D22B7931E00F9C25F /* MHFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC53897822C932D700EACD40 /* MUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2CDC1422B7931E00F9C25F /* MUIKit.framework */; };
+		EC53897922C932D700EACD40 /* MUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC2CDC1422B7931E00F9C25F /* MUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC767B2222A68D1700F88CD1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC767B2122A68D1700F88CD1 /* AppDelegate.m */; };
+		EC767B2522A68D1700F88CD1 /* CloudEvents.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC767B2322A68D1700F88CD1 /* CloudEvents.xcdatamodeld */; };
+		EC767B2822A68D1700F88CD1 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC767B2722A68D1700F88CD1 /* MasterViewController.m */; };
+		EC767B2B22A68D1700F88CD1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC767B2A22A68D1700F88CD1 /* DetailViewController.m */; };
+		EC767B2E22A68D1700F88CD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC767B2C22A68D1700F88CD1 /* Main.storyboard */; };
+		EC767B3022A68D1900F88CD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC767B2F22A68D1900F88CD1 /* Assets.xcassets */; };
+		EC767B3322A68D1900F88CD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC767B3122A68D1900F88CD1 /* LaunchScreen.storyboard */; };
+		EC767B3622A68D1900F88CD1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC767B3522A68D1900F88CD1 /* main.m */; };
+		EC767B3F22A68DEC00F88CD1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC767B3E22A68DEC00F88CD1 /* CloudKit.framework */; };
+		EC767B4122A6AA7B00F88CD1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC767B4022A6AA7B00F88CD1 /* CoreData.framework */; };
+		EC80590722BAF74F008AE9B8 /* ReplaceSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = EC80590622BAF74E008AE9B8 /* ReplaceSegue.m */; };
+		EC80590C22BD7991008AE9B8 /* ReplaceDetailSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = EC80590B22BD7991008AE9B8 /* ReplaceDetailSegue.m */; };
+		EC98970022A9075C0053023B /* MyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9896FF22A9075C0053023B /* MyNavigationController.m */; };
+		EC98970322A92CDC0053023B /* DetailNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC98970222A92CDC0053023B /* DetailNavigationController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EC2CDC1322B7931E00F9C25F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2CDC0D22B7931E00F9C25F /* MUIKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC3145261D0740C70025F669;
+			remoteInfo = MUIKit;
+		};
+		EC2CDC1522B7931E00F9C25F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2CDC0D22B7931E00F9C25F /* MUIKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC3145301D0740C80025F669;
+			remoteInfo = MUIKitTests;
+		};
+		EC2CDC1C22B7931E00F9C25F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2CDC1722B7931E00F9C25F /* MHFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC31444D1D073A1A0025F669;
+			remoteInfo = MHFoundation;
+		};
+		EC2CDC1E22B7931E00F9C25F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2CDC1722B7931E00F9C25F /* MHFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC3144571D073A1A0025F669;
+			remoteInfo = MHFoundationTests;
+		};
+		EC2CDC2022B7932E00F9C25F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2CDC0D22B7931E00F9C25F /* MUIKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EC3145251D0740C70025F669;
+			remoteInfo = MUIKit;
+		};
+		EC2CDC2222B7934100F9C25F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2CDC1722B7931E00F9C25F /* MHFoundation.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EC31444C1D073A1A0025F669;
+			remoteInfo = MHFoundation;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EC53897222C932CE00EACD40 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EC53897922C932D700EACD40 /* MUIKit.framework in Embed Frameworks */,
+				EC53897722C932D400EACD40 /* MHFoundation.framework in Embed Frameworks */,
+				EC53897122C932CE00EACD40 /* MCoreData.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		EC1F4BB423464AEA0067FCCD /* Venue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
+		EC1F4BB523464AEA0067FCCD /* Venue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
+		EC2CDC0D22B7931E00F9C25F /* MUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MUIKit.xcodeproj; path = MUIKit/MUIKit.xcodeproj; sourceTree = "<group>"; };
+		EC2CDC1722B7931E00F9C25F /* MHFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MHFoundation.xcodeproj; path = MHFoundation/MHFoundation.xcodeproj; sourceTree = "<group>"; };
+		EC31E64C2343FC62003A874B /* PersistentContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentContainer.h; sourceTree = "<group>"; };
+		EC31E6502343FC62003A874B /* PersistentContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentContainer.m; sourceTree = "<group>"; };
+		EC39701B22A83220007FDCE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EC39702022A85BE4007FDCE1 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		EC39702122A85BE4007FDCE1 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		EC43B5DB22C3757F00E1DB2C /* CityListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityListViewController.h; sourceTree = "<group>"; };
+		EC43B5DC22C3757F00E1DB2C /* CityListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityListViewController.m; sourceTree = "<group>"; };
+		EC53896F22C932CE00EACD40 /* MCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC767B1D22A68D1700F88CD1 /* CloudEvents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudEvents.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC767B2022A68D1700F88CD1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EC767B2122A68D1700F88CD1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EC767B2422A68D1700F88CD1 /* CloudEvents.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CloudEvents.xcdatamodel; sourceTree = "<group>"; };
+		EC767B2622A68D1700F88CD1 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		EC767B2722A68D1700F88CD1 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		EC767B2922A68D1700F88CD1 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		EC767B2A22A68D1700F88CD1 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		EC767B2D22A68D1700F88CD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EC767B2F22A68D1900F88CD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EC767B3222A68D1900F88CD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EC767B3422A68D1900F88CD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC767B3522A68D1900F88CD1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EC767B3C22A68DA700F88CD1 /* CloudEvents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CloudEvents.entitlements; sourceTree = "<group>"; };
+		EC767B3E22A68DEC00F88CD1 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		EC767B4022A6AA7B00F88CD1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		EC80590222BAF74E008AE9B8 /* ReplaceSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplaceSegue.h; sourceTree = "<group>"; };
+		EC80590622BAF74E008AE9B8 /* ReplaceSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplaceSegue.m; sourceTree = "<group>"; };
+		EC80590A22BD7991008AE9B8 /* ReplaceDetailSegue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplaceDetailSegue.h; sourceTree = "<group>"; };
+		EC80590B22BD7991008AE9B8 /* ReplaceDetailSegue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplaceDetailSegue.m; sourceTree = "<group>"; };
+		EC9896FE22A9075C0053023B /* MyNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyNavigationController.h; sourceTree = "<group>"; };
+		EC9896FF22A9075C0053023B /* MyNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyNavigationController.m; sourceTree = "<group>"; };
+		EC98970122A92CDC0053023B /* DetailNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailNavigationController.h; sourceTree = "<group>"; };
+		EC98970222A92CDC0053023B /* DetailNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailNavigationController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EC767B1A22A68D1700F88CD1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC39701C22A83220007FDCE1 /* UIKit.framework in Frameworks */,
+				EC767B4122A6AA7B00F88CD1 /* CoreData.framework in Frameworks */,
+				EC53897622C932D400EACD40 /* MHFoundation.framework in Frameworks */,
+				EC53897822C932D700EACD40 /* MUIKit.framework in Frameworks */,
+				EC767B3F22A68DEC00F88CD1 /* CloudKit.framework in Frameworks */,
+				EC53897022C932CE00EACD40 /* MCoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EC2CDC0E22B7931E00F9C25F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC2CDC1422B7931E00F9C25F /* MUIKit.framework */,
+				EC2CDC1622B7931E00F9C25F /* MUIKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC2CDC1822B7931E00F9C25F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC2CDC1D22B7931E00F9C25F /* MHFoundation.framework */,
+				EC2CDC1F22B7931E00F9C25F /* MHFoundationTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC767B1422A68D1700F88CD1 = {
+			isa = PBXGroup;
+			children = (
+				EC767B1F22A68D1700F88CD1 /* CloudEvents */,
+				EC767B1E22A68D1700F88CD1 /* Products */,
+				EC767B3D22A68DEC00F88CD1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EC767B1E22A68D1700F88CD1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC767B1D22A68D1700F88CD1 /* CloudEvents.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC767B1F22A68D1700F88CD1 /* CloudEvents */ = {
+			isa = PBXGroup;
+			children = (
+				EC1F4BB423464AEA0067FCCD /* Venue.h */,
+				EC1F4BB523464AEA0067FCCD /* Venue.m */,
+				EC767B3C22A68DA700F88CD1 /* CloudEvents.entitlements */,
+				EC767B2022A68D1700F88CD1 /* AppDelegate.h */,
+				EC767B2122A68D1700F88CD1 /* AppDelegate.m */,
+				EC43B5DB22C3757F00E1DB2C /* CityListViewController.h */,
+				EC43B5DC22C3757F00E1DB2C /* CityListViewController.m */,
+				EC39702022A85BE4007FDCE1 /* RootViewController.h */,
+				EC39702122A85BE4007FDCE1 /* RootViewController.m */,
+				EC767B2622A68D1700F88CD1 /* MasterViewController.h */,
+				EC767B2722A68D1700F88CD1 /* MasterViewController.m */,
+				EC767B2922A68D1700F88CD1 /* DetailViewController.h */,
+				EC767B2A22A68D1700F88CD1 /* DetailViewController.m */,
+				EC767B2C22A68D1700F88CD1 /* Main.storyboard */,
+				EC767B2F22A68D1900F88CD1 /* Assets.xcassets */,
+				EC767B3122A68D1900F88CD1 /* LaunchScreen.storyboard */,
+				EC767B3422A68D1900F88CD1 /* Info.plist */,
+				EC767B3522A68D1900F88CD1 /* main.m */,
+				EC767B2322A68D1700F88CD1 /* CloudEvents.xcdatamodeld */,
+				EC9896FE22A9075C0053023B /* MyNavigationController.h */,
+				EC9896FF22A9075C0053023B /* MyNavigationController.m */,
+				EC98970122A92CDC0053023B /* DetailNavigationController.h */,
+				EC98970222A92CDC0053023B /* DetailNavigationController.m */,
+				EC80590222BAF74E008AE9B8 /* ReplaceSegue.h */,
+				EC80590622BAF74E008AE9B8 /* ReplaceSegue.m */,
+				EC80590A22BD7991008AE9B8 /* ReplaceDetailSegue.h */,
+				EC80590B22BD7991008AE9B8 /* ReplaceDetailSegue.m */,
+				EC31E64C2343FC62003A874B /* PersistentContainer.h */,
+				EC31E6502343FC62003A874B /* PersistentContainer.m */,
+			);
+			path = CloudEvents;
+			sourceTree = "<group>";
+		};
+		EC767B3D22A68DEC00F88CD1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC53896F22C932CE00EACD40 /* MCoreData.framework */,
+				EC2CDC0D22B7931E00F9C25F /* MUIKit.xcodeproj */,
+				EC2CDC1722B7931E00F9C25F /* MHFoundation.xcodeproj */,
+				EC39701B22A83220007FDCE1 /* UIKit.framework */,
+				EC767B4022A6AA7B00F88CD1 /* CoreData.framework */,
+				EC767B3E22A68DEC00F88CD1 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EC767B1C22A68D1700F88CD1 /* CloudEvents */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC767B3922A68D1900F88CD1 /* Build configuration list for PBXNativeTarget "CloudEvents" */;
+			buildPhases = (
+				EC767B1922A68D1700F88CD1 /* Sources */,
+				EC767B1A22A68D1700F88CD1 /* Frameworks */,
+				EC767B1B22A68D1700F88CD1 /* Resources */,
+				EC53897222C932CE00EACD40 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC2CDC2322B7934100F9C25F /* PBXTargetDependency */,
+				EC2CDC2122B7932E00F9C25F /* PBXTargetDependency */,
+			);
+			name = CloudEvents;
+			productName = CloudEvents;
+			productReference = EC767B1D22A68D1700F88CD1 /* CloudEvents.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC767B1522A68D1700F88CD1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = "Malcolm Hall";
+				TargetAttributes = {
+					EC767B1C22A68D1700F88CD1 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+				};
+			};
+			buildConfigurationList = EC767B1822A68D1700F88CD1 /* Build configuration list for PBXProject "CloudEvents" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EC767B1422A68D1700F88CD1;
+			productRefGroup = EC767B1E22A68D1700F88CD1 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EC2CDC1822B7931E00F9C25F /* Products */;
+					ProjectRef = EC2CDC1722B7931E00F9C25F /* MHFoundation.xcodeproj */;
+				},
+				{
+					ProductGroup = EC2CDC0E22B7931E00F9C25F /* Products */;
+					ProjectRef = EC2CDC0D22B7931E00F9C25F /* MUIKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				EC767B1C22A68D1700F88CD1 /* CloudEvents */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EC2CDC1422B7931E00F9C25F /* MUIKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MUIKit.framework;
+			remoteRef = EC2CDC1322B7931E00F9C25F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC2CDC1622B7931E00F9C25F /* MUIKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MUIKitTests.xctest;
+			remoteRef = EC2CDC1522B7931E00F9C25F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC2CDC1D22B7931E00F9C25F /* MHFoundation.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MHFoundation.framework;
+			remoteRef = EC2CDC1C22B7931E00F9C25F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC2CDC1F22B7931E00F9C25F /* MHFoundationTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MHFoundationTests.xctest;
+			remoteRef = EC2CDC1E22B7931E00F9C25F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC767B1B22A68D1700F88CD1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC767B3322A68D1900F88CD1 /* LaunchScreen.storyboard in Resources */,
+				EC767B3022A68D1900F88CD1 /* Assets.xcassets in Resources */,
+				EC767B2E22A68D1700F88CD1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC767B1922A68D1700F88CD1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC80590722BAF74F008AE9B8 /* ReplaceSegue.m in Sources */,
+				EC1F4BB723464AEA0067FCCD /* Venue.m in Sources */,
+				EC98970322A92CDC0053023B /* DetailNavigationController.m in Sources */,
+				EC80590C22BD7991008AE9B8 /* ReplaceDetailSegue.m in Sources */,
+				EC767B3622A68D1900F88CD1 /* main.m in Sources */,
+				EC39702222A85BE4007FDCE1 /* RootViewController.m in Sources */,
+				EC98970022A9075C0053023B /* MyNavigationController.m in Sources */,
+				EC43B5DD22C3757F00E1DB2C /* CityListViewController.m in Sources */,
+				EC767B2522A68D1700F88CD1 /* CloudEvents.xcdatamodeld in Sources */,
+				EC31E6512343FC62003A874B /* PersistentContainer.m in Sources */,
+				EC767B2822A68D1700F88CD1 /* MasterViewController.m in Sources */,
+				EC767B2222A68D1700F88CD1 /* AppDelegate.m in Sources */,
+				EC767B2B22A68D1700F88CD1 /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EC2CDC2122B7932E00F9C25F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MUIKit;
+			targetProxy = EC2CDC2022B7932E00F9C25F /* PBXContainerItemProxy */;
+		};
+		EC2CDC2322B7934100F9C25F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MHFoundation;
+			targetProxy = EC2CDC2222B7934100F9C25F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EC767B2C22A68D1700F88CD1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC767B2D22A68D1700F88CD1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EC767B3122A68D1900F88CD1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC767B3222A68D1900F88CD1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EC767B3722A68D1900F88CD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EC767B3822A68D1900F88CD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EC767B3A22A68D1900F88CD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CloudEvents/CloudEvents.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HUK6B7UUU2;
+				INFOPLIST_FILE = CloudEvents/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.malcolmhall.CloudEvents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EC767B3B22A68D1900F88CD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CloudEvents/CloudEvents.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HUK6B7UUU2;
+				INFOPLIST_FILE = CloudEvents/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.malcolmhall.CloudEvents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EC767B1822A68D1700F88CD1 /* Build configuration list for PBXProject "CloudEvents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC767B3722A68D1900F88CD1 /* Debug */,
+				EC767B3822A68D1900F88CD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC767B3922A68D1900F88CD1 /* Build configuration list for PBXNativeTarget "CloudEvents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC767B3A22A68D1900F88CD1 /* Debug */,
+				EC767B3B22A68D1900F88CD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EC767B2322A68D1700F88CD1 /* CloudEvents.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EC767B2422A68D1700F88CD1 /* CloudEvents.xcdatamodel */,
+			);
+			currentVersion = EC767B2422A68D1700F88CD1 /* CloudEvents.xcdatamodel */;
+			path = CloudEvents.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EC767B1522A68D1700F88CD1 /* Project object */;
+}

@@ -2,6 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:RootMasterDetail.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CloudEvents.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:MUIFetchedMasterDetail/MUIFetchedMasterDetail.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:MUIMasterDetail.xcodeproj">
    </FileRef>
    <FileRef

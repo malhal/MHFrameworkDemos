@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15400" systemVersion="18G103" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="City" representedClassName="City" syncable="YES" codeGenerationType="class">
+        <attribute name="timestamp" optional="YES" attributeType="Date" defaultDateTimeInterval="583236120" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String" defaultValueString="a"/>
+        <attribute name="venueCount" optional="YES" attributeType="Integer 64" derived="YES" derivationExpression="venues.@count" usesScalarValueType="NO"/>
+        <relationship name="venues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Venue" inverseName="city" inverseEntity="Venue"/>
+    </entity>
+    <entity name="Event" representedClassName="Event" syncable="YES" codeGenerationType="class">
+        <attribute name="timestamp" optional="YES" attributeType="Date" defaultDateTimeInterval="581350080"/>
+        <attribute name="title" optional="YES" attributeType="String" defaultValueString="a"/>
+        <relationship name="venue" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Venue" inverseName="events" inverseEntity="Venue"/>
+    </entity>
+    <entity name="Venue" representedClassName="Venue" syncable="YES" codeGenerationType="category">
+        <attribute name="eventCount" optional="YES" attributeType="Integer 64" derived="YES" derivationExpression="events.@count" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String" defaultValueString="title"/>
+        <relationship name="city" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="City" inverseName="venues" inverseEntity="City"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Event" inverseName="venue" inverseEntity="Event"/>
+    </entity>
+    <elements>
+        <element name="City" positionX="270" positionY="225" width="128" height="103"/>
+        <element name="Event" positionX="261" positionY="189" width="128" height="88"/>
+        <element name="Venue" positionX="261" positionY="207" width="128" height="103"/>
+    </elements>
+</model>

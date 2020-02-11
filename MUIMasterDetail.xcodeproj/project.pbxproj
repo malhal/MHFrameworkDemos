@@ -18,6 +18,7 @@
 		EC17D984218121210045B7C3 /* MUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC17D980218121170045B7C3 /* MUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC17D987218121270045B7C3 /* MHFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC17D9772181210A0045B7C3 /* MHFoundation.framework */; };
 		EC17D988218121270045B7C3 /* MHFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC17D9772181210A0045B7C3 /* MHFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC8058E322B8232D008AE9B8 /* TableDatesController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8058E222B8232D008AE9B8 /* TableDatesController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,8 @@
 		EC02A45B21808B4800DCC84C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EC17D9712181210A0045B7C3 /* MHFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MHFoundation.xcodeproj; path = MHFoundation/MHFoundation.xcodeproj; sourceTree = "<group>"; };
 		EC17D97A218121160045B7C3 /* MUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MUIKit.xcodeproj; path = MUIKit/MUIKit.xcodeproj; sourceTree = "<group>"; };
+		EC8058E122B8232D008AE9B8 /* TableDatesController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableDatesController.h; sourceTree = "<group>"; };
+		EC8058E222B8232D008AE9B8 /* TableDatesController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableDatesController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,8 @@
 				EC02A44D21808B4700DCC84C /* MasterViewController.m */,
 				EC02A44F21808B4700DCC84C /* DetailViewController.h */,
 				EC02A45021808B4700DCC84C /* DetailViewController.m */,
+				EC8058E122B8232D008AE9B8 /* TableDatesController.h */,
+				EC8058E222B8232D008AE9B8 /* TableDatesController.m */,
 				EC02A45221808B4700DCC84C /* Main.storyboard */,
 				EC02A45521808B4800DCC84C /* Assets.xcassets */,
 				EC02A45721808B4800DCC84C /* LaunchScreen.storyboard */,
@@ -289,6 +294,7 @@
 				EC02A44E21808B4700DCC84C /* MasterViewController.m in Sources */,
 				EC02A44B21808B4700DCC84C /* AppDelegate.m in Sources */,
 				EC02A45C21808B4800DCC84C /* main.m in Sources */,
+				EC8058E322B8232D008AE9B8 /* TableDatesController.m in Sources */,
 				EC02A45121808B4700DCC84C /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

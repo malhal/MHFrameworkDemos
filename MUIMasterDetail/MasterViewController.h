@@ -10,7 +10,7 @@
 
 @class DetailViewController;
 
-@interface MasterViewController : MUITableViewController // MUIMasterTableViewController
+@interface MasterViewController : MUIListViewController <MUIObjectsTableDataSource> // MUIMasterTableViewController
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
