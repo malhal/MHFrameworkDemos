@@ -13,29 +13,29 @@
 		EC67585C1DAFDA3900838798 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC67585B1DAFDA3900838798 /* DetailViewController.m */; };
 		EC6758611DAFDA3900838798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC6758601DAFDA3900838798 /* Assets.xcassets */; };
 		EC6758641DAFDA3900838798 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC6758621DAFDA3900838798 /* LaunchScreen.storyboard */; };
+		EC8D868423F2D2A2008B7A7A /* MMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8D868123F2D170008B7A7A /* MMapKit.framework */; };
+		EC8D868523F2D2A2008B7A7A /* MMapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC8D868123F2D170008B7A7A /* MMapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ECCDE27D1DB6BEEA00EC8108 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECCDE27B1DB6BEEA00EC8108 /* Main.storyboard */; };
-		ECE7083523F226C0003FF706 /* MMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC507BCB1F716EC4003940EB /* MMapKit.framework */; };
-		ECE7083623F226C0003FF706 /* MMapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC507BCB1F716EC4003940EB /* MMapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EC507BCA1F716EC4003940EB /* PBXContainerItemProxy */ = {
+		EC8D868023F2D170008B7A7A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EC507BC41F716EC4003940EB /* MMapKit.xcodeproj */;
+			containerPortal = EC8D867A23F2D170008B7A7A /* MMapKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EC507B7F1F71680C003940EB;
 			remoteInfo = MMapKit;
 		};
-		EC507BCC1F716EC4003940EB /* PBXContainerItemProxy */ = {
+		EC8D868223F2D170008B7A7A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EC507BC41F716EC4003940EB /* MMapKit.xcodeproj */;
+			containerPortal = EC8D867A23F2D170008B7A7A /* MMapKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EC507B881F71680C003940EB;
 			remoteInfo = MMapKitTests;
 		};
-		EC8D858D23F2271E008B7A7A /* PBXContainerItemProxy */ = {
+		EC8D868623F2D2A8008B7A7A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EC507BC41F716EC4003940EB /* MMapKit.xcodeproj */;
+			containerPortal = EC8D867A23F2D170008B7A7A /* MMapKit.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = EC507B7E1F71680C003940EB;
 			remoteInfo = MMapKit;
@@ -49,7 +49,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				ECE7083623F226C0003FF706 /* MMapKit.framework in Embed Frameworks */,
+				EC8D868523F2D2A2008B7A7A /* MMapKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,7 +58,6 @@
 
 /* Begin PBXFileReference section */
 		EC2F7E192004212D001B9D3B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		EC507BC41F716EC4003940EB /* MMapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MMapKit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		EC67584E1DAFDA3900838798 /* MMKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6758521DAFDA3900838798 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EC6758541DAFDA3900838798 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		EC6758601DAFDA3900838798 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC6758631DAFDA3900838798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC6758651DAFDA3900838798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC8D867A23F2D170008B7A7A /* MMapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MMapKit.xcodeproj; path = MHFrameworks/MMapKit/MMapKit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		ECCDE27C1DB6BEEA00EC8108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,22 +78,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECE7083523F226C0003FF706 /* MMapKit.framework in Frameworks */,
+				EC8D868423F2D2A2008B7A7A /* MMapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EC507BC51F716EC4003940EB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				EC507BCB1F716EC4003940EB /* MMapKit.framework */,
-				EC507BCD1F716EC4003940EB /* MMapKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		EC6758451DAFDA3900838798 = {
 			isa = PBXGroup;
 			children = (
@@ -140,11 +131,20 @@
 		EC6758821DAFDFF700838798 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC8D867A23F2D170008B7A7A /* MMapKit.xcodeproj */,
 				EC2F7E192004212D001B9D3B /* MapKit.framework */,
-				EC507BC41F716EC4003940EB /* MMapKit.xcodeproj */,
 			);
 			name = Frameworks;
 			path = MMKDemo;
+			sourceTree = "<group>";
+		};
+		EC8D867B23F2D170008B7A7A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC8D868123F2D170008B7A7A /* MMapKit.framework */,
+				EC8D868323F2D170008B7A7A /* MMapKitTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +162,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				EC8D858E23F2271E008B7A7A /* PBXTargetDependency */,
+				EC8D868723F2D2A8008B7A7A /* PBXTargetDependency */,
 			);
 			name = MMKDemo;
 			productName = MHLocationDemo;
@@ -180,6 +180,7 @@
 				TargetAttributes = {
 					EC67584D1DAFDA3900838798 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = HUK6B7UUU2;
 					};
 				};
 			};
@@ -196,8 +197,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = EC507BC51F716EC4003940EB /* Products */;
-					ProjectRef = EC507BC41F716EC4003940EB /* MMapKit.xcodeproj */;
+					ProductGroup = EC8D867B23F2D170008B7A7A /* Products */;
+					ProjectRef = EC8D867A23F2D170008B7A7A /* MMapKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -208,18 +209,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		EC507BCB1F716EC4003940EB /* MMapKit.framework */ = {
+		EC8D868123F2D170008B7A7A /* MMapKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = MMapKit.framework;
-			remoteRef = EC507BCA1F716EC4003940EB /* PBXContainerItemProxy */;
+			remoteRef = EC8D868023F2D170008B7A7A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		EC507BCD1F716EC4003940EB /* MMapKitTests.xctest */ = {
+		EC8D868323F2D170008B7A7A /* MMapKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = MMapKitTests.xctest;
-			remoteRef = EC507BCC1F716EC4003940EB /* PBXContainerItemProxy */;
+			remoteRef = EC8D868223F2D170008B7A7A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -252,10 +253,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EC8D858E23F2271E008B7A7A /* PBXTargetDependency */ = {
+		EC8D868723F2D2A8008B7A7A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MMapKit;
-			targetProxy = EC8D858D23F2271E008B7A7A /* PBXContainerItemProxy */;
+			targetProxy = EC8D868623F2D2A8008B7A7A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -385,7 +386,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = HUK6B7UUU2;
 				INFOPLIST_FILE = MMKDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.malhal.MMKDemo;
@@ -397,7 +398,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = HUK6B7UUU2;
 				INFOPLIST_FILE = MMKDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.malhal.MMKDemo;

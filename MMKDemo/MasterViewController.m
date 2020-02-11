@@ -29,7 +29,7 @@
     MMKMapTypeBarButtonItem *item = [[MMKMapTypeBarButtonItem alloc] initWithMapView:self.mapView];
     item.target = self;
     item.action = @selector(changed);
-    //self.toolbarItems = @[item];
+    self.toolbarItems = @[item];
     
     self.objects = [NSMutableArray array];
     
