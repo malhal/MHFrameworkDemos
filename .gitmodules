@@ -1,9 +1,0 @@
-[submodule "MUIKit"]
-	path = MUIKit
-	url = https://github.com/malhal/MUIKit.git
-[submodule "MHFoundation"]
-	path = MHFoundation
-	url = https://github.com/malhal/MHFoundation.git
-[submodule "MCoreData"]
-	path = MCoreData
-	url = https://github.com/malhal/MCoreData.git
