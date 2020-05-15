@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E266" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="Event" representedClassName="Event" parentEntity="ListItem" codeGenerationType="category">
+        <userInfo/>
+    </entity>
+    <entity name="Folder" representedClassName="Folder" parentEntity="ListItem" syncable="YES" codeGenerationType="category"/>
+    <entity name="ListItem" representedClassName="ListItem" isAbstract="YES" syncable="YES" codeGenerationType="category">
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="children" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ListItem" inverseName="parent" inverseEntity="ListItem"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ListItem" inverseName="children" inverseEntity="ListItem"/>
+    </entity>
+    <elements>
+        <element name="Event" positionX="261" positionY="189" width="128" height="43"/>
+        <element name="Folder" positionX="270" positionY="225" width="128" height="43"/>
+        <element name="ListItem" positionX="270" positionY="225" width="128" height="88"/>
+    </elements>
+</model>

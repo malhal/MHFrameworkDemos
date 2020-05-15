@@ -107,7 +107,7 @@
         
         MUIDetailNavigationController *navigation = (MUIDetailNavigationController *)[segue destinationViewController];
         //navigation.fetchedResultsController = [self newFetchedResultsController];
-        //navigation.mui_detailModelIdentifier = object.objectID.URIRepresentation.absoluteString; // since not shown yet doesn't fire any events
+       // navigation.mui_detailModelIdentifier = object.objectID.URIRepresentation.absoluteString; // since not shown yet doesn't fire any events
         
       
         DetailViewController *controller = (DetailViewController *)navigation.topViewController;

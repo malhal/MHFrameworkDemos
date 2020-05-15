@@ -7,54 +7,96 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC02A44B21808B4700DCC84C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC02A44A21808B4700DCC84C /* AppDelegate.m */; };
-		EC02A44E21808B4700DCC84C /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC02A44D21808B4700DCC84C /* MasterViewController.m */; };
-		EC02A45121808B4700DCC84C /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC02A45021808B4700DCC84C /* DetailViewController.m */; };
-		EC02A45421808B4700DCC84C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC02A45221808B4700DCC84C /* Main.storyboard */; };
-		EC02A45621808B4800DCC84C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC02A45521808B4800DCC84C /* Assets.xcassets */; };
-		EC02A45921808B4800DCC84C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC02A45721808B4800DCC84C /* LaunchScreen.storyboard */; };
-		EC02A45C21808B4800DCC84C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC02A45B21808B4800DCC84C /* main.m */; };
-		EC8058E322B8232D008AE9B8 /* TableDatesController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8058E222B8232D008AE9B8 /* TableDatesController.m */; };
+		EC20123224490E210020C939 /* DetailPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC20122B24490E210020C939 /* DetailPageViewController.m */; };
+		EC283AF1244A01280049CDBA /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = EC283AEF244A01280049CDBA /* Event.m */; };
+		EC283AF7244A01C20049CDBA /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = EC283AF5244A01C20049CDBA /* Folder.m */; };
+		EC283AFB244A6E030049CDBA /* MasterNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC283AFA244A6E030049CDBA /* MasterNavigationController.m */; };
+		EC65C58B240D5CF700F9788C /* EventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC65C58A240D5CF700F9788C /* EventCell.m */; };
+		EC74896D24029FB40003AC81 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC74896C24029FB40003AC81 /* AppDelegate.m */; };
+		EC74897024029FB40003AC81 /* MUIMasterDetail.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC74896E24029FB40003AC81 /* MUIMasterDetail.xcdatamodeld */; };
+		EC74897324029FB40003AC81 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC74897224029FB40003AC81 /* SceneDelegate.m */; };
+		EC74897624029FB40003AC81 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC74897524029FB40003AC81 /* MasterViewController.m */; };
+		EC74897924029FB40003AC81 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC74897824029FB40003AC81 /* DetailViewController.m */; };
+		EC74897C24029FB40003AC81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC74897A24029FB40003AC81 /* Main.storyboard */; };
+		EC74897E24029FB40003AC81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC74897D24029FB40003AC81 /* Assets.xcassets */; };
+		EC74898124029FB40003AC81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC74897F24029FB40003AC81 /* LaunchScreen.storyboard */; };
+		EC74898424029FB40003AC81 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC74898324029FB40003AC81 /* main.m */; };
+		EC7489AB2402A0D60003AC81 /* MCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC74899D2402A0CA0003AC81 /* MCoreData.framework */; };
+		EC7489AC2402A0D60003AC81 /* MCoreData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC74899D2402A0CA0003AC81 /* MCoreData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC7489AD2402A0D60003AC81 /* MHFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7489932402A0CA0003AC81 /* MHFoundation.framework */; };
+		EC7489AE2402A0D60003AC81 /* MHFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC7489932402A0CA0003AC81 /* MHFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC7489AF2402A0D60003AC81 /* MUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7489A82402A0CA0003AC81 /* MUIKit.framework */; };
+		EC7489B02402A0D60003AC81 /* MUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC7489A82402A0CA0003AC81 /* MUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC7489CA2403129D0003AC81 /* PersistentContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7489C92403129D0003AC81 /* PersistentContainer.m */; };
+		EC78BAE32411B48800A448AC /* MasterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78BAE22411B48800A448AC /* MasterTableViewController.m */; };
+		ECB2768824450D1700A1B57F /* MasterTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB2768724450D1700A1B57F /* MasterTableDataSource.m */; };
+		ECB76330240688110000F662 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB7632F240688110000F662 /* RootViewController.m */; };
+		ECB76338240978A60000F662 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB76336240978A60000F662 /* ListItem.m */; };
+		ECB7633C2409CE820000F662 /* FetchedResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB7633B2409CE820000F662 /* FetchedResultsController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EC8D860B23F2C5A9008B7A7A /* PBXContainerItemProxy */ = {
+		EC7489922402A0CA0003AC81 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EC8D860623F2C5A9008B7A7A /* MUIKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EC3145261D0740C70025F669;
-			remoteInfo = MUIKit;
-		};
-		EC8D860D23F2C5A9008B7A7A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC8D860623F2C5A9008B7A7A /* MUIKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EC3145301D0740C80025F669;
-			remoteInfo = MUIKitTests;
-		};
-		EC8D861423F2C5AE008B7A7A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC8D860F23F2C5AE008B7A7A /* MHFoundation.xcodeproj */;
+			containerPortal = EC74898D2402A0CA0003AC81 /* MHFoundation.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EC31444D1D073A1A0025F669;
 			remoteInfo = MHFoundation;
 		};
-		EC8D861623F2C5AE008B7A7A /* PBXContainerItemProxy */ = {
+		EC7489942402A0CA0003AC81 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EC8D860F23F2C5AE008B7A7A /* MHFoundation.xcodeproj */;
+			containerPortal = EC74898D2402A0CA0003AC81 /* MHFoundation.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EC3144571D073A1A0025F669;
 			remoteInfo = MHFoundationTests;
 		};
+		EC74899C2402A0CA0003AC81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC7489962402A0CA0003AC81 /* MCoreData.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC3144DA1D073E010025F669;
+			remoteInfo = MCoreData;
+		};
+		EC74899E2402A0CA0003AC81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC7489962402A0CA0003AC81 /* MCoreData.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC3144E41D073E010025F669;
+			remoteInfo = MCoreDataTests;
+		};
+		EC7489A72402A0CA0003AC81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC7489A02402A0CA0003AC81 /* MUIKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC3145261D0740C70025F669;
+			remoteInfo = MUIKit;
+		};
+		EC7489A92402A0CA0003AC81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC7489A02402A0CA0003AC81 /* MUIKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC3145301D0740C80025F669;
+			remoteInfo = MUIKitTests;
+		};
+		EC7489B82402A5110003AC81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC7489A02402A0CA0003AC81 /* MUIKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EC3145251D0740C70025F669;
+			remoteInfo = MUIKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		EC02A87421808BB900DCC84C /* Embed Frameworks */ = {
+		EC7489B12402A0D60003AC81 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				EC7489B02402A0D60003AC81 /* MUIKit.framework in Embed Frameworks */,
+				EC7489AE2402A0D60003AC81 /* MHFoundation.framework in Embed Frameworks */,
+				EC7489AC2402A0D60003AC81 /* MCoreData.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,95 +104,157 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		EC02A44621808B4700DCC84C /* MUIMasterDetail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MUIMasterDetail.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC02A44921808B4700DCC84C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		EC02A44A21808B4700DCC84C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EC02A44C21808B4700DCC84C /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		EC02A44D21808B4700DCC84C /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		EC02A44F21808B4700DCC84C /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		EC02A45021808B4700DCC84C /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		EC02A45321808B4700DCC84C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EC02A45521808B4800DCC84C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EC02A45821808B4800DCC84C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		EC02A45A21808B4800DCC84C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC02A45B21808B4800DCC84C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EC8058E122B8232D008AE9B8 /* TableDatesController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableDatesController.h; sourceTree = "<group>"; };
-		EC8058E222B8232D008AE9B8 /* TableDatesController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableDatesController.m; sourceTree = "<group>"; };
-		EC8D860623F2C5A9008B7A7A /* MUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MUIKit.xcodeproj; path = MHFrameworks/MUIKit/MUIKit.xcodeproj; sourceTree = "<group>"; };
-		EC8D860F23F2C5AE008B7A7A /* MHFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MHFoundation.xcodeproj; path = MHFrameworks/MHFoundation/MHFoundation.xcodeproj; sourceTree = "<group>"; };
+		EC20122B24490E210020C939 /* DetailPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailPageViewController.m; sourceTree = "<group>"; };
+		EC20123124490E210020C939 /* DetailPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailPageViewController.h; sourceTree = "<group>"; };
+		EC283AEE244A01280049CDBA /* Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		EC283AEF244A01280049CDBA /* Event.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		EC283AF4244A01C20049CDBA /* Folder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Folder.h; sourceTree = "<group>"; };
+		EC283AF5244A01C20049CDBA /* Folder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
+		EC283AF9244A6E030049CDBA /* MasterNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterNavigationController.h; sourceTree = "<group>"; };
+		EC283AFA244A6E030049CDBA /* MasterNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterNavigationController.m; sourceTree = "<group>"; };
+		EC65C589240D5CF700F9788C /* EventCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventCell.h; sourceTree = "<group>"; };
+		EC65C58A240D5CF700F9788C /* EventCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventCell.m; sourceTree = "<group>"; };
+		EC74896824029FB40003AC81 /* MUIMasterDetail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MUIMasterDetail.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC74896B24029FB40003AC81 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EC74896C24029FB40003AC81 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EC74896F24029FB40003AC81 /* MUIMasterDetail.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MUIMasterDetail.xcdatamodel; sourceTree = "<group>"; };
+		EC74897124029FB40003AC81 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		EC74897224029FB40003AC81 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		EC74897424029FB40003AC81 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		EC74897524029FB40003AC81 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		EC74897724029FB40003AC81 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		EC74897824029FB40003AC81 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		EC74897B24029FB40003AC81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EC74897D24029FB40003AC81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EC74898024029FB40003AC81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EC74898224029FB40003AC81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC74898324029FB40003AC81 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EC74898B2402A0C20003AC81 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EC74898D2402A0CA0003AC81 /* MHFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MHFoundation.xcodeproj; path = MHFrameworks/MHFoundation/MHFoundation.xcodeproj; sourceTree = "<group>"; };
+		EC7489962402A0CA0003AC81 /* MCoreData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MCoreData.xcodeproj; path = MHFrameworks/MCoreData/MCoreData.xcodeproj; sourceTree = "<group>"; };
+		EC7489A02402A0CA0003AC81 /* MUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MUIKit.xcodeproj; path = MHFrameworks/MUIKit/MUIKit.xcodeproj; sourceTree = "<group>"; };
+		EC7489C82403129D0003AC81 /* PersistentContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersistentContainer.h; sourceTree = "<group>"; };
+		EC7489C92403129D0003AC81 /* PersistentContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersistentContainer.m; sourceTree = "<group>"; };
+		EC78BAE12411B48800A448AC /* MasterTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterTableViewController.h; sourceTree = "<group>"; };
+		EC78BAE22411B48800A448AC /* MasterTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterTableViewController.m; sourceTree = "<group>"; };
+		ECB2768624450D1700A1B57F /* MasterTableDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterTableDataSource.h; sourceTree = "<group>"; };
+		ECB2768724450D1700A1B57F /* MasterTableDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterTableDataSource.m; sourceTree = "<group>"; };
+		ECB7632E240688110000F662 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		ECB7632F240688110000F662 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		ECB76335240978A60000F662 /* ListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListItem.h; sourceTree = "<group>"; };
+		ECB76336240978A60000F662 /* ListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListItem.m; sourceTree = "<group>"; };
+		ECB7633A2409CE820000F662 /* FetchedResultsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FetchedResultsController.h; sourceTree = "<group>"; };
+		ECB7633B2409CE820000F662 /* FetchedResultsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FetchedResultsController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EC02A44321808B4700DCC84C /* Frameworks */ = {
+		EC74896524029FB40003AC81 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC7489AF2402A0D60003AC81 /* MUIKit.framework in Frameworks */,
+				EC7489AD2402A0D60003AC81 /* MHFoundation.framework in Frameworks */,
+				EC7489AB2402A0D60003AC81 /* MCoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EC02A43D21808B4700DCC84C = {
+		EC74895F24029FB40003AC81 = {
 			isa = PBXGroup;
 			children = (
-				EC02A44821808B4700DCC84C /* MUIMasterDetail */,
-				EC02A44721808B4700DCC84C /* Products */,
-				EC17D970218121020045B7C3 /* Frameworks */,
+				EC74896A24029FB40003AC81 /* MUIMasterDetail */,
+				EC74896924029FB40003AC81 /* Products */,
+				EC74898A2402A0C20003AC81 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		EC02A44721808B4700DCC84C /* Products */ = {
+		EC74896924029FB40003AC81 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EC02A44621808B4700DCC84C /* MUIMasterDetail.app */,
+				EC74896824029FB40003AC81 /* MUIMasterDetail.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EC02A44821808B4700DCC84C /* MUIMasterDetail */ = {
+		EC74896A24029FB40003AC81 /* MUIMasterDetail */ = {
 			isa = PBXGroup;
 			children = (
-				EC02A44921808B4700DCC84C /* AppDelegate.h */,
-				EC02A44A21808B4700DCC84C /* AppDelegate.m */,
-				EC02A44C21808B4700DCC84C /* MasterViewController.h */,
-				EC02A44D21808B4700DCC84C /* MasterViewController.m */,
-				EC02A44F21808B4700DCC84C /* DetailViewController.h */,
-				EC02A45021808B4700DCC84C /* DetailViewController.m */,
-				EC8058E122B8232D008AE9B8 /* TableDatesController.h */,
-				EC8058E222B8232D008AE9B8 /* TableDatesController.m */,
-				EC02A45221808B4700DCC84C /* Main.storyboard */,
-				EC02A45521808B4800DCC84C /* Assets.xcassets */,
-				EC02A45721808B4800DCC84C /* LaunchScreen.storyboard */,
-				EC02A45A21808B4800DCC84C /* Info.plist */,
-				EC02A45B21808B4800DCC84C /* main.m */,
+				EC283AF4244A01C20049CDBA /* Folder.h */,
+				EC283AF5244A01C20049CDBA /* Folder.m */,
+				EC283AEE244A01280049CDBA /* Event.h */,
+				EC283AEF244A01280049CDBA /* Event.m */,
+				ECB76335240978A60000F662 /* ListItem.h */,
+				ECB76336240978A60000F662 /* ListItem.m */,
+				EC74896B24029FB40003AC81 /* AppDelegate.h */,
+				EC74896C24029FB40003AC81 /* AppDelegate.m */,
+				EC74897124029FB40003AC81 /* SceneDelegate.h */,
+				EC74897224029FB40003AC81 /* SceneDelegate.m */,
+				EC7489C82403129D0003AC81 /* PersistentContainer.h */,
+				EC7489C92403129D0003AC81 /* PersistentContainer.m */,
+				ECB7632E240688110000F662 /* RootViewController.h */,
+				ECB7632F240688110000F662 /* RootViewController.m */,
+				EC283AF9244A6E030049CDBA /* MasterNavigationController.h */,
+				EC283AFA244A6E030049CDBA /* MasterNavigationController.m */,
+				EC74897424029FB40003AC81 /* MasterViewController.h */,
+				EC74897524029FB40003AC81 /* MasterViewController.m */,
+				EC78BAE12411B48800A448AC /* MasterTableViewController.h */,
+				EC78BAE22411B48800A448AC /* MasterTableViewController.m */,
+				ECB2768624450D1700A1B57F /* MasterTableDataSource.h */,
+				ECB2768724450D1700A1B57F /* MasterTableDataSource.m */,
+				EC20123124490E210020C939 /* DetailPageViewController.h */,
+				EC20122B24490E210020C939 /* DetailPageViewController.m */,
+				EC74897724029FB40003AC81 /* DetailViewController.h */,
+				EC74897824029FB40003AC81 /* DetailViewController.m */,
+				EC74897A24029FB40003AC81 /* Main.storyboard */,
+				EC74897D24029FB40003AC81 /* Assets.xcassets */,
+				EC74897F24029FB40003AC81 /* LaunchScreen.storyboard */,
+				EC74898224029FB40003AC81 /* Info.plist */,
+				EC74898324029FB40003AC81 /* main.m */,
+				EC74896E24029FB40003AC81 /* MUIMasterDetail.xcdatamodeld */,
+				ECB7633A2409CE820000F662 /* FetchedResultsController.h */,
+				ECB7633B2409CE820000F662 /* FetchedResultsController.m */,
+				EC65C589240D5CF700F9788C /* EventCell.h */,
+				EC65C58A240D5CF700F9788C /* EventCell.m */,
 			);
 			path = MUIMasterDetail;
 			sourceTree = "<group>";
 		};
-		EC17D970218121020045B7C3 /* Frameworks */ = {
+		EC74898A2402A0C20003AC81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EC8D860F23F2C5AE008B7A7A /* MHFoundation.xcodeproj */,
-				EC8D860623F2C5A9008B7A7A /* MUIKit.xcodeproj */,
+				EC7489962402A0CA0003AC81 /* MCoreData.xcodeproj */,
+				EC74898D2402A0CA0003AC81 /* MHFoundation.xcodeproj */,
+				EC7489A02402A0CA0003AC81 /* MUIKit.xcodeproj */,
+				EC74898B2402A0C20003AC81 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EC8D860723F2C5A9008B7A7A /* Products */ = {
+		EC74898E2402A0CA0003AC81 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EC8D860C23F2C5A9008B7A7A /* MUIKit.framework */,
-				EC8D860E23F2C5A9008B7A7A /* MUIKitTests.xctest */,
+				EC7489932402A0CA0003AC81 /* MHFoundation.framework */,
+				EC7489952402A0CA0003AC81 /* MHFoundationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EC8D861023F2C5AE008B7A7A /* Products */ = {
+		EC7489972402A0CA0003AC81 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EC8D861523F2C5AE008B7A7A /* MHFoundation.framework */,
-				EC8D861723F2C5AE008B7A7A /* MHFoundationTests.xctest */,
+				EC74899D2402A0CA0003AC81 /* MCoreData.framework */,
+				EC74899F2402A0CA0003AC81 /* MCoreDataTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC7489A12402A0CA0003AC81 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC7489A82402A0CA0003AC81 /* MUIKit.framework */,
+				EC7489AA2402A0CA0003AC81 /* MUIKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,39 +262,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EC02A44521808B4700DCC84C /* MUIMasterDetail */ = {
+		EC74896724029FB40003AC81 /* MUIMasterDetail */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EC02A45F21808B4800DCC84C /* Build configuration list for PBXNativeTarget "MUIMasterDetail" */;
+			buildConfigurationList = EC74898724029FB40003AC81 /* Build configuration list for PBXNativeTarget "MUIMasterDetail" */;
 			buildPhases = (
-				EC02A44221808B4700DCC84C /* Sources */,
-				EC02A44321808B4700DCC84C /* Frameworks */,
-				EC02A44421808B4700DCC84C /* Resources */,
-				EC02A87421808BB900DCC84C /* Embed Frameworks */,
+				EC74896424029FB40003AC81 /* Sources */,
+				EC74896524029FB40003AC81 /* Frameworks */,
+				EC74896624029FB40003AC81 /* Resources */,
+				EC7489B12402A0D60003AC81 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EC7489B92402A5110003AC81 /* PBXTargetDependency */,
 			);
 			name = MUIMasterDetail;
 			productName = MUIMasterDetail;
-			productReference = EC02A44621808B4700DCC84C /* MUIMasterDetail.app */;
+			productReference = EC74896824029FB40003AC81 /* MUIMasterDetail.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		EC02A43E21808B4700DCC84C /* Project object */ = {
+		EC74896024029FB40003AC81 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Malcolm Hall";
 				TargetAttributes = {
-					EC02A44521808B4700DCC84C = {
-						CreatedOnToolsVersion = 10.0;
+					EC74896724029FB40003AC81 = {
+						CreatedOnToolsVersion = 11.4;
 					};
 				};
 			};
-			buildConfigurationList = EC02A44121808B4700DCC84C /* Build configuration list for PBXProject "MUIMasterDetail" */;
+			buildConfigurationList = EC74896324029FB40003AC81 /* Build configuration list for PBXProject "MUIMasterDetail" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -198,98 +303,136 @@
 				en,
 				Base,
 			);
-			mainGroup = EC02A43D21808B4700DCC84C;
-			productRefGroup = EC02A44721808B4700DCC84C /* Products */;
+			mainGroup = EC74895F24029FB40003AC81;
+			productRefGroup = EC74896924029FB40003AC81 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = EC8D861023F2C5AE008B7A7A /* Products */;
-					ProjectRef = EC8D860F23F2C5AE008B7A7A /* MHFoundation.xcodeproj */;
+					ProductGroup = EC7489972402A0CA0003AC81 /* Products */;
+					ProjectRef = EC7489962402A0CA0003AC81 /* MCoreData.xcodeproj */;
 				},
 				{
-					ProductGroup = EC8D860723F2C5A9008B7A7A /* Products */;
-					ProjectRef = EC8D860623F2C5A9008B7A7A /* MUIKit.xcodeproj */;
+					ProductGroup = EC74898E2402A0CA0003AC81 /* Products */;
+					ProjectRef = EC74898D2402A0CA0003AC81 /* MHFoundation.xcodeproj */;
+				},
+				{
+					ProductGroup = EC7489A12402A0CA0003AC81 /* Products */;
+					ProjectRef = EC7489A02402A0CA0003AC81 /* MUIKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
-				EC02A44521808B4700DCC84C /* MUIMasterDetail */,
+				EC74896724029FB40003AC81 /* MUIMasterDetail */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		EC8D860C23F2C5A9008B7A7A /* MUIKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MUIKit.framework;
-			remoteRef = EC8D860B23F2C5A9008B7A7A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		EC8D860E23F2C5A9008B7A7A /* MUIKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = MUIKitTests.xctest;
-			remoteRef = EC8D860D23F2C5A9008B7A7A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		EC8D861523F2C5AE008B7A7A /* MHFoundation.framework */ = {
+		EC7489932402A0CA0003AC81 /* MHFoundation.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = MHFoundation.framework;
-			remoteRef = EC8D861423F2C5AE008B7A7A /* PBXContainerItemProxy */;
+			remoteRef = EC7489922402A0CA0003AC81 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		EC8D861723F2C5AE008B7A7A /* MHFoundationTests.xctest */ = {
+		EC7489952402A0CA0003AC81 /* MHFoundationTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = MHFoundationTests.xctest;
-			remoteRef = EC8D861623F2C5AE008B7A7A /* PBXContainerItemProxy */;
+			remoteRef = EC7489942402A0CA0003AC81 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC74899D2402A0CA0003AC81 /* MCoreData.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MCoreData.framework;
+			remoteRef = EC74899C2402A0CA0003AC81 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC74899F2402A0CA0003AC81 /* MCoreDataTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MCoreDataTests.xctest;
+			remoteRef = EC74899E2402A0CA0003AC81 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC7489A82402A0CA0003AC81 /* MUIKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MUIKit.framework;
+			remoteRef = EC7489A72402A0CA0003AC81 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC7489AA2402A0CA0003AC81 /* MUIKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MUIKitTests.xctest;
+			remoteRef = EC7489A92402A0CA0003AC81 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EC02A44421808B4700DCC84C /* Resources */ = {
+		EC74896624029FB40003AC81 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC02A45921808B4800DCC84C /* LaunchScreen.storyboard in Resources */,
-				EC02A45621808B4800DCC84C /* Assets.xcassets in Resources */,
-				EC02A45421808B4700DCC84C /* Main.storyboard in Resources */,
+				EC74898124029FB40003AC81 /* LaunchScreen.storyboard in Resources */,
+				EC74897E24029FB40003AC81 /* Assets.xcassets in Resources */,
+				EC74897C24029FB40003AC81 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		EC02A44221808B4700DCC84C /* Sources */ = {
+		EC74896424029FB40003AC81 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC02A44E21808B4700DCC84C /* MasterViewController.m in Sources */,
-				EC02A44B21808B4700DCC84C /* AppDelegate.m in Sources */,
-				EC02A45C21808B4800DCC84C /* main.m in Sources */,
-				EC8058E322B8232D008AE9B8 /* TableDatesController.m in Sources */,
-				EC02A45121808B4700DCC84C /* DetailViewController.m in Sources */,
+				EC74897924029FB40003AC81 /* DetailViewController.m in Sources */,
+				EC283AFB244A6E030049CDBA /* MasterNavigationController.m in Sources */,
+				EC283AF7244A01C20049CDBA /* Folder.m in Sources */,
+				ECB7633C2409CE820000F662 /* FetchedResultsController.m in Sources */,
+				EC65C58B240D5CF700F9788C /* EventCell.m in Sources */,
+				ECB2768824450D1700A1B57F /* MasterTableDataSource.m in Sources */,
+				EC74897624029FB40003AC81 /* MasterViewController.m in Sources */,
+				ECB76338240978A60000F662 /* ListItem.m in Sources */,
+				EC20123224490E210020C939 /* DetailPageViewController.m in Sources */,
+				EC78BAE32411B48800A448AC /* MasterTableViewController.m in Sources */,
+				ECB76330240688110000F662 /* RootViewController.m in Sources */,
+				EC74897024029FB40003AC81 /* MUIMasterDetail.xcdatamodeld in Sources */,
+				EC7489CA2403129D0003AC81 /* PersistentContainer.m in Sources */,
+				EC283AF1244A01280049CDBA /* Event.m in Sources */,
+				EC74897324029FB40003AC81 /* SceneDelegate.m in Sources */,
+				EC74898424029FB40003AC81 /* main.m in Sources */,
+				EC74896D24029FB40003AC81 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		EC7489B92402A5110003AC81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MUIKit;
+			targetProxy = EC7489B82402A5110003AC81 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		EC02A45221808B4700DCC84C /* Main.storyboard */ = {
+		EC74897A24029FB40003AC81 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EC02A45321808B4700DCC84C /* Base */,
+				EC74897B24029FB40003AC81 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		EC02A45721808B4800DCC84C /* LaunchScreen.storyboard */ = {
+		EC74897F24029FB40003AC81 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EC02A45821808B4800DCC84C /* Base */,
+				EC74898024029FB40003AC81 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -297,7 +440,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		EC02A45D21808B4800DCC84C /* Debug */ = {
+		EC74898524029FB40003AC81 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -329,7 +472,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -348,7 +490,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -356,7 +498,7 @@
 			};
 			name = Debug;
 		};
-		EC02A45E21808B4800DCC84C /* Release */ = {
+		EC74898624029FB40003AC81 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -388,7 +530,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -401,7 +542,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -409,7 +550,7 @@
 			};
 			name = Release;
 		};
-		EC02A46021808B4800DCC84C /* Debug */ = {
+		EC74898824029FB40003AC81 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -420,13 +561,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.malhal.MUIMasterDetail;
+				PRODUCT_BUNDLE_IDENTIFIER = com.malcolmhall.MUIMasterDetail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		EC02A46121808B4800DCC84C /* Release */ = {
+		EC74898924029FB40003AC81 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -437,7 +578,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.malhal.MUIMasterDetail;
+				PRODUCT_BUNDLE_IDENTIFIER = com.malcolmhall.MUIMasterDetail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -446,25 +587,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EC02A44121808B4700DCC84C /* Build configuration list for PBXProject "MUIMasterDetail" */ = {
+		EC74896324029FB40003AC81 /* Build configuration list for PBXProject "MUIMasterDetail" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EC02A45D21808B4800DCC84C /* Debug */,
-				EC02A45E21808B4800DCC84C /* Release */,
+				EC74898524029FB40003AC81 /* Debug */,
+				EC74898624029FB40003AC81 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EC02A45F21808B4800DCC84C /* Build configuration list for PBXNativeTarget "MUIMasterDetail" */ = {
+		EC74898724029FB40003AC81 /* Build configuration list for PBXNativeTarget "MUIMasterDetail" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EC02A46021808B4800DCC84C /* Debug */,
-				EC02A46121808B4800DCC84C /* Release */,
+				EC74898824029FB40003AC81 /* Debug */,
+				EC74898924029FB40003AC81 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EC74896E24029FB40003AC81 /* MUIMasterDetail.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EC74896F24029FB40003AC81 /* MUIMasterDetail.xcdatamodel */,
+			);
+			currentVersion = EC74896F24029FB40003AC81 /* MUIMasterDetail.xcdatamodel */;
+			path = MUIMasterDetail.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
-	rootObject = EC02A43E21808B4700DCC84C /* Project object */;
+	rootObject = EC74896024029FB40003AC81 /* Project object */;
 }

@@ -21,6 +21,7 @@
     // Update the user interface for the detail item.
     if (self.detailItem) {
         self.detailDescriptionLabel.text = self.detailItem.title;
+        // shouldnt modify parent state
         self.navigationController.mui_detailModelIdentifier = self.detailItem.objectID.URIRepresentation.absoluteString; // since not shown yet doesn't fire any events
         self.selectionController.delegate = self;
         self.nextButtonItem.enabled = self.selectionController.canSelectNext;
