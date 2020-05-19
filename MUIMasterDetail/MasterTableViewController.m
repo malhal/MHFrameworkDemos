@@ -59,7 +59,7 @@ static void * const kMasterTableKVOContext = (void *)&kMasterTableKVOContext;
     //self.editing = YES;
     
     MasterNavigationController *masterNav = self.navigationController;
-    NSIndexPath *indexPath = [self.fetchedTableDataSource.fetchedResultsController indexPathForObject:masterNav.selectedObject];
+    NSIndexPath *indexPath = [self.fetchedResultsTableViewAdapter.fetchedResultsController indexPathForObject:masterNav.selectedObject];
     [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
 }
 
@@ -68,7 +68,7 @@ static void * const kMasterTableKVOContext = (void *)&kMasterTableKVOContext;
  //   self.tableView.allowsMultipleSelection = YES;
  //   self.fetchedResultsController = [self newFetchedResultsController];
     
-    self.fetchedTableDataSource = self.newFetchedTableDataSource;
+    self.fetchedResultsTableViewAdapter = self.newFetchedTableDataSource;
   
 
 }
@@ -76,7 +76,7 @@ static void * const kMasterTableKVOContext = (void *)&kMasterTableKVOContext;
 
 - (void)masterNavigationControllerDidChangeSelectedObject:(NSNotification *)notification{
     MasterNavigationController *masterNav = self.navigationController;
-    NSIndexPath *indexPath = [self.fetchedTableDataSource.fetchedResultsController indexPathForObject:masterNav.selectedObject];
+    NSIndexPath *indexPath = [self.fetchedResultsTableViewAdapter.fetchedResultsController indexPathForObject:masterNav.selectedObject];
     [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
 }
 
@@ -85,7 +85,7 @@ static void * const kMasterTableKVOContext = (void *)&kMasterTableKVOContext;
 {
     if (context == kMasterTableKVOContext) {
         MasterNavigationController *masterNav = self.navigationController;
-        NSIndexPath *indexPath = [self.fetchedTableDataSource.fetchedResultsController indexPathForObject:masterNav.selectedObject];
+        NSIndexPath *indexPath = [self.fetchedResultsTableViewAdapter.fetchedResultsController indexPathForObject:masterNav.selectedObject];
         [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
@@ -169,7 +169,7 @@ static void * const kMasterTableKVOContext = (void *)&kMasterTableKVOContext;
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
 
         NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
-        Event *event = [self.fetchedTableDataSource.fetchedResultsController objectAtIndexPath:indexPath];
+        Event *event = [self.fetchedResultsTableViewAdapter.fetchedResultsController objectAtIndexPath:indexPath];
         
         UINavigationController *detailNavigationController = (UINavigationController *)segue.destinationViewController;
         
@@ -196,7 +196,7 @@ static void * const kMasterTableKVOContext = (void *)&kMasterTableKVOContext;
         self.clearsSelectionOnViewWillAppear = YES;
         
         NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
-        Folder *folder = [self.fetchedTableDataSource.fetchedResultsController objectAtIndexPath:indexPath];
+        Folder *folder = [self.fetchedResultsTableViewAdapter.fetchedResultsController objectAtIndexPath:indexPath];
         //self.selected
         MasterViewController *controller = (MasterViewController *)segue.destinationViewController;
        // Venue *venue = self.selectedObject;
@@ -221,7 +221,7 @@ static void * const kMasterTableKVOContext = (void *)&kMasterTableKVOContext;
   //  }
     
     //if(!self.clearsSelectionOnViewWillAppear){
-    //    NSIndexPath *indexPath = [self.fetchedTableDataSource.fetchedResultsController indexPathForObject:object];
+    //    NSIndexPath *indexPath = [self.fetchedResultsTableViewAdapter.fetchedResultsController indexPathForObject:object];
     //    [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
   //  }
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Malcolm Hall. All rights reserved.
 //
 
-#import <MUIKit/MUIKit.h>
+#import <MMShared/MMShared.h>
 #import <CoreData/CoreData.h>
 #import "MUIFetchedMasterDetail+CoreDataModel.h"
 
@@ -14,11 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class MasterViewController, PersistentContainer;
 
-@interface RootViewController : MUIFetchedTableViewController
+@interface RootViewController : UITableViewController
 
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+//@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 //@property (strong, nonatomic) MasterViewController *masterViewController;
-//@property (strong, nonatomic) NSFetchedResultsController<Venue *> *fetchedResultsController;
+@property (strong, nonatomic) NSFetchedResultsController<Venue *> *fetchedResultsController;
 
 
 

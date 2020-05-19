@@ -9,19 +9,22 @@
 #import "RootViewController.h"
 #import "MasterViewController.h"
 #import "DetailViewController.h"
-#import "AppDelegate.h"
+#import "AppController.h"
 
 @interface RootViewController ()
+
+@property (strong, nonatomic) MMSFetchedResultsTableViewAdapter *venuesTableViewAdapter;
+@property (strong, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
 @end
 
 @implementation RootViewController
 //@dynamic fetchedResultsController;
 
-//- (NSManagedObjectContext *)managedObjectContext{
-//    NSPersistentContainer *pc = [self mcd_persistentContainerWithSender:self];
-//    return pc.viewContext;
-//}
+- (NSManagedObjectContext *)managedObjectContext{
+    AppController *appController = (AppController *)UIApplication.sharedApplication.delegate;
+    return appController.persistentContainer.viewContext;
+}
 
 - (IBAction)pauseTapped:(id)sender{
     self.fetchedResultsController.delegate = nil;
@@ -36,13 +39,20 @@
 }
 
 - (IBAction)refreshTapped:(id)sender{
-//    NSManagedObjectContext *moc = self.persistentContainer.viewContext;//self.persistentContainer.newBackgroundContext;
-//    NSManagedObject *object =  nil;//[moc objectWithID:self.fetchedResultsController.fetchedObjects.firstObject.objectID];
-//    [moc deleteObject:object];
-//    [moc save:nil];
+    Venue *object = self.fetchedResultsController.fetchedObjects.firstObject;
+    object.timestamp = NSDate.date;
+    
+    // Save the context.
+    NSError *error = nil;
+    if (![object.managedObjectContext save:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+        abort();
+    }
 }
 
-- (IBAction)deleteVenue:(MUICompletionStoryboardSegue *)unwindSegue {
+//- (IBAction)deleteVenue:(MUICompletionStoryboardSegue *)unwindSegue {
 //    Venue *venue;
 //    if([unwindSegue.sourceViewController isKindOfClass:DetailViewController.class]){
 //        DetailViewController *detailViewController = unwindSegue.sourceViewController;
@@ -58,14 +68,18 @@
 //        [self.managedObjectContext deleteObject:venue];
 //        [self.managedObjectContext save:nil];
 //    }];
-}
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     //NSAssert(self.persistentContainer, @"This view needs a persistent container.");
     // Do any additional setup after loading the view.
-    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(navigationControllerDidShowViewController:) name:MUINavigationControllerDidShowViewControllerNotification object:self.navigationController];
+ //   [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(navigationControllerDidShowViewController:) name:MUINavigationControllerDidShowViewControllerNotification object:self.navigationController];
  //   [self createFetchedResultsController];
+    
+    self.venuesTableViewAdapter = [MMSFetchedResultsTableViewAdapter.alloc initWithTableView:self.tableView];
+    self.venuesTableViewAdapter.fetchedResultsController = self.fetchedResultsController;
+    
     [self configureView];
 }
 
@@ -113,31 +127,17 @@
 //    }
 }
 
-#pragma mark - Table View
+#pragma mark - data
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //    if([self.tableDataSource respondsToSelector:@selector(tableView:cellForRowAtIndexPath:)]){
-    //        return [self.tableDataSource tableView:tableView cellForRowAtIndexPath:indexPath];
-    //    }
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.opaque = NO;
-    cell.textLabel.backgroundColor = UIColor.clearColor;
-    //if(!cell.selectedBackgroundView){
-//        UIView *v = [UIView.alloc init];
-//        v.backgroundColor = v.tintColor;
-//        cell.selectedBackgroundView = v;
-//    }
-    return cell;
-}
-
-- (void)configureCell:(UITableViewCell *)cell withObject:(NSManagedObject *)object{
-    Venue *venue = (Venue *)object;
+//- (void)fetchedResultsTableViewAdapter:(MMSFetchedResultsTableViewAdapter *)fetchedResultsTableViewAdapter configureCell:(UITableViewCell *)cell withObject:(NSManagedObject *)object{
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //Venue *venue = (Venue *)object;
+    Venue *venue = [self.fetchedResultsController objectAtIndexPath:indexPath];
     id i = venue.timestamp;
     id a = venue.managedObjectContext;
     cell.textLabel.text = venue.timestamp.description;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld Events", venue.events.count];
 }
-
 
 #pragma mark - Navigation
 
@@ -238,7 +238,7 @@ _fetchedResultsController = fetchedResultsController;
 
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller{
-    [super controllerDidChangeContent:controller];
+ //   [super controllerDidChangeContent:controller];
     [self configureView];
  //   [self updateMaster];
 }

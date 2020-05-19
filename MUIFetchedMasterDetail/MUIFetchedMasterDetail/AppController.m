@@ -6,7 +6,7 @@
 //  Copyright © 2019 Malcolm Hall. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "AppController.h"
 #import "DetailViewController.h"
 #import "MasterViewController.h"
 #import "RootViewController.h"
@@ -15,13 +15,13 @@
 
 @end
 
-@interface AppDelegate () <UISplitViewControllerDelegate>
+@interface AppController () <UISplitViewControllerDelegate>
 
 //@property (strong, nonatomic) UINavigationController *detailNavigationControllerForRestoration;
 
 @end
 
-@implementation AppDelegate
+@implementation AppController
 
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -31,12 +31,12 @@
     
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
-    //splitViewController.delegate = self;
+    splitViewController.delegate = self;
 
     UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
     RootViewController *controller = (RootViewController *)masterNavigationController.topViewController;
     //controller.persistentContainer = self.persistentContainer;
-    controller.managedObjectContext = controller;
+    //controller.managedObjectContext = controller;
     
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"UIStateRestorationDebugLogging"];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"UIStateRestorationDeveloperMode"];
@@ -171,7 +171,7 @@
 //    return YES;
 //}
 
-//- (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController {
+- (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController {
 //    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[DetailViewController class]] && ([(DetailViewController *)[(UINavigationController *)secondaryViewController topViewController] detailItem] == nil)) {
 //        // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
 //        return YES;
@@ -183,8 +183,8 @@
 //    if(primaryNav.childViewControllers.count != 2){
 //        return YES;
 //    }
-//    return NO;
-//}
+    return YES;
+}
 
 //- (UIViewController *)splitViewController:(UISplitViewController *)splitViewController separateSecondaryViewControllerFromPrimaryViewController:(UIViewController *)primaryViewController{
 //    return nil;
@@ -220,7 +220,7 @@
                     abort();
                 }
             }];
-            [UIApplication registerObjectForStateRestoration:_persistentContainer restorationIdentifier:@"PersistentContainer"];
+        //    [UIApplication registerObjectForStateRestoration:_persistentContainer restorationIdentifier:@"PersistentContainer"];
             
             NSLog(@"persistentContainer is at %@", _persistentContainer.persistentStoreCoordinator.persistentStores.firstObject.URL.path);
            // _persistentContainer.viewContext.shouldDeleteInaccessibleFaults = NO;

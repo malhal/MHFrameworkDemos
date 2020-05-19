@@ -8,20 +8,149 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
-#import "MasterFetchedTableViewController.h"
+#import "AppController.h"
 
-@interface MasterViewController () <MUIFetchedTableViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, MCDManagedObjectChangeControllerDelegate, UIViewControllerRestoration>
+@interface MasterViewController () <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>//, UIViewControllerRestoration> // MUIFetchedTableViewControllerDelegate, MCDManagedObjectChangeControllerDelegate
 
-@property (strong, nonatomic, null_resettable) MCDManagedObjectChangeController *masterItemChangeController;
-//@property (strong, nonatomic, null_resettable) NSFetchedResultsController<Event *> *fetchedResultsController;
-@property (strong, nonatomic) MUIFetchedTableViewController *fetchedTableViewController;
+@property (strong, nonatomic, null_resettable) MMSManagedObjectChangeController *masterItemChangeController;
+@property (strong, nonatomic, null_resettable) NSFetchedResultsController<Event *> *fetchedResultsController;
+//@property (strong, nonatomic) MUIFetchedTableViewController *fetchedTableViewController;
 
 //@property (assign, nonatomic) BOOL isTopViewController;
 @property (strong, nonatomic) UIBarButtonItem *addButton;
+@property (strong, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
+
+@property (strong, nonatomic) MMSFetchedResultsTableViewAdapter *eventsTableViewAdapter;
 
 @end
 
 @implementation MasterViewController
+
+- (void)insertNewObject:(id)sender {
+   
+    NSManagedObjectContext *context = self.managedObjectContext;
+    Event *newEvent =  [[Event alloc] initWithContext:context]; // self.fetchedResultsController.fetchedObjects.lastObject ;//
+        
+    // If appropriate, configure the new managed object.
+    newEvent.timestamp = [NSDate date];
+    newEvent.venue = self.masterItem;
+    
+    // Save the context.
+    NSError *error = nil;
+    if (![context save:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+        abort();
+    }
+//    if(self.detailViewController){
+//        self.selectedObject = newEvent;
+//        [self performSegueWithIdentifier:@"showDetail" sender:self];
+//        [self configureView];
+//    }
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.eventsTableViewAdapter = [MMSFetchedResultsTableViewAdapter.alloc initWithTableView:self.tableView];
+    self.eventsTableViewAdapter.fetchedResultsController = self.fetchedResultsController;
+    //NSAssert(self.mui_persistentContainer, @"requires persistentContainer");
+    
+    // Do any additional setup after loading the view.
+    //self.navigationItem.leftBarButtonItem = self.editButtonItem;
+
+    self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+//    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(buttonTapped:)];
+    NSArray *rightBarButtonItems = @[self.addButton, self.editButtonItem]; // button
+//    [rightBarButtonItems enumerateObjectsUsingBlock:^(UIBarButtonItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        //obj.enabled = NO;
+//    }];
+    self.navigationItem.rightBarButtonItems = rightBarButtonItems;
+    
+   
+    
+    //self.fetchedTableViewController.fetchedResultsController = self.fetchedResultsController;
+    //self.fetchedTableViewController.tableView.delegate = self;
+    //self.fetchedTableViewController.tableView.dataSource = self; // these can't be done until the self.fetchedTableViewController is set so the forwarding works.
+    
+   // [self configureView];
+}
+
+- (NSManagedObjectContext *)managedObjectContext{
+    AppController *appController = (AppController *)UIApplication.sharedApplication.delegate;
+    return appController.persistentContainer.viewContext;
+}
+
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    //Event *event = (Event *)object;
+    cell.textLabel.text = event.timestamp.description;
+}
+
+#pragma mark - Table Data
+
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+//    cell.textLabel.opaque = NO;
+//    cell.textLabel.backgroundColor = UIColor.clearColor;
+//    return cell;
+//}
+
+#pragma mark - Fetched results controller
+
+- (NSFetchedResultsController<Event *> *)fetchedResultsController {
+//- (void)createFetchedResultsController{
+  //  id i = self.parentViewController;
+    //NSPersistentContainer *pc = [self mcd_persistentContainerWithSender:self];
+    //NSManagedObjectContext *moc = pc.viewContext;
+    //    NSAssert(moc, @"createFetchedResultsController called without managedObjectContext");
+    if (!_fetchedResultsController) {
+        
+    //- (void)createFetchedResultsController{
+    //- (void)createFetchedResultsControllerForFetchedTableViewController:(MUIFetchedTableViewController *)fetchedTableViewController{
+        NSFetchRequest<Event *> *fetchRequest = Event.fetchRequest;
+
+        // Set the batch size to a suitable number.
+        [fetchRequest setFetchBatchSize:20];
+
+        // Edit the sort key as appropriate.
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:NO];
+
+        [fetchRequest setSortDescriptors:@[sortDescriptor]];
+
+        if(self.masterItem){
+            fetchRequest.predicate = [NSPredicate predicateWithFormat:@"venue = %@", self.masterItem];
+        }
+
+        // Edit the section name key path and cache name if appropriate.
+        // nil for section name key path means "no sections".
+        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+        //fetchedResultsController.delegate = self;
+
+        NSError *error = nil;
+        if (![_fetchedResultsController performFetch:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+            abort();
+        }
+    }
+    return _fetchedResultsController;
+}
+
+- (IBAction)trashVenue:(id)sender{
+    NSManagedObjectContext *moc = self.managedObjectContext;
+    [moc deleteObject:self.masterItem];
+    [moc save:nil];
+    
+  //  [self performSelector:@selector(aaa) withObject:nil afterDelay:5];
+}
+
+/*
+ 
+ 
 //@synthesize fetchedResultsController = _fetchedResultsController;
 //@dynamic detailViewController;
 //@dynamic persistentContainer;
@@ -45,13 +174,7 @@
     return self;
 }
 
-- (IBAction)trashVenue:(id)sender{
-//    NSManagedObjectContext *moc = self.persistentContainer.viewContext;
-//    [moc deleteObject:self.masterItem];
-//    [moc save:nil];
-    
-    [self performSelector:@selector(aaa) withObject:nil afterDelay:5];
-}
+
 
 - (void)aaa{
   //  NSManagedObjectContext *moc;// = self.persistentContainer.viewContext;
@@ -59,13 +182,13 @@
  //   [moc save:nil];
 }
 
-- (MCDManagedObjectChangeController *)masterItemChangeController{
-    if(!_masterItemChangeController){
-        NSPersistentContainer *pc = [self mcd_persistentContainerWithSender:self];
-        _masterItemChangeController = [MCDManagedObjectChangeController.alloc initWithManagedObject:self.masterItem managedObjectContext:pc.viewContext];
-    }
-    return _masterItemChangeController;
-}
+//- (MCDManagedObjectChangeController *)masterItemChangeController{
+//    if(!_masterItemChangeController){
+//        NSPersistentContainer *pc = [self mcd_persistentContainerWithSender:self];
+//        _masterItemChangeController = [MCDManagedObjectChangeController.alloc initWithManagedObject:self.masterItem managedObjectContext:pc.viewContext];
+//    }
+//    return _masterItemChangeController;
+//}
 
 - (void)setMasterItem:(Venue *)masterItem{
     if(masterItem == _masterItem){
@@ -80,30 +203,7 @@
     }
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    //NSAssert(self.mui_persistentContainer, @"requires persistentContainer");
-    
-    // Do any additional setup after loading the view.
-    //self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(buttonTapped:)];
-    NSArray *rightBarButtonItems = @[self.addButton, button, self.editButtonItem];
-    [rightBarButtonItems enumerateObjectsUsingBlock:^(UIBarButtonItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        //obj.enabled = NO;
-    }];
-    self.navigationItem.rightBarButtonItems = rightBarButtonItems;
-    
-   
-    
-    //self.fetchedTableViewController.fetchedResultsController = self.fetchedResultsController;
-    //self.fetchedTableViewController.tableView.delegate = self;
-    //self.fetchedTableViewController.tableView.dataSource = self; // these can't be done until the self.fetchedTableViewController is set so the forwarding works.
-    
-    [self configureView];
-}
 
 //- (DetailViewController *)detailViewController{
 //    DetailViewController *detailViewController;
@@ -161,29 +261,7 @@
     }];
 }
 
-- (void)insertNewObject:(id)sender {
-    NSPersistentContainer *pc = [self mcd_persistentContainerWithSender:self];
-    NSManagedObjectContext *context = pc.viewContext;
-    Event *newEvent =  [[Event alloc] initWithContext:context]; // self.fetchedResultsController.fetchedObjects.lastObject ;//
-        
-    // If appropriate, configure the new managed object.
-    newEvent.timestamp = [NSDate date];
-    newEvent.venue = self.masterItem;
-    
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-        abort();
-    }
-//    if(self.detailViewController){
-//        self.selectedObject = newEvent;
-//        [self performSegueWithIdentifier:@"showDetail" sender:self];
-//        [self configureView];
-//    }
-}
+
 
 - (void)detailViewControllerDidDelete:(DetailViewController *)detailViewController{
     //[self.navigationController popToViewController:self animated:YES];
@@ -197,16 +275,16 @@
     
 }
 
-- (IBAction)deleteEvent:(MUICompletionStoryboardSegue *)unwindSegue {
-    DetailViewController *detailViewController = unwindSegue.sourceViewController;
-    // Use data from the view controller which initiated the unwind segue
-    
-    [unwindSegue setCompletion:^{
-        NSPersistentContainer *pc = [self mcd_persistentContainerWithSender:self];
-        [pc.viewContext deleteObject:detailViewController.detailItem];
-        [pc.viewContext save:nil];
-    }];
-}
+//- (IBAction)deleteEvent:(MUICompletionStoryboardSegue *)unwindSegue {
+//    DetailViewController *detailViewController = unwindSegue.sourceViewController;
+//    // Use data from the view controller which initiated the unwind segue
+//
+//    [unwindSegue setCompletion:^{
+//        NSPersistentContainer *pc = [self mcd_persistentContainerWithSender:self];
+//        [pc.viewContext deleteObject:detailViewController.detailItem];
+//        [pc.viewContext save:nil];
+//    }];
+//}
 
 #pragma mark - Segues
 
@@ -248,17 +326,13 @@
 }
 
 
-
-
-
-/*
 // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
  
  - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     // In the simplest, most efficient, case, reload the table view.
     [self.tableView reloadData];
 }
-*/
+
 
 - (void)controller:(MCDManagedObjectChangeController *)controller didChange:(MCDManagedObjectChangeType)type{
     NSLog(@"");
@@ -320,5 +394,6 @@
     NSLog(@"vc.restorationIdentifier %@", vc.restorationIdentifier);
     return vc;
 }
+*/
 
 @end

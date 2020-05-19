@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC1B8FD72365C1CE005DBD0A /* MasterFetchedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1B8FD62365C1CE005DBD0A /* MasterFetchedTableViewController.m */; };
-		EC2CDBC422B6BA0500F9C25F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2CDBC322B6BA0500F9C25F /* AppDelegate.m */; };
+		EC2CDBC422B6BA0500F9C25F /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2CDBC322B6BA0500F9C25F /* AppController.m */; };
 		EC2CDBC722B6BA0500F9C25F /* MUIFetchedMasterDetail.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC2CDBC522B6BA0500F9C25F /* MUIFetchedMasterDetail.xcdatamodeld */; };
 		EC2CDBCA22B6BA0500F9C25F /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2CDBC922B6BA0500F9C25F /* MasterViewController.m */; };
 		EC2CDBCD22B6BA0500F9C25F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2CDBCC22B6BA0500F9C25F /* DetailViewController.m */; };
@@ -18,78 +17,32 @@
 		EC2CDBD822B6BA0600F9C25F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2CDBD722B6BA0600F9C25F /* main.m */; };
 		EC345039232BC19300B6136E /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC345038232BC19300B6136E /* TestViewController.m */; };
 		EC560F85232B92930072A1B6 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC560F84232B92930072A1B6 /* RootViewController.m */; };
-		EC8D85D023F22E7D008B7A7A /* MCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8D85CD23F22E6C008B7A7A /* MCoreData.framework */; };
-		EC8D85D123F22E7D008B7A7A /* MCoreData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC8D85CD23F22E6C008B7A7A /* MCoreData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC8D85D223F22E81008B7A7A /* MHFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8D85C423F22E64008B7A7A /* MHFoundation.framework */; };
-		EC8D85D323F22E81008B7A7A /* MHFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC8D85C423F22E64008B7A7A /* MHFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC8D85D423F22E84008B7A7A /* MUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8D85BB23F22E64008B7A7A /* MUIKit.framework */; };
-		EC8D85D523F22E84008B7A7A /* MUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC8D85BB23F22E64008B7A7A /* MUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ECA2306C2473EA2B000BADDC /* MMShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ECA230692473EA1D000BADDC /* MMShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ECA2306F24740CBA000BADDC /* MMShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA230692473EA1D000BADDC /* MMShared.framework */; };
 		ECC30B4623DB2221008E485B /* SplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC30B4123DB2221008E485B /* SplitViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EC8D85BA23F22E64008B7A7A /* PBXContainerItemProxy */ = {
+		ECA230682473EA1D000BADDC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EC8D85B523F22E64008B7A7A /* MUIKit.xcodeproj */;
+			containerPortal = ECA230632473EA1D000BADDC /* MMShared.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = EC3145261D0740C70025F669;
-			remoteInfo = MUIKit;
+			remoteGlobalIDString = EC31CD45246F263800DCFF05;
+			remoteInfo = MMShared;
 		};
-		EC8D85BC23F22E64008B7A7A /* PBXContainerItemProxy */ = {
+		ECA2306A2473EA1D000BADDC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EC8D85B523F22E64008B7A7A /* MUIKit.xcodeproj */;
+			containerPortal = ECA230632473EA1D000BADDC /* MMShared.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = EC3145301D0740C80025F669;
-			remoteInfo = MUIKitTests;
+			remoteGlobalIDString = EC31CD4E246F263800DCFF05;
+			remoteInfo = MMSharedTests;
 		};
-		EC8D85C323F22E64008B7A7A /* PBXContainerItemProxy */ = {
+		ECA2306D2473EA2E000BADDC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EC8D85BE23F22E64008B7A7A /* MHFoundation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EC31444D1D073A1A0025F669;
-			remoteInfo = MHFoundation;
-		};
-		EC8D85C523F22E64008B7A7A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC8D85BE23F22E64008B7A7A /* MHFoundation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EC3144571D073A1A0025F669;
-			remoteInfo = MHFoundationTests;
-		};
-		EC8D85CC23F22E6C008B7A7A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC8D85C723F22E6C008B7A7A /* MCoreData.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EC3144DA1D073E010025F669;
-			remoteInfo = MCoreData;
-		};
-		EC8D85CE23F22E6C008B7A7A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC8D85C723F22E6C008B7A7A /* MCoreData.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EC3144E41D073E010025F669;
-			remoteInfo = MCoreDataTests;
-		};
-		EC8D85D623F22E8B008B7A7A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC8D85BE23F22E64008B7A7A /* MHFoundation.xcodeproj */;
+			containerPortal = ECA230632473EA1D000BADDC /* MMShared.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = EC31444C1D073A1A0025F669;
-			remoteInfo = MHFoundation;
-		};
-		EC8D85D823F22E8F008B7A7A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC8D85B523F22E64008B7A7A /* MUIKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = EC3145251D0740C70025F669;
-			remoteInfo = MUIKit;
-		};
-		EC8D85DA23F22E91008B7A7A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC8D85C723F22E6C008B7A7A /* MCoreData.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = EC3144D91D073E010025F669;
-			remoteInfo = MCoreData;
+			remoteGlobalIDString = EC31CD44246F263800DCFF05;
+			remoteInfo = MMShared;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -100,9 +53,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EC8D85D523F22E84008B7A7A /* MUIKit.framework in Embed Frameworks */,
-				EC8D85D323F22E81008B7A7A /* MHFoundation.framework in Embed Frameworks */,
-				EC8D85D123F22E7D008B7A7A /* MCoreData.framework in Embed Frameworks */,
+				ECA2306C2473EA2B000BADDC /* MMShared.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,11 +61,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		EC1B8FD52365C1CE005DBD0A /* MasterFetchedTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterFetchedTableViewController.h; sourceTree = "<group>"; };
-		EC1B8FD62365C1CE005DBD0A /* MasterFetchedTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterFetchedTableViewController.m; sourceTree = "<group>"; };
 		EC2CDBBF22B6BA0500F9C25F /* MUIFetchedMasterDetail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MUIFetchedMasterDetail.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC2CDBC222B6BA0500F9C25F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		EC2CDBC322B6BA0500F9C25F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EC2CDBC222B6BA0500F9C25F /* AppController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		EC2CDBC322B6BA0500F9C25F /* AppController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		EC2CDBC622B6BA0500F9C25F /* MUIFetchedMasterDetail.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MUIFetchedMasterDetail.xcdatamodel; sourceTree = "<group>"; };
 		EC2CDBC822B6BA0500F9C25F /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		EC2CDBC922B6BA0500F9C25F /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
@@ -130,9 +79,7 @@
 		EC345038232BC19300B6136E /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		EC560F83232B92930072A1B6 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		EC560F84232B92930072A1B6 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		EC8D85B523F22E64008B7A7A /* MUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MUIKit.xcodeproj; path = ../MHFrameworks/MUIKit/MUIKit.xcodeproj; sourceTree = "<group>"; };
-		EC8D85BE23F22E64008B7A7A /* MHFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MHFoundation.xcodeproj; path = ../MHFrameworks/MHFoundation/MHFoundation.xcodeproj; sourceTree = "<group>"; };
-		EC8D85C723F22E6C008B7A7A /* MCoreData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MCoreData.xcodeproj; path = ../MHFrameworks/MCoreData/MCoreData.xcodeproj; sourceTree = "<group>"; };
+		ECA230632473EA1D000BADDC /* MMShared.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MMShared.xcodeproj; path = ../shared/MMShared/MMShared.xcodeproj; sourceTree = "<group>"; };
 		ECC30B4123DB2221008E485B /* SplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitViewController.m; sourceTree = "<group>"; };
 		ECC30B4523DB2221008E485B /* SplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,9 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC8D85D423F22E84008B7A7A /* MUIKit.framework in Frameworks */,
-				EC8D85D223F22E81008B7A7A /* MHFoundation.framework in Frameworks */,
-				EC8D85D023F22E7D008B7A7A /* MCoreData.framework in Frameworks */,
+				ECA2306F24740CBA000BADDC /* MMShared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,16 +116,14 @@
 		EC2CDBC122B6BA0500F9C25F /* MUIFetchedMasterDetail */ = {
 			isa = PBXGroup;
 			children = (
-				EC2CDBC222B6BA0500F9C25F /* AppDelegate.h */,
-				EC2CDBC322B6BA0500F9C25F /* AppDelegate.m */,
+				EC2CDBC222B6BA0500F9C25F /* AppController.h */,
+				EC2CDBC322B6BA0500F9C25F /* AppController.m */,
 				ECC30B4523DB2221008E485B /* SplitViewController.h */,
 				ECC30B4123DB2221008E485B /* SplitViewController.m */,
 				EC560F83232B92930072A1B6 /* RootViewController.h */,
 				EC560F84232B92930072A1B6 /* RootViewController.m */,
 				EC2CDBC822B6BA0500F9C25F /* MasterViewController.h */,
 				EC2CDBC922B6BA0500F9C25F /* MasterViewController.m */,
-				EC1B8FD52365C1CE005DBD0A /* MasterFetchedTableViewController.h */,
-				EC1B8FD62365C1CE005DBD0A /* MasterFetchedTableViewController.m */,
 				EC2CDBCB22B6BA0500F9C25F /* DetailViewController.h */,
 				EC2CDBCC22B6BA0500F9C25F /* DetailViewController.m */,
 				EC2CDBCE22B6BA0500F9C25F /* Main.storyboard */,
@@ -198,37 +141,17 @@
 		EC2CDBDE22B6BA2100F9C25F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EC8D85C723F22E6C008B7A7A /* MCoreData.xcodeproj */,
-				EC8D85B523F22E64008B7A7A /* MUIKit.xcodeproj */,
-				EC8D85BE23F22E64008B7A7A /* MHFoundation.xcodeproj */,
+				ECA230632473EA1D000BADDC /* MMShared.xcodeproj */,
 				EC2CDBDF22B6BA2100F9C25F /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EC8D85B623F22E64008B7A7A /* Products */ = {
+		ECA230642473EA1D000BADDC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EC8D85BB23F22E64008B7A7A /* MUIKit.framework */,
-				EC8D85BD23F22E64008B7A7A /* MUIKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		EC8D85BF23F22E64008B7A7A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				EC8D85C423F22E64008B7A7A /* MHFoundation.framework */,
-				EC8D85C623F22E64008B7A7A /* MHFoundationTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		EC8D85C823F22E6C008B7A7A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				EC8D85CD23F22E6C008B7A7A /* MCoreData.framework */,
-				EC8D85CF23F22E6C008B7A7A /* MCoreDataTests.xctest */,
+				ECA230692473EA1D000BADDC /* MMShared.framework */,
+				ECA2306B2473EA1D000BADDC /* MMSharedTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -248,9 +171,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				EC8D85DB23F22E91008B7A7A /* PBXTargetDependency */,
-				EC8D85D923F22E8F008B7A7A /* PBXTargetDependency */,
-				EC8D85D723F22E8B008B7A7A /* PBXTargetDependency */,
+				ECA2306E2473EA2E000BADDC /* PBXTargetDependency */,
 			);
 			name = MUIFetchedMasterDetail;
 			productName = MUIFetchedMasterDetail;
@@ -284,16 +205,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = EC8D85C823F22E6C008B7A7A /* Products */;
-					ProjectRef = EC8D85C723F22E6C008B7A7A /* MCoreData.xcodeproj */;
-				},
-				{
-					ProductGroup = EC8D85BF23F22E64008B7A7A /* Products */;
-					ProjectRef = EC8D85BE23F22E64008B7A7A /* MHFoundation.xcodeproj */;
-				},
-				{
-					ProductGroup = EC8D85B623F22E64008B7A7A /* Products */;
-					ProjectRef = EC8D85B523F22E64008B7A7A /* MUIKit.xcodeproj */;
+					ProductGroup = ECA230642473EA1D000BADDC /* Products */;
+					ProjectRef = ECA230632473EA1D000BADDC /* MMShared.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -304,46 +217,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		EC8D85BB23F22E64008B7A7A /* MUIKit.framework */ = {
+		ECA230692473EA1D000BADDC /* MMShared.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = MUIKit.framework;
-			remoteRef = EC8D85BA23F22E64008B7A7A /* PBXContainerItemProxy */;
+			path = MMShared.framework;
+			remoteRef = ECA230682473EA1D000BADDC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		EC8D85BD23F22E64008B7A7A /* MUIKitTests.xctest */ = {
+		ECA2306B2473EA1D000BADDC /* MMSharedTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = MUIKitTests.xctest;
-			remoteRef = EC8D85BC23F22E64008B7A7A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		EC8D85C423F22E64008B7A7A /* MHFoundation.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MHFoundation.framework;
-			remoteRef = EC8D85C323F22E64008B7A7A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		EC8D85C623F22E64008B7A7A /* MHFoundationTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = MHFoundationTests.xctest;
-			remoteRef = EC8D85C523F22E64008B7A7A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		EC8D85CD23F22E6C008B7A7A /* MCoreData.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MCoreData.framework;
-			remoteRef = EC8D85CC23F22E6C008B7A7A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		EC8D85CF23F22E6C008B7A7A /* MCoreDataTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = MCoreDataTests.xctest;
-			remoteRef = EC8D85CE23F22E6C008B7A7A /* PBXContainerItemProxy */;
+			path = MMSharedTests.xctest;
+			remoteRef = ECA2306A2473EA1D000BADDC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -367,11 +252,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC2CDBD822B6BA0600F9C25F /* main.m in Sources */,
-				EC1B8FD72365C1CE005DBD0A /* MasterFetchedTableViewController.m in Sources */,
 				EC560F85232B92930072A1B6 /* RootViewController.m in Sources */,
 				EC2CDBC722B6BA0500F9C25F /* MUIFetchedMasterDetail.xcdatamodeld in Sources */,
 				EC2CDBCA22B6BA0500F9C25F /* MasterViewController.m in Sources */,
-				EC2CDBC422B6BA0500F9C25F /* AppDelegate.m in Sources */,
+				EC2CDBC422B6BA0500F9C25F /* AppController.m in Sources */,
 				EC2CDBCD22B6BA0500F9C25F /* DetailViewController.m in Sources */,
 				ECC30B4623DB2221008E485B /* SplitViewController.m in Sources */,
 				EC345039232BC19300B6136E /* TestViewController.m in Sources */,
@@ -381,20 +265,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EC8D85D723F22E8B008B7A7A /* PBXTargetDependency */ = {
+		ECA2306E2473EA2E000BADDC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = MHFoundation;
-			targetProxy = EC8D85D623F22E8B008B7A7A /* PBXContainerItemProxy */;
-		};
-		EC8D85D923F22E8F008B7A7A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MUIKit;
-			targetProxy = EC8D85D823F22E8F008B7A7A /* PBXContainerItemProxy */;
-		};
-		EC8D85DB23F22E91008B7A7A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MCoreData;
-			targetProxy = EC8D85DA23F22E91008B7A7A /* PBXContainerItemProxy */;
+			name = MMShared;
+			targetProxy = ECA2306D2473EA2E000BADDC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -283,7 +283,7 @@
             
             [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(persistentStoreRemoteChangeNotification:) name:NSPersistentStoreRemoteChangeNotification object:_persistentContainer];
             
-            [UIApplication registerObjectForStateRestoration:_persistentContainer restorationIdentifier:StateRestorationPersistentContainerKey];
+        //    [UIApplication registerObjectForStateRestoration:_persistentContainer restorationIdentifier:StateRestorationPersistentContainerKey];
             
          //   NSPersistentStoreDescription *a2 = [NSPersistentStoreDescription.alloc initWithURL:[NSPersistentContainer.defaultDirectoryURL URLByAppendingPathComponent:@"Local.sqlite"]];
            // _persistentContainer.persistentStoreDescriptions = nil;//@[a2];

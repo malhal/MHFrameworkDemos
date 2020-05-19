@@ -11,7 +11,7 @@
 
 @class PersistentContainer;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppController : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

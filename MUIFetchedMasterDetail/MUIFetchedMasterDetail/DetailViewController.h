@@ -6,7 +6,7 @@
 //  Copyright © 2019 Malcolm Hall. All rights reserved.
 //
 
-#import <MUIKit/MUIKit.h>
+#import <MMShared/MMShared.h>
 #import "MUIFetchedMasterDetail+CoreDataModel.h"
 
 extern NSString * const DetailViewControllerStateRestorationDetailItemKey;

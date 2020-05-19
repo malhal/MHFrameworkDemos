@@ -6,13 +6,13 @@
 //  Copyright © 2019 Malcolm Hall. All rights reserved.
 //
 
-#import <MUIKit/MUIKit.h>
+#import <MMShared/MMShared.h>
 #import <CoreData/CoreData.h>
 #import "MUIFetchedMasterDetail+CoreDataModel.h"
 
 @class DetailViewController, PersistentContainer;
 
-@interface MasterViewController : MUIMasterViewController //<UIDataSourceModelAssociation>
+@interface MasterViewController : UITableViewController //<UIDataSourceModelAssociation>
 
 //@property (strong, nonatomic) DetailViewController *detailViewController;
 
