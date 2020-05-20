@@ -11,9 +11,9 @@
 #import "DetailViewController.h"
 #import "AppController.h"
 
-@interface RootViewController ()
+@interface RootViewController ()<MMSTableViewFetchAdapterCellUpdating>
 
-@property (strong, nonatomic) MMSFetchedResultsTableViewAdapter *venuesTableViewAdapter;
+@property (strong, nonatomic) MMSTableViewFetchAdapter *venuesTableViewAdapter;
 @property (strong, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
 @end
@@ -77,8 +77,9 @@
  //   [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(navigationControllerDidShowViewController:) name:MUINavigationControllerDidShowViewControllerNotification object:self.navigationController];
  //   [self createFetchedResultsController];
     
-    self.venuesTableViewAdapter = [MMSFetchedResultsTableViewAdapter.alloc initWithTableView:self.tableView];
+    self.venuesTableViewAdapter = [MMSTableViewFetchAdapter.alloc initWithTableView:self.tableView];
     self.venuesTableViewAdapter.fetchedResultsController = self.fetchedResultsController;
+    self.venuesTableViewAdapter.cellUpdater = self;
     
     [self configureView];
 }
@@ -129,15 +130,11 @@
 
 #pragma mark - data
 
-//- (void)fetchedResultsTableViewAdapter:(MMSFetchedResultsTableViewAdapter *)fetchedResultsTableViewAdapter configureCell:(UITableViewCell *)cell withObject:(NSManagedObject *)object{
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+//- (void)tableViewFetchAdapter:(MMSTableViewFetchAdapter *)tableViewFetchAdapter configureCell:(UITableViewCell *)cell withObject:(NSManagedObject *)object{
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //Venue *venue = (Venue *)object;
-    Venue *venue = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    id i = venue.timestamp;
-    id a = venue.managedObjectContext;
-    cell.textLabel.text = venue.timestamp.description;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld Events", venue.events.count];
-}
+
+//}
 
 #pragma mark - Navigation
 
@@ -271,4 +268,24 @@ _fetchedResultsController = fetchedResultsController;
     //[self updateMaster];
 }
 
+- (void)tableViewFetchAdapter:(MMSTableViewFetchAdapter *)tableViewFetchAdapter updateCell:(UITableViewCell *)cell withObject:(id)object{
+    Venue *venue = (Venue *)object;
+    id i = venue.timestamp;
+    id a = venue.managedObjectContext;
+    cell.textLabel.text = venue.timestamp.description;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld Events", venue.events.count];
+}
+
 @end
+
+//@interface UITableViewCell(Root)<MMSTableViewCellConfiguring>
+//
+//@end
+//
+//@implementation UITableViewCell (Root)
+//
+//- (void)configureWithObject:(Venue *)venue{
+//
+//}
+//
+//@end

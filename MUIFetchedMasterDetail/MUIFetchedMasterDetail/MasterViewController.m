@@ -10,7 +10,7 @@
 #import "DetailViewController.h"
 #import "AppController.h"
 
-@interface MasterViewController () <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>//, UIViewControllerRestoration> // MUIFetchedTableViewControllerDelegate, MCDManagedObjectChangeControllerDelegate
+@interface MasterViewController () <MMSTableViewFetchAdapterCellUpdating>//, UIViewControllerRestoration> // MUIFetchedTableViewControllerDelegate, MCDManagedObjectChangeControllerDelegate
 
 @property (strong, nonatomic, null_resettable) MMSManagedObjectChangeController *masterItemChangeController;
 @property (strong, nonatomic, null_resettable) NSFetchedResultsController<Event *> *fetchedResultsController;
@@ -20,7 +20,7 @@
 @property (strong, nonatomic) UIBarButtonItem *addButton;
 @property (strong, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
-@property (strong, nonatomic) MMSFetchedResultsTableViewAdapter *eventsTableViewAdapter;
+@property (strong, nonatomic) MMSTableViewFetchAdapter *eventsTableViewAdapter;
 
 @end
 
@@ -53,8 +53,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.eventsTableViewAdapter = [MMSFetchedResultsTableViewAdapter.alloc initWithTableView:self.tableView];
+    self.eventsTableViewAdapter = [MMSTableViewFetchAdapter.alloc initWithTableView:self.tableView];
     self.eventsTableViewAdapter.fetchedResultsController = self.fetchedResultsController;
+    self.eventsTableViewAdapter.cellUpdater = self;
     //NSAssert(self.mui_persistentContainer, @"requires persistentContainer");
     
     // Do any additional setup after loading the view.
@@ -80,13 +81,6 @@
 - (NSManagedObjectContext *)managedObjectContext{
     AppController *appController = (AppController *)UIApplication.sharedApplication.delegate;
     return appController.persistentContainer.viewContext;
-}
-
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    //Event *event = (Event *)object;
-    cell.textLabel.text = event.timestamp.description;
 }
 
 #pragma mark - Table Data
@@ -396,4 +390,21 @@
 }
 */
 
+- (void)tableViewFetchAdapter:(MMSTableViewFetchAdapter *)tableViewFetchAdapter updateCell:(UITableViewCell *)cell withObject:(id)object{
+    Event *event = (Event *)object;
+    cell.textLabel.text = event.timestamp.description;
+}
+
 @end
+
+//@interface UITableViewCell(Master)<MMSTableViewCellConfiguring>
+//
+//@end
+//
+//@implementation UITableViewCell (Master)
+//
+//- (void)configureWithObject:(id)object{
+//
+//}
+//
+//@end
