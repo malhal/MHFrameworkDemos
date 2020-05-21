@@ -7,8 +7,27 @@
 //
 //
 
-#import "Venue+CoreDataClass.h"
+#import "Venue.h"
 
 @implementation Venue
+
++ (NSSet<NSString *> *)keyPathsForValuesAffectingTitle
+{
+    return [NSSet setWithObjects:@"timestamp", nil];
+}
+
+- (NSString *)title{
+    return self.timestamp.description;
+}
+
++ (NSSet<NSString *> *)keyPathsForValuesAffectingSubtitle
+{
+    return [NSSet setWithObjects:@"events.@count", nil];
+}
+
+- (NSString *)subtitle{
+    return [NSString stringWithFormat:@"%ld", self.events.count];
+}
+
 
 @end

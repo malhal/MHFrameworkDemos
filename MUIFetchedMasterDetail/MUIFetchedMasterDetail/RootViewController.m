@@ -11,24 +11,29 @@
 #import "DetailViewController.h"
 #import "AppController.h"
 
-@interface RootViewController ()//<MMSTableViewFetchedResultsCellUpdating>
+@interface RootViewController () <MMSTableViewFetchedResultsAdapterDelegate>
 
 
 @property (strong, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
-//@property (strong, nonatomic) TableViewFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) MMSTableViewFetchedResultsAdapter *tableViewFetchedResultsAdapter;
 
 @end
 
 @implementation RootViewController
 //@dynamic fetchedResultsController;
 
-- (void)tableViewFetchedResultsController:(MMSTableViewFetchedResultsController *)tableViewFetchedResultsController updateCell:(UITableViewCell *)cell withObject:(id)object{
+- (nullable UITableViewCell *)tableViewFetchedResultsAdapter:(MMSTableViewFetchedResultsAdapter *)tableViewFetchedResultsAdapter cellForObject:(id)object atIndexPath:(NSIndexPath *)indexPath{
     Venue *venue = (Venue *)object;
     id i = venue.timestamp;
     id a = venue.managedObjectContext;
-    cell.textLabel.text = venue.timestamp.description;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld Events", venue.events.count];
+    
+    MMSObjectTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    cell.cellObject = object;
+    //cell.textLabel.text = venue.timestamp.description;
+    //cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld Events", venue.events.count];
+    return cell;
 }
 
 - (NSManagedObjectContext *)managedObjectContext{
@@ -49,7 +54,7 @@
 }
 
 - (IBAction)refreshTapped:(id)sender{
-    Venue *object = self.tableViewFetchedResultsController.fetchedObjects.firstObject;
+    Venue *object = self.fetchedResultsController.fetchedObjects.firstObject;
     object.timestamp = NSDate.date;
     
     // Save the context.
@@ -81,6 +86,7 @@
 //}
 
 - (void)viewDidLoad {
+    NSParameterAssert(self.managedObjectContext);
     [super viewDidLoad];
     //NSAssert(self.persistentContainer, @"This view needs a persistent container.");
     // Do any additional setup after loading the view.
@@ -93,7 +99,8 @@
  //   self.fetchedResultsController.tableView = self.tableView;
     id a = self.view;
     id i = self.tableView;
-    self.tableViewFetchedResultsController = [self newFetchedResultsController];
+  //  self.tableViewFetchedResultsAdapter = [self newFetchedResultsController];
+    self.tableView.dataSource = self.tableViewFetchedResultsAdapter;
     
     [self configureView];
 }
@@ -159,7 +166,7 @@
     if([segue.identifier isEqualToString:@"show"]){
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        Venue *venue = [self.tableViewFetchedResultsController objectAtIndexPath:self.tableView.indexPathForSelectedRow];
+        Venue *venue = [self.fetchedResultsController objectAtIndexPath:self.tableView.indexPathForSelectedRow];
         MasterViewController *mvc = segue.destinationViewController;
         //mvc.persistentContainer = self.persistentContainer;
         mvc.masterItem = venue;
@@ -212,14 +219,24 @@
 //    }
 //}
 
+- (MMSTableViewFetchedResultsAdapter *)tableViewFetchedResultsAdapter{
+    if(_tableViewFetchedResultsAdapter){
+        return _tableViewFetchedResultsAdapter;
+    }
+    _tableViewFetchedResultsAdapter = [MMSTableViewFetchedResultsAdapter.alloc initWithTableView:self.tableView];
+    _tableViewFetchedResultsAdapter.fetchedResultsController = self.fetchedResultsController;
+    _tableViewFetchedResultsAdapter.delegate = self;
+    
+    return _tableViewFetchedResultsAdapter;
+}
 
-//- (NSFetchedResultsController<Venue *> *)fetchedResultsController {
-- (MMSTableViewFetchedResultsController *)newFetchedResultsController{
+- (NSFetchedResultsController<Venue *> *)fetchedResultsController {
+//- (MMSTableViewFetchedResultsAdapter *)newFetchedResultsController{
     NSParameterAssert(self.managedObjectContext);
-    //return nil;
-//    if (_fetchedResultsController) {
-//        return _fetchedResultsController;
-//    }
+//    return nil;
+    if (_fetchedResultsController) {
+        return _fetchedResultsController;
+    }
 //- (void)createFetchedResultsController{
     NSFetchRequest<Venue *> *fetchRequest = Venue.fetchRequest;
   //  fetchRequest.predicate = [NSPredicate predicateWithFormat:@"timestamp = nil"];
@@ -233,29 +250,33 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    MMSTableViewFetchedResultsController *fetchedResultsController = [[MMSTableViewFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil tableView:self.tableView];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     //fetchedResultsController.delegate = self;
     
-//    NSError *error = nil;
-//    if (![fetchedResultsController performFetch:&error]) {
-//        // Replace this implementation with code to handle the error appropriately.
-//        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-//        abort();
-//    }
+    NSError *error = nil;
+    if (![_fetchedResultsController performFetch:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+        abort();
+    }
     
      //   self.fetchedResultsController = aFetchedResultsController;
    
-    return fetchedResultsController;
+    return _fetchedResultsController;
 //    self.fetchedResultsController = fetchedResultsController;
 }
 
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller{
-    [super controllerDidChangeContent:controller];
+ //   [super controllerDidChangeContent:controller];
     [self configureView];
  //   [self updateMaster];
 }
+
+//- (void)updateCell:(UITableViewCell *)cell withObject:(id)object forKeyPath:(NSString *)keypath{
+//    
+//}
 
 #pragma mark - UIStateRestoration
 

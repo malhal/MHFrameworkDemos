@@ -10,7 +10,7 @@
 #import "DetailViewController.h"
 #import "AppController.h"
 
-@interface MasterViewController () //<MMSTableViewFetchedResultsCellUpdating>//, UIViewControllerRestoration> // MUIFetchedTableViewControllerDelegate, MCDManagedObjectChangeControllerDelegate
+@interface MasterViewController () <MMSTableViewFetchedResultsAdapterDelegate>//, UIViewControllerRestoration> // MUIFetchedTableViewControllerDelegate, MCDManagedObjectChangeControllerDelegate
 
 @property (strong, nonatomic, null_resettable) MMSManagedObjectChangeController *masterItemChangeController;
 //@property (strong, nonatomic) MUIFetchedTableViewController *fetchedTableViewController;
@@ -20,16 +20,31 @@
 @property (strong, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
 //@property (strong, nonatomic) FetchedResultsViewUpdater *fetchedResultsViewUpdater;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) MMSTableViewFetchedResultsAdapter *tableViewFetchedResultsAdapter;
 
 @end
 
 
 @implementation MasterViewController
 
-- (void)tableViewFetchedResultsController:(MMSTableViewFetchedResultsController *)tableViewFetchedResultsController updateCell:(UITableViewCell *)cell withObject:(id)object{
-    Event *event = (Event *)object;
-    cell.textLabel.text = event.timestamp.description;
+
+- (nullable UITableViewCell *)tableViewFetchedResultsAdapter:(MMSTableViewFetchedResultsAdapter *)tableViewFetchedResultsAdapter cellForObject:(id)object atIndexPath:(NSIndexPath *)indexPath{
+//    Venue *venue = (Venue *)object;
+//    id i = venue.timestamp;
+//    id a = venue.managedObjectContext;
+    
+    MMSObjectTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    cell.cellObject = object;
+    //cell.textLabel.text = venue.timestamp.description;
+    //cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld Events", venue.events.count];
+    return cell;
 }
+
+//- (void)tableViewFetchedResultsAdapter:(MMSTableViewFetchedResultsAdapter *)tableViewFetchedResultsAdapter updateCell:(UITableViewCell *)cell withObject:(id)object{
+//    Event *event = (Event *)object;
+//    cell.textLabel.text = event.timestamp.description;
+//}
 
 - (void)insertNewObject:(id)sender {
    
@@ -56,6 +71,7 @@
 }
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
      // Do any additional setup after loading the view.
         //self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -82,10 +98,11 @@
     //self.fetchedTableViewController.tableView.dataSource = self; // these can't be done until the self.fetchedTableViewController is set so the forwarding works.
    // self.fetchedResultsController.tableView = self.tableView;
     
+    self.tableView.dataSource = self.tableViewFetchedResultsAdapter;
 
 
     //self.tableViewFetchedResultsUpdater = [MMSFetchedResultsTableViewController.alloc initWithTableViewFetchedResultsController:self.fetchedResultsController];
-    self.tableViewFetchedResultsController = [self newFetchedResultsController];
+   // self.tableViewFetchedResultsAdapter = [self newFetchedResultsController];
     
    // [self configureView];
 }
@@ -106,18 +123,28 @@
 
 #pragma mark - Fetched results controller
 
-- (MMSTableViewFetchedResultsController *)newFetchedResultsController {
+- (MMSTableViewFetchedResultsAdapter *)tableViewFetchedResultsAdapter{
+    if(_tableViewFetchedResultsAdapter){
+        return _tableViewFetchedResultsAdapter;
+    }
+    _tableViewFetchedResultsAdapter = [MMSTableViewFetchedResultsAdapter.alloc initWithTableView:self.tableView];
+    _tableViewFetchedResultsAdapter.fetchedResultsController = self.fetchedResultsController;
+    _tableViewFetchedResultsAdapter.delegate = self;
+    
+    return _tableViewFetchedResultsAdapter;
+}
+
+- (NSFetchedResultsController *)fetchedResultsController {
+//- (MMSTableViewFetchedResultsAdapter *)newFetchedResultsController {
 //- (void)createFetchedResultsController{
   //  id i = self.parentViewController;
     //NSPersistentContainer *pc = [self mcd_persistentContainerWithSender:self];
     //NSManagedObjectContext *moc = pc.viewContext;
     //    NSAssert(moc, @"createFetchedResultsController called without managedObjectContext");
-//    if (_fetchedResultsController) {
-//        return _fetchedResultsController;
-//    }
+    if (_fetchedResultsController) {
+        return _fetchedResultsController;
+    }
     
-//- (void)createFetchedResultsController{
-//- (void)createFetchedResultsControllerForFetchedTableViewController:(MUIFetchedTableViewController *)fetchedTableViewController{
     NSFetchRequest<Event *> *fetchRequest = Event.fetchRequest;
 
     // Set the batch size to a suitable number.
@@ -134,18 +161,18 @@
 
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    MMSTableViewFetchedResultsController *fetchedResultsController = [[MMSTableViewFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil tableView:self.tableView];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     //fetchedResultsController.delegate = self;
 
-//    NSError *error = nil;
-//    if (![fetchedResultsController performFetch:&error]) {
-//        // Replace this implementation with code to handle the error appropriately.
-//        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-//        abort();
-//    }
+    NSError *error = nil;
+    if (![_fetchedResultsController performFetch:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+        abort();
+    }
 
-    return fetchedResultsController;
+    return _fetchedResultsController;
 }
 
 - (IBAction)trashVenue:(id)sender{

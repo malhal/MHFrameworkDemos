@@ -7,8 +7,17 @@
 //
 //
 
-#import "Event+CoreDataClass.h"
+#import "Event.h"
 
 @implementation Event
+
++ (NSSet<NSString *> *)keyPathsForValuesAffectingTitle
+{
+    return [NSSet setWithObjects:@"timestamp", nil];
+}
+
+- (NSString *)title{
+    return self.timestamp.description;
+}
 
 @end

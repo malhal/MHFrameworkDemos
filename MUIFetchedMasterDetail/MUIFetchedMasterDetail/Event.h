@@ -9,12 +9,13 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <MMShared/MMShared.h>
 
 @class Venue;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Event : NSManagedObject
+@interface Event : NSManagedObject<MMSCellObject>
 
 @end
 
