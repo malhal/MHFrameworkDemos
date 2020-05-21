@@ -12,7 +12,7 @@
 
 @class DetailViewController, PersistentContainer;
 
-@interface MasterViewController : UITableViewController //<UIDataSourceModelAssociation>
+@interface MasterViewController : MMSFetchedResultsTableViewController //<UIDataSourceModelAssociation>
 
 //@property (strong, nonatomic) DetailViewController *detailViewController;
 

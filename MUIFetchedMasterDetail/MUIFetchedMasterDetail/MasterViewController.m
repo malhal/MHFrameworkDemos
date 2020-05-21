@@ -14,7 +14,6 @@
 @interface MasterViewController () //<MMSTableViewFetchedResultsCellUpdating>//, UIViewControllerRestoration> // MUIFetchedTableViewControllerDelegate, MCDManagedObjectChangeControllerDelegate
 
 @property (strong, nonatomic, null_resettable) MMSManagedObjectChangeController *masterItemChangeController;
-@property (strong, nonatomic, null_resettable) TableViewFetchedResultsController *fetchedResultsController;
 //@property (strong, nonatomic) MUIFetchedTableViewController *fetchedTableViewController;
 
 //@property (assign, nonatomic) BOOL isTopViewController;
@@ -22,9 +21,9 @@
 @property (strong, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
 //@property (strong, nonatomic) FetchedResultsViewUpdater *fetchedResultsViewUpdater;
-@property (strong, nonatomic) MMSTableViewFetchedResultsUpdater *tableViewFetchedResultsUpdater;
 
 @end
+
 
 @implementation MasterViewController
 
@@ -81,8 +80,8 @@
     
 
 
-    self.tableViewFetchedResultsUpdater = [MMSTableViewFetchedResultsUpdater.alloc initWithTableViewFetchedResultsController:self.fetchedResultsController];
-    
+    //self.tableViewFetchedResultsUpdater = [MMSFetchedResultsTableViewController.alloc initWithTableViewFetchedResultsController:self.fetchedResultsController];
+    self.tableViewFetchedResultsController = [self newFetchedResultsController];
     
    // [self configureView];
 }
@@ -103,15 +102,15 @@
 
 #pragma mark - Fetched results controller
 
-- (NSFetchedResultsController<Event *> *)fetchedResultsController {
+- (TableViewFetchedResultsController *)newFetchedResultsController {
 //- (void)createFetchedResultsController{
   //  id i = self.parentViewController;
     //NSPersistentContainer *pc = [self mcd_persistentContainerWithSender:self];
     //NSManagedObjectContext *moc = pc.viewContext;
     //    NSAssert(moc, @"createFetchedResultsController called without managedObjectContext");
-    if (_fetchedResultsController) {
-        return _fetchedResultsController;
-    }
+//    if (_fetchedResultsController) {
+//        return _fetchedResultsController;
+//    }
     
 //- (void)createFetchedResultsController{
 //- (void)createFetchedResultsControllerForFetchedTableViewController:(MUIFetchedTableViewController *)fetchedTableViewController{
@@ -131,18 +130,18 @@
 
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    _fetchedResultsController = [[TableViewFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil tableView:self.tableView];
+    TableViewFetchedResultsController *fetchedResultsController = [[TableViewFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil tableView:self.tableView];
     //fetchedResultsController.delegate = self;
 
-    NSError *error = nil;
-    if (![_fetchedResultsController performFetch:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-        abort();
-    }
+//    NSError *error = nil;
+//    if (![fetchedResultsController performFetch:&error]) {
+//        // Replace this implementation with code to handle the error appropriately.
+//        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+//        abort();
+//    }
 
-    return _fetchedResultsController;
+    return fetchedResultsController;
 }
 
 - (IBAction)trashVenue:(id)sender{

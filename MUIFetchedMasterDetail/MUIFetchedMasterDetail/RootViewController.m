@@ -17,8 +17,7 @@
 
 @property (strong, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
-@property (strong, nonatomic) TableViewFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) MMSTableViewFetchedResultsUpdater *tableViewFetchedResultsUpdater;
+//@property (strong, nonatomic) TableViewFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -31,7 +30,7 @@
 }
 
 - (IBAction)pauseTapped:(id)sender{
-    self.fetchedResultsController.delegate = nil;
+   // self.fetchedResultsController.delegate = nil;
 }
 
 - (IBAction)playTapped:(id)sender{
@@ -43,7 +42,7 @@
 }
 
 - (IBAction)refreshTapped:(id)sender{
-    Venue *object = self.fetchedResultsController.fetchedObjects.firstObject;
+    Venue *object = self.tableViewFetchedResultsController.fetchedObjects.firstObject;
     object.timestamp = NSDate.date;
     
     // Save the context.
@@ -85,8 +84,9 @@
     //self.fetchedResultsViewUpdater.fetchedResultsController = self.fetchedResultsController;
    // self.fetchedResultsViewUpdater.cellUpdater = self;
  //   self.fetchedResultsController.tableView = self.tableView;
-
-    self.tableViewFetchedResultsUpdater = [MMSTableViewFetchedResultsUpdater.alloc initWithTableViewFetchedResultsController:self.fetchedResultsController];
+    id a = self.view;
+    id i = self.tableView;
+    self.tableViewFetchedResultsController = [self newFetchedResultsController];
     
     [self configureView];
 }
@@ -152,7 +152,7 @@
     if([segue.identifier isEqualToString:@"show"]){
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        Venue *venue = [self.fetchedResultsController objectAtIndexPath:self.tableView.indexPathForSelectedRow];
+        Venue *venue = [self.tableViewFetchedResultsController objectAtIndexPath:self.tableView.indexPathForSelectedRow];
         MasterViewController *mvc = segue.destinationViewController;
         //mvc.persistentContainer = self.persistentContainer;
         mvc.masterItem = venue;
@@ -206,12 +206,13 @@
 //}
 
 
-- (NSFetchedResultsController<Venue *> *)fetchedResultsController {
+//- (NSFetchedResultsController<Venue *> *)fetchedResultsController {
+- (TableViewFetchedResultsController *)newFetchedResultsController{
     NSParameterAssert(self.managedObjectContext);
     //return nil;
-    if (_fetchedResultsController) {
-        return _fetchedResultsController;
-    }
+//    if (_fetchedResultsController) {
+//        return _fetchedResultsController;
+//    }
 //- (void)createFetchedResultsController{
     NSFetchRequest<Venue *> *fetchRequest = Venue.fetchRequest;
   //  fetchRequest.predicate = [NSPredicate predicateWithFormat:@"timestamp = nil"];
@@ -225,26 +226,26 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    _fetchedResultsController = [[TableViewFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil tableView:self.tableView];
+    TableViewFetchedResultsController *fetchedResultsController = [[TableViewFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil tableView:self.tableView];
     //fetchedResultsController.delegate = self;
     
-    NSError *error = nil;
-    if (![_fetchedResultsController performFetch:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-        abort();
-    }
+//    NSError *error = nil;
+//    if (![fetchedResultsController performFetch:&error]) {
+//        // Replace this implementation with code to handle the error appropriately.
+//        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+//        abort();
+//    }
     
      //   self.fetchedResultsController = aFetchedResultsController;
    
-    return _fetchedResultsController;
+    return fetchedResultsController;
 //    self.fetchedResultsController = fetchedResultsController;
 }
 
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller{
- //   [super controllerDidChangeContent:controller];
+    [super controllerDidChangeContent:controller];
     [self configureView];
  //   [self updateMaster];
 }

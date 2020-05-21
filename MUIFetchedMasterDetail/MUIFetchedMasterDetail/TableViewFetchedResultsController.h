@@ -12,9 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TableViewFetchedResultsController : MMSTableViewFetchedResultsController
 
-
-
-
 @end
 
 NS_ASSUME_NONNULL_END
