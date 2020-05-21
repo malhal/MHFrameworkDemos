@@ -9,7 +9,6 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "AppController.h"
-#import "TableViewFetchedResultsController.h"
 
 @interface MasterViewController () //<MMSTableViewFetchedResultsCellUpdating>//, UIViewControllerRestoration> // MUIFetchedTableViewControllerDelegate, MCDManagedObjectChangeControllerDelegate
 
@@ -26,6 +25,11 @@
 
 
 @implementation MasterViewController
+
+- (void)tableViewFetchedResultsController:(MMSTableViewFetchedResultsController *)tableViewFetchedResultsController updateCell:(UITableViewCell *)cell withObject:(id)object{
+    Event *event = (Event *)object;
+    cell.textLabel.text = event.timestamp.description;
+}
 
 - (void)insertNewObject:(id)sender {
    
@@ -102,7 +106,7 @@
 
 #pragma mark - Fetched results controller
 
-- (TableViewFetchedResultsController *)newFetchedResultsController {
+- (MMSTableViewFetchedResultsController *)newFetchedResultsController {
 //- (void)createFetchedResultsController{
   //  id i = self.parentViewController;
     //NSPersistentContainer *pc = [self mcd_persistentContainerWithSender:self];
@@ -130,7 +134,7 @@
 
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    TableViewFetchedResultsController *fetchedResultsController = [[TableViewFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil tableView:self.tableView];
+    MMSTableViewFetchedResultsController *fetchedResultsController = [[MMSTableViewFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil tableView:self.tableView];
     //fetchedResultsController.delegate = self;
 
 //    NSError *error = nil;

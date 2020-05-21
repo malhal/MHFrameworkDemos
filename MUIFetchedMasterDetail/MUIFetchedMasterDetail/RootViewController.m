@@ -10,7 +10,6 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "AppController.h"
-#import "TableViewFetchedResultsController.h"
 
 @interface RootViewController ()//<MMSTableViewFetchedResultsCellUpdating>
 
@@ -23,6 +22,14 @@
 
 @implementation RootViewController
 //@dynamic fetchedResultsController;
+
+- (void)tableViewFetchedResultsController:(MMSTableViewFetchedResultsController *)tableViewFetchedResultsController updateCell:(UITableViewCell *)cell withObject:(id)object{
+    Venue *venue = (Venue *)object;
+    id i = venue.timestamp;
+    id a = venue.managedObjectContext;
+    cell.textLabel.text = venue.timestamp.description;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld Events", venue.events.count];
+}
 
 - (NSManagedObjectContext *)managedObjectContext{
     AppController *appController = (AppController *)UIApplication.sharedApplication.delegate;
@@ -207,7 +214,7 @@
 
 
 //- (NSFetchedResultsController<Venue *> *)fetchedResultsController {
-- (TableViewFetchedResultsController *)newFetchedResultsController{
+- (MMSTableViewFetchedResultsController *)newFetchedResultsController{
     NSParameterAssert(self.managedObjectContext);
     //return nil;
 //    if (_fetchedResultsController) {
@@ -226,7 +233,7 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    TableViewFetchedResultsController *fetchedResultsController = [[TableViewFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil tableView:self.tableView];
+    MMSTableViewFetchedResultsController *fetchedResultsController = [[MMSTableViewFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil tableView:self.tableView];
     //fetchedResultsController.delegate = self;
     
 //    NSError *error = nil;
