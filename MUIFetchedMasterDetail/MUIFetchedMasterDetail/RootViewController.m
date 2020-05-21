@@ -10,11 +10,15 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "AppController.h"
+#import "TableViewFetchedResultsController.h"
 
-@interface RootViewController ()<MMSTableViewFetchAdapterCellUpdating>
+@interface RootViewController ()//<MMSTableViewFetchedResultsCellUpdating>
 
-@property (strong, nonatomic) MMSTableViewFetchAdapter *venuesTableViewAdapter;
+
 @property (strong, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
+
+@property (strong, nonatomic) TableViewFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) MMSTableViewFetchedResultsUpdater *tableViewFetchedResultsUpdater;
 
 @end
 
@@ -77,12 +81,17 @@
  //   [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(navigationControllerDidShowViewController:) name:MUINavigationControllerDidShowViewControllerNotification object:self.navigationController];
  //   [self createFetchedResultsController];
     
-    self.venuesTableViewAdapter = [MMSTableViewFetchAdapter.alloc initWithTableView:self.tableView];
-    self.venuesTableViewAdapter.fetchedResultsController = self.fetchedResultsController;
-    self.venuesTableViewAdapter.cellUpdater = self;
+    //self.fetchedResultsViewUpdater = [FetchedResultsViewUpdater.alloc initWithTableView:self.tableView];
+    //self.fetchedResultsViewUpdater.fetchedResultsController = self.fetchedResultsController;
+   // self.fetchedResultsViewUpdater.cellUpdater = self;
+ //   self.fetchedResultsController.tableView = self.tableView;
+
+    self.tableViewFetchedResultsUpdater = [MMSTableViewFetchedResultsUpdater.alloc initWithTableViewFetchedResultsController:self.fetchedResultsController];
     
     [self configureView];
 }
+
+
 
 - (void)viewWillAppear:(BOOL)animated{
     //self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed;
@@ -130,7 +139,7 @@
 
 #pragma mark - data
 
-//- (void)tableViewFetchAdapter:(MMSTableViewFetchAdapter *)tableViewFetchAdapter configureCell:(UITableViewCell *)cell withObject:(NSManagedObject *)object{
+//- (void)fetchedResultsViewUpdater:(MMSTableViewFetchedResults *)fetchedResultsViewUpdater configureCell:(UITableViewCell *)cell withObject:(NSManagedObject *)object{
 //- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //Venue *venue = (Venue *)object;
 
@@ -198,9 +207,9 @@
 
 
 - (NSFetchedResultsController<Venue *> *)fetchedResultsController {
-    NSAssert(self.managedObjectContext, @"fetchedResultsController called without managedObjectContext set");
+    NSParameterAssert(self.managedObjectContext);
     //return nil;
-    if (_fetchedResultsController != nil) {
+    if (_fetchedResultsController) {
         return _fetchedResultsController;
     }
 //- (void)createFetchedResultsController{
@@ -216,19 +225,19 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    _fetchedResultsController = [[TableViewFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil tableView:self.tableView];
     //fetchedResultsController.delegate = self;
     
     NSError *error = nil;
-    if (![fetchedResultsController performFetch:&error]) {
+    if (![_fetchedResultsController performFetch:&error]) {
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }
+    
      //   self.fetchedResultsController = aFetchedResultsController;
    
-_fetchedResultsController = fetchedResultsController;
     return _fetchedResultsController;
 //    self.fetchedResultsController = fetchedResultsController;
 }
@@ -268,13 +277,9 @@ _fetchedResultsController = fetchedResultsController;
     //[self updateMaster];
 }
 
-- (void)tableViewFetchAdapter:(MMSTableViewFetchAdapter *)tableViewFetchAdapter updateCell:(UITableViewCell *)cell withObject:(id)object{
-    Venue *venue = (Venue *)object;
-    id i = venue.timestamp;
-    id a = venue.managedObjectContext;
-    cell.textLabel.text = venue.timestamp.description;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld Events", venue.events.count];
-}
+//- (void)fetchedResultsViewUpdater:(MMSTableViewFetchedResults *)fetchedResultsViewUpdater updateCell:(UITableViewCell *)cell withObject:(id)object{
+//
+//}
 
 @end
 

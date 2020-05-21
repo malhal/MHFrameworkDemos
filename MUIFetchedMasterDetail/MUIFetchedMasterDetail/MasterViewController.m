@@ -9,18 +9,20 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "AppController.h"
+#import "TableViewFetchedResultsController.h"
 
-@interface MasterViewController () <MMSTableViewFetchAdapterCellUpdating>//, UIViewControllerRestoration> // MUIFetchedTableViewControllerDelegate, MCDManagedObjectChangeControllerDelegate
+@interface MasterViewController () //<MMSTableViewFetchedResultsCellUpdating>//, UIViewControllerRestoration> // MUIFetchedTableViewControllerDelegate, MCDManagedObjectChangeControllerDelegate
 
 @property (strong, nonatomic, null_resettable) MMSManagedObjectChangeController *masterItemChangeController;
-@property (strong, nonatomic, null_resettable) NSFetchedResultsController<Event *> *fetchedResultsController;
+@property (strong, nonatomic, null_resettable) TableViewFetchedResultsController *fetchedResultsController;
 //@property (strong, nonatomic) MUIFetchedTableViewController *fetchedTableViewController;
 
 //@property (assign, nonatomic) BOOL isTopViewController;
 @property (strong, nonatomic) UIBarButtonItem *addButton;
 @property (strong, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
-@property (strong, nonatomic) MMSTableViewFetchAdapter *eventsTableViewAdapter;
+//@property (strong, nonatomic) FetchedResultsViewUpdater *fetchedResultsViewUpdater;
+@property (strong, nonatomic) MMSTableViewFetchedResultsUpdater *tableViewFetchedResultsUpdater;
 
 @end
 
@@ -52,28 +54,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.eventsTableViewAdapter = [MMSTableViewFetchAdapter.alloc initWithTableView:self.tableView];
-    self.eventsTableViewAdapter.fetchedResultsController = self.fetchedResultsController;
-    self.eventsTableViewAdapter.cellUpdater = self;
-    //NSAssert(self.mui_persistentContainer, @"requires persistentContainer");
-    
-    // Do any additional setup after loading the view.
-    //self.navigationItem.leftBarButtonItem = self.editButtonItem;
+     // Do any additional setup after loading the view.
+        //self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-//    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(buttonTapped:)];
-    NSArray *rightBarButtonItems = @[self.addButton, self.editButtonItem]; // button
-//    [rightBarButtonItems enumerateObjectsUsingBlock:^(UIBarButtonItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        //obj.enabled = NO;
-//    }];
-    self.navigationItem.rightBarButtonItems = rightBarButtonItems;
+        self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    //    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(buttonTapped:)];
+        NSArray *rightBarButtonItems = @[self.addButton, self.editButtonItem]; // button
+    //    [rightBarButtonItems enumerateObjectsUsingBlock:^(UIBarButtonItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    //        //obj.enabled = NO;
+    //    }];
+        self.navigationItem.rightBarButtonItems = rightBarButtonItems;
+        
+       
+    
+   // self.fetchedResultsViewUpdater = [FetchedResultsViewUpdater.alloc initWithTableView:self.tableView];
+  //  self.fetchedResultsViewUpdater.fetchedResultsController = self.fetchedResultsController;
+   // self.fetchedResultsViewUpdater.cellUpdater = self;
+    //NSAssert(self.mui_persistentContainer, @"requires persistentContainer");
     
    
     
     //self.fetchedTableViewController.fetchedResultsController = self.fetchedResultsController;
     //self.fetchedTableViewController.tableView.delegate = self;
     //self.fetchedTableViewController.tableView.dataSource = self; // these can't be done until the self.fetchedTableViewController is set so the forwarding works.
+   // self.fetchedResultsController.tableView = self.tableView;
+    
+
+
+    self.tableViewFetchedResultsUpdater = [MMSTableViewFetchedResultsUpdater.alloc initWithTableViewFetchedResultsController:self.fetchedResultsController];
+    
     
    // [self configureView];
 }
@@ -100,37 +109,39 @@
     //NSPersistentContainer *pc = [self mcd_persistentContainerWithSender:self];
     //NSManagedObjectContext *moc = pc.viewContext;
     //    NSAssert(moc, @"createFetchedResultsController called without managedObjectContext");
-    if (!_fetchedResultsController) {
-        
-    //- (void)createFetchedResultsController{
-    //- (void)createFetchedResultsControllerForFetchedTableViewController:(MUIFetchedTableViewController *)fetchedTableViewController{
-        NSFetchRequest<Event *> *fetchRequest = Event.fetchRequest;
-
-        // Set the batch size to a suitable number.
-        [fetchRequest setFetchBatchSize:20];
-
-        // Edit the sort key as appropriate.
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:NO];
-
-        [fetchRequest setSortDescriptors:@[sortDescriptor]];
-
-        if(self.masterItem){
-            fetchRequest.predicate = [NSPredicate predicateWithFormat:@"venue = %@", self.masterItem];
-        }
-
-        // Edit the section name key path and cache name if appropriate.
-        // nil for section name key path means "no sections".
-        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-        //fetchedResultsController.delegate = self;
-
-        NSError *error = nil;
-        if (![_fetchedResultsController performFetch:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-            abort();
-        }
+    if (_fetchedResultsController) {
+        return _fetchedResultsController;
     }
+    
+//- (void)createFetchedResultsController{
+//- (void)createFetchedResultsControllerForFetchedTableViewController:(MUIFetchedTableViewController *)fetchedTableViewController{
+    NSFetchRequest<Event *> *fetchRequest = Event.fetchRequest;
+
+    // Set the batch size to a suitable number.
+    [fetchRequest setFetchBatchSize:20];
+
+    // Edit the sort key as appropriate.
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:NO];
+
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+
+    if(self.masterItem){
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"venue = %@", self.masterItem];
+    }
+
+    // Edit the section name key path and cache name if appropriate.
+    // nil for section name key path means "no sections".
+    _fetchedResultsController = [[TableViewFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil tableView:self.tableView];
+    //fetchedResultsController.delegate = self;
+
+    NSError *error = nil;
+    if (![_fetchedResultsController performFetch:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+        abort();
+    }
+
     return _fetchedResultsController;
 }
 
@@ -390,10 +401,10 @@
 }
 */
 
-- (void)tableViewFetchAdapter:(MMSTableViewFetchAdapter *)tableViewFetchAdapter updateCell:(UITableViewCell *)cell withObject:(id)object{
-    Event *event = (Event *)object;
-    cell.textLabel.text = event.timestamp.description;
-}
+//- (void)fetchedResultsViewUpdater:(MMSTableViewFetchedResults *)fetchedResultsViewUpdater updateCell:(UITableViewCell *)cell withObject:(id)object{
+//    Event *event = (Event *)object;
+//    cell.textLabel.text = event.timestamp.description;
+//}
 
 @end
 

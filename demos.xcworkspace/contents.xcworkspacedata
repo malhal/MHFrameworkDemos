@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:shared/MMShared/MMShared.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:MMKDemo.xcodeproj">
    </FileRef>
    <FileRef
@@ -18,6 +15,9 @@
    </FileRef>
    <FileRef
       location = "group:MUIFetchedMasterDetail/MUIFetchedMasterDetail.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:shared/MMShared/MMShared.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:MUIMasterDetail.xcodeproj">

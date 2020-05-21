@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 //@property (strong, nonatomic) MasterViewController *masterViewController;
-@property (strong, nonatomic) NSFetchedResultsController<Venue *> *fetchedResultsController;
+
 
 
 

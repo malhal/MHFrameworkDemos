@@ -20,6 +20,7 @@
 		ECA2306C2473EA2B000BADDC /* MMShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ECA230692473EA1D000BADDC /* MMShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ECA2306F24740CBA000BADDC /* MMShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA230692473EA1D000BADDC /* MMShared.framework */; };
 		ECC30B4623DB2221008E485B /* SplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC30B4123DB2221008E485B /* SplitViewController.m */; };
+		ECEB7C7324766731008BE10A /* TableViewFetchedResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEB7C7224766731008BE10A /* TableViewFetchedResultsController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,8 @@
 		ECA230632473EA1D000BADDC /* MMShared.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MMShared.xcodeproj; path = ../shared/MMShared/MMShared.xcodeproj; sourceTree = "<group>"; };
 		ECC30B4123DB2221008E485B /* SplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitViewController.m; sourceTree = "<group>"; };
 		ECC30B4523DB2221008E485B /* SplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitViewController.h; sourceTree = "<group>"; };
+		ECEB7C7124766731008BE10A /* TableViewFetchedResultsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewFetchedResultsController.h; sourceTree = "<group>"; };
+		ECEB7C7224766731008BE10A /* TableViewFetchedResultsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewFetchedResultsController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,8 @@
 				EC560F84232B92930072A1B6 /* RootViewController.m */,
 				EC2CDBC822B6BA0500F9C25F /* MasterViewController.h */,
 				EC2CDBC922B6BA0500F9C25F /* MasterViewController.m */,
+				ECEB7C7124766731008BE10A /* TableViewFetchedResultsController.h */,
+				ECEB7C7224766731008BE10A /* TableViewFetchedResultsController.m */,
 				EC2CDBCB22B6BA0500F9C25F /* DetailViewController.h */,
 				EC2CDBCC22B6BA0500F9C25F /* DetailViewController.m */,
 				EC2CDBCE22B6BA0500F9C25F /* Main.storyboard */,
@@ -251,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECEB7C7324766731008BE10A /* TableViewFetchedResultsController.m in Sources */,
 				EC2CDBD822B6BA0600F9C25F /* main.m in Sources */,
 				EC560F85232B92930072A1B6 /* RootViewController.m in Sources */,
 				EC2CDBC722B6BA0500F9C25F /* MUIFetchedMasterDetail.xcdatamodeld in Sources */,
