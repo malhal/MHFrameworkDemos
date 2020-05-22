@@ -67,7 +67,7 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="dgX-kU-KEB" id="eyP-Xt-kF7"/>
+                            <outlet property="dataSource" destination="QST-cv-3sF" id="uQs-Mt-aLU"/>
                             <outlet property="delegate" destination="QST-cv-3sF" id="Zfq-iG-7tu"/>
                         </connections>
                     </tableView>
@@ -98,17 +98,8 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="tableViewFetchedResultsAdapter" destination="dgX-kU-KEB" id="5vq-Zz-7Ub"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eDf-No-3yA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <customObject id="dgX-kU-KEB" customClass="MMSTableViewFetchedResultsAdapter">
-                    <connections>
-                        <outlet property="delegate" destination="QST-cv-3sF" id="sLc-lq-Pad"/>
-                        <outlet property="tableViewController" destination="QST-cv-3sF" id="3zL-7p-rB9"/>
-                    </connections>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="727" y="-640"/>
         </scene>
@@ -121,7 +112,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="ixb-R2-QJL" style="IBUITableViewCellStyleDefault" id="QYz-45-7De" customClass="MMSObjectTableViewCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="ixb-R2-QJL" style="IBUITableViewCellStyleDefault" id="QYz-45-7De">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QYz-45-7De" id="zES-Fv-J97">
@@ -143,7 +134,7 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="kua-Hr-kLF" id="o2d-K9-xdY"/>
+                            <outlet property="dataSource" destination="Vmf-XO-Dtx" id="bUc-g3-DQ9"/>
                             <outlet property="delegate" destination="Vmf-XO-Dtx" id="dNG-oF-Z3i"/>
                         </connections>
                     </tableView>
@@ -162,16 +153,8 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="QIP-Kl-UaH"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="tableViewFetchedResultsAdapter" destination="kua-Hr-kLF" id="Rdw-Dt-ViU"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fB9-aq-Gxi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <customObject id="kua-Hr-kLF" customClass="MMSTableViewFetchedResultsAdapter">
-                    <connections>
-                        <outlet property="tableViewController" destination="Vmf-XO-Dtx" id="VtQ-G9-mQO"/>
-                    </connections>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="1673" y="-640"/>
         </scene>

@@ -10,7 +10,7 @@
 #import "DetailViewController.h"
 #import "AppController.h"
 
-@interface MasterViewController () <NSFetchedResultsControllerDelegate>//, UIViewControllerRestoration> // MUIFetchedTableViewControllerDelegate, MCDManagedObjectChangeControllerDelegate
+@interface MasterViewController () // <NSFetchedResultsControllerDelegate>//, UIViewControllerRestoration> // MUIFetchedTableViewControllerDelegate, MCDManagedObjectChangeControllerDelegate
 
 @property (strong, nonatomic, null_resettable) MMSManagedObjectChangeController *masterItemChangeController;
 //@property (strong, nonatomic) MUIFetchedTableViewController *fetchedTableViewController;
@@ -20,7 +20,7 @@
 @property (strong, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
 //@property (strong, nonatomic) FetchedResultsViewUpdater *fetchedResultsViewUpdater;
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+//@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -33,17 +33,18 @@
 //    id i = venue.timestamp;
 //    id a = venue.managedObjectContext;
     Event *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    MMSObjectTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.cellObject = object;
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    [self updateCell:cell withObject:object];
+    //cell.cellObject = object;
     //cell.textLabel.text = venue.timestamp.description;
     //cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld Events", venue.events.count];
     return cell;
 }
 
-//- (void)tableViewFetchedResultsAdapter:(MMSTableViewFetchedResultsAdapter *)tableViewFetchedResultsAdapter updateCell:(UITableViewCell *)cell withObject:(id)object{
-//    Event *event = (Event *)object;
-//    cell.textLabel.text = event.timestamp.description;
-//}
+- (void)updateCell:(UITableViewCell *)cell withObject:(Event *)object{
+    Event *event = (Event *)object;
+    cell.textLabel.text = event.timestamp.description;
+}
 
 - (void)insertNewObject:(id)sender {
    
@@ -98,7 +99,7 @@
    // self.fetchedResultsController.tableView = self.tableView;
     
     //self.tableView.dataSource = self.tableViewFetchedResultsAdapter;
-    self.tableViewFetchedResultsAdapter.fetchedResultsController = self.fetchedResultsController;
+  //  self.tableViewFetchedResultsAdapter.fetchedResultsController = self.fetchedResultsController;
 
     //self.tableViewFetchedResultsUpdater = [MMSFetchedResultsTableViewController.alloc initWithTableViewFetchedResultsController:self.fetchedResultsController];
    // self.tableViewFetchedResultsAdapter = [self newFetchedResultsController];
@@ -140,8 +141,9 @@
     //NSPersistentContainer *pc = [self mcd_persistentContainerWithSender:self];
     //NSManagedObjectContext *moc = pc.viewContext;
     //    NSAssert(moc, @"createFetchedResultsController called without managedObjectContext");
-    if (_fetchedResultsController) {
-        return _fetchedResultsController;
+    NSFetchedResultsController *fetchedResultsController = super.fetchedResultsController;
+    if (fetchedResultsController) {
+        return fetchedResultsController;
     }
     
     NSFetchRequest<Event *> *fetchRequest = Event.fetchRequest;
@@ -160,18 +162,18 @@
 
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-    _fetchedResultsController.delegate = self;
+    fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    fetchedResultsController.delegate = self;
 
     NSError *error = nil;
-    if (![_fetchedResultsController performFetch:&error]) {
+    if (![fetchedResultsController performFetch:&error]) {
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }
-
-    return _fetchedResultsController;
+    super.fetchedResultsController = fetchedResultsController;
+    return fetchedResultsController;
 }
 
 - (IBAction)trashVenue:(id)sender{
