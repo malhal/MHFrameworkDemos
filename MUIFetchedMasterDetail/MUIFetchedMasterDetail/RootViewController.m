@@ -11,29 +11,46 @@
 #import "DetailViewController.h"
 #import "AppController.h"
 
-@interface RootViewController () <MMSTableViewFetchedResultsAdapterDelegate>
-
+@interface RootViewController () <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) MMSTableViewFetchedResultsAdapter *tableViewFetchedResultsAdapter;
+
+//@property (strong, nonatomic) TableView *tableView;
 
 @end
 
 @implementation RootViewController
 //@dynamic fetchedResultsController;
 
-- (nullable UITableViewCell *)tableViewFetchedResultsAdapter:(MMSTableViewFetchedResultsAdapter *)tableViewFetchedResultsAdapter cellForObject:(id)object atIndexPath:(NSIndexPath *)indexPath{
-    Venue *venue = (Venue *)object;
-    id i = venue.timestamp;
-    id a = venue.managedObjectContext;
-    
-    MMSObjectTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.cellObject = object;
-    //cell.textLabel.text = venue.timestamp.description;
+
+//- (nullable UITableViewCell *)tableViewFetchedResultsAdapter:(MMSTableViewFetchedResultsAdapter *)tableViewFetchedResultsAdapter cellForObject:(id)object atIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    //Venue *venue = (Venue *)object;
+    Venue *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    //MMSObjectTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    //cell.cellObject = venue;
+    [self configureCell:cell withObject:object];
     //cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld Events", venue.events.count];
     return cell;
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(NSManagedObject *)object
+ atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+newIndexPath:(NSIndexPath *)newIndexPath {
+    if(type == NSFetchedResultsChangeUpdate || type == NSFetchedResultsChangeMove){
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        if(cell){
+            [self configureCell:cell withObject:object];
+        }
+    }
+}
+
+- (void)configureCell:(UITableViewCell *)cell withObject:(Venue *)object{
+    cell.textLabel.text = object.title;
+    cell.detailTextLabel.text = object.subtitle;
 }
 
 - (NSManagedObjectContext *)managedObjectContext{
@@ -100,7 +117,8 @@
     id a = self.view;
     id i = self.tableView;
   //  self.tableViewFetchedResultsAdapter = [self newFetchedResultsController];
-    self.tableView.dataSource = self.tableViewFetchedResultsAdapter;
+    //self.tableView.dataSource = self.tableViewFetchedResultsAdapter;
+    self.tableViewFetchedResultsAdapter.fetchedResultsController = self.fetchedResultsController;
     
     [self configureView];
 }
@@ -110,7 +128,6 @@
 - (void)viewWillAppear:(BOOL)animated{
     //self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed;
     [super viewWillAppear:animated];
-    
 }
 
 - (void)configureView{
@@ -153,7 +170,7 @@
 
 #pragma mark - data
 
-//- (void)fetchedResultsViewUpdater:(MMSTableViewFetchedResults *)fetchedResultsViewUpdater configureCell:(UITableViewCell *)cell withObject:(NSManagedObject *)object{
+
 //- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //Venue *venue = (Venue *)object;
 
@@ -219,16 +236,16 @@
 //    }
 //}
 
-- (MMSTableViewFetchedResultsAdapter *)tableViewFetchedResultsAdapter{
-    if(_tableViewFetchedResultsAdapter){
-        return _tableViewFetchedResultsAdapter;
-    }
-    _tableViewFetchedResultsAdapter = [MMSTableViewFetchedResultsAdapter.alloc initWithTableView:self.tableView];
-    _tableViewFetchedResultsAdapter.fetchedResultsController = self.fetchedResultsController;
-    _tableViewFetchedResultsAdapter.delegate = self;
-    
-    return _tableViewFetchedResultsAdapter;
-}
+//- (MMSTableViewFetchedResultsAdapter *)tableViewFetchedResultsAdapter{
+//    if(_tableViewFetchedResultsAdapter){
+//        return _tableViewFetchedResultsAdapter;
+//    }
+//    _tableViewFetchedResultsAdapter = [MMSTableViewFetchedResultsAdapter.alloc init];//WithTableView:self.tableView];
+//    _tableViewFetchedResultsAdapter.fetchedResultsController = self.fetchedResultsController;
+//    _tableViewFetchedResultsAdapter.delegate = self;
+//    
+//    return _tableViewFetchedResultsAdapter;
+//}
 
 - (NSFetchedResultsController<Venue *> *)fetchedResultsController {
 //- (MMSTableViewFetchedResultsAdapter *)newFetchedResultsController{
@@ -251,7 +268,7 @@
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-    //fetchedResultsController.delegate = self;
+    //_fetchedResultsController.delegate = self;
     
     NSError *error = nil;
     if (![_fetchedResultsController performFetch:&error]) {
@@ -268,11 +285,11 @@
 }
 
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller{
- //   [super controllerDidChangeContent:controller];
-    [self configureView];
- //   [self updateMaster];
-}
+//- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller{
+//    [super controllerDidChangeContent:controller];
+// //   [self configureView];
+// //   [self updateMaster];
+//}
 
 //- (void)updateCell:(UITableViewCell *)cell withObject:(id)object forKeyPath:(NSString *)keypath{
 //    

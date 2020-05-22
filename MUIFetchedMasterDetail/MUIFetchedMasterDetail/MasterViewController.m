@@ -10,7 +10,7 @@
 #import "DetailViewController.h"
 #import "AppController.h"
 
-@interface MasterViewController () <MMSTableViewFetchedResultsAdapterDelegate>//, UIViewControllerRestoration> // MUIFetchedTableViewControllerDelegate, MCDManagedObjectChangeControllerDelegate
+@interface MasterViewController () <NSFetchedResultsControllerDelegate>//, UIViewControllerRestoration> // MUIFetchedTableViewControllerDelegate, MCDManagedObjectChangeControllerDelegate
 
 @property (strong, nonatomic, null_resettable) MMSManagedObjectChangeController *masterItemChangeController;
 //@property (strong, nonatomic) MUIFetchedTableViewController *fetchedTableViewController;
@@ -21,19 +21,18 @@
 
 //@property (strong, nonatomic) FetchedResultsViewUpdater *fetchedResultsViewUpdater;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) MMSTableViewFetchedResultsAdapter *tableViewFetchedResultsAdapter;
 
 @end
 
 
 @implementation MasterViewController
 
-
-- (nullable UITableViewCell *)tableViewFetchedResultsAdapter:(MMSTableViewFetchedResultsAdapter *)tableViewFetchedResultsAdapter cellForObject:(id)object atIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//- (nullable UITableViewCell *)tableViewFetchedResultsAdapter:(MMSTableViewFetchedResultsAdapter *)tableViewFetchedResultsAdapter cellForObject:(id)object atIndexPath:(NSIndexPath *)indexPath{
 //    Venue *venue = (Venue *)object;
 //    id i = venue.timestamp;
 //    id a = venue.managedObjectContext;
-    
+    Event *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     MMSObjectTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     cell.cellObject = object;
     //cell.textLabel.text = venue.timestamp.description;
@@ -98,8 +97,8 @@
     //self.fetchedTableViewController.tableView.dataSource = self; // these can't be done until the self.fetchedTableViewController is set so the forwarding works.
    // self.fetchedResultsController.tableView = self.tableView;
     
-    self.tableView.dataSource = self.tableViewFetchedResultsAdapter;
-
+    //self.tableView.dataSource = self.tableViewFetchedResultsAdapter;
+    self.tableViewFetchedResultsAdapter.fetchedResultsController = self.fetchedResultsController;
 
     //self.tableViewFetchedResultsUpdater = [MMSFetchedResultsTableViewController.alloc initWithTableViewFetchedResultsController:self.fetchedResultsController];
    // self.tableViewFetchedResultsAdapter = [self newFetchedResultsController];
@@ -123,16 +122,16 @@
 
 #pragma mark - Fetched results controller
 
-- (MMSTableViewFetchedResultsAdapter *)tableViewFetchedResultsAdapter{
-    if(_tableViewFetchedResultsAdapter){
-        return _tableViewFetchedResultsAdapter;
-    }
-    _tableViewFetchedResultsAdapter = [MMSTableViewFetchedResultsAdapter.alloc initWithTableView:self.tableView];
-    _tableViewFetchedResultsAdapter.fetchedResultsController = self.fetchedResultsController;
-    _tableViewFetchedResultsAdapter.delegate = self;
-    
-    return _tableViewFetchedResultsAdapter;
-}
+//- (MMSTableViewFetchedResultsAdapter *)tableViewFetchedResultsAdapter{
+//    if(_tableViewFetchedResultsAdapter){
+//        return _tableViewFetchedResultsAdapter;
+//    }
+//    _tableViewFetchedResultsAdapter = [MMSTableViewFetchedResultsAdapter.alloc init];//WithTableView:self.tableView];
+//    _tableViewFetchedResultsAdapter.fetchedResultsController = self.fetchedResultsController;
+//    _tableViewFetchedResultsAdapter.delegate = self;
+//
+//    return _tableViewFetchedResultsAdapter;
+//}
 
 - (NSFetchedResultsController *)fetchedResultsController {
 //- (MMSTableViewFetchedResultsAdapter *)newFetchedResultsController {
@@ -162,7 +161,7 @@
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-    //fetchedResultsController.delegate = self;
+    _fetchedResultsController.delegate = self;
 
     NSError *error = nil;
     if (![_fetchedResultsController performFetch:&error]) {

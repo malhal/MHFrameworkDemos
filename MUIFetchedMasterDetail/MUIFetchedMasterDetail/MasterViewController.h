@@ -21,6 +21,8 @@
 //@property (strong, nonatomic) Venue *masterItem;
 @property (strong, nonatomic) NSManagedObject *masterItem;
 
+@property (weak, nonatomic) IBOutlet MMSTableViewFetchedResultsAdapter *tableViewFetchedResultsAdapter;
+
 //- (instancetype)initWithCoder:(NSCoder *)coder masterItem:(Venue *)masterItem persistentContainer:(PersistentContainer *)persistentContainer;
 
 @end
