@@ -10,36 +10,78 @@
 #import "DetailViewController.h"
 #import "AppController.h"
 
-@interface MasterViewController () // <NSFetchedResultsControllerDelegate>//, UIViewControllerRestoration> // MUIFetchedTableViewControllerDelegate, MCDManagedObjectChangeControllerDelegate
+@interface MasterViewController () <MMSFetchedResultsTableViewController> // <NSFetchedResultsControllerDelegate>//, UIViewControllerRestoration> // MUIFetchedTableViewControllerDelegate, MCDManagedObjectChangeControllerDelegate
 
 @property (strong, nonatomic, null_resettable) MMSManagedObjectChangeController *masterItemChangeController;
-//@property (strong, nonatomic) MUIFetchedTableViewController *fetchedTableViewController;
 
 //@property (assign, nonatomic) BOOL isTopViewController;
 @property (strong, nonatomic) UIBarButtonItem *addButton;
 @property (strong, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
 //@property (strong, nonatomic) FetchedResultsViewUpdater *fetchedResultsViewUpdater;
-//@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) MMSFetchedResultsTableViewControllerImpl *fetchedResultsTableViewControllerImpl;
 
 @end
 
 
 @implementation MasterViewController
+@synthesize fetchedResultsController = _fetchedResultsController;
+
+- (instancetype)initWithCoder:(NSCoder *)coder{
+    self = [super initWithCoder:coder];
+    if (self) {
+        _fetchedResultsTableViewControllerImpl = [MMSFetchedResultsTableViewControllerImpl.alloc initWithTableViewController:self];
+    }
+    return self;
+}
+
+#pragma mark - Table Data
+
+- (id)forwardingTargetForSelector:(SEL)aSelector{
+   // if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDelegate), aSelector)){
+//        if([self.delegate respondsToSelector:aSelector]){
+//            return self.delegate;
+//        }
+ //   }
+    if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDataSource), aSelector)){
+        return self.fetchedResultsTableViewControllerImpl;
+    }
+    else if(MMSProtocolHasInstanceMethod(@protocol(NSFetchedResultsControllerDelegate), aSelector)){
+        return self.fetchedResultsTableViewControllerImpl;
+    }
+    return [super forwardingTargetForSelector:aSelector];
+}
+
+- (BOOL)respondsToSelector:(SEL)aSelector{
+    if([super respondsToSelector:aSelector]){
+        return YES;
+    }
+//    else if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDelegate), aSelector)){
+//        return [self.delegate respondsToSelector:aSelector];
+//    }
+    if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDataSource), aSelector)){
+        return [self.fetchedResultsTableViewControllerImpl respondsToSelector:aSelector];
+    }
+    else if(MMSProtocolHasInstanceMethod(@protocol(NSFetchedResultsControllerDelegate), aSelector)){
+        return [self.fetchedResultsTableViewControllerImpl respondsToSelector:aSelector];
+    }
+    return NO;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//- (nullable UITableViewCell *)tableViewFetchedResultsAdapter:(MMSTableViewFetchedResultsAdapter *)tableViewFetchedResultsAdapter cellForObject:(id)object atIndexPath:(NSIndexPath *)indexPath{
-//    Venue *venue = (Venue *)object;
-//    id i = venue.timestamp;
-//    id a = venue.managedObjectContext;
-    Event *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    [self updateCell:cell withObject:object];
-    //cell.cellObject = object;
-    //cell.textLabel.text = venue.timestamp.description;
-    //cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld Events", venue.events.count];
-    return cell;
+    return [self.fetchedResultsTableViewControllerImpl tableView:tableView cellForRowAtIndexPath:indexPath];
 }
+
+// must override the table view controller's impl
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return [self.fetchedResultsTableViewControllerImpl numberOfSectionsInTableView:tableView];
+}
+
+// must override the table view controller's impl
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [self.fetchedResultsTableViewControllerImpl tableView:tableView numberOfRowsInSection:section];
+}
+
 
 - (void)updateCell:(UITableViewCell *)cell withObject:(Event *)object{
     Event *event = (Event *)object;
@@ -98,11 +140,11 @@
     //self.fetchedTableViewController.tableView.dataSource = self; // these can't be done until the self.fetchedTableViewController is set so the forwarding works.
    // self.fetchedResultsController.tableView = self.tableView;
     
-    //self.tableView.dataSource = self.tableViewFetchedResultsAdapter;
-  //  self.tableViewFetchedResultsAdapter.fetchedResultsController = self.fetchedResultsController;
+    //self.tableView.dataSource = self.fetchedResultsTableViewControllerImpl;
+  //  self.fetchedResultsTableViewControllerImpl.fetchedResultsController = self.fetchedResultsController;
 
     //self.tableViewFetchedResultsUpdater = [MMSFetchedResultsTableViewController.alloc initWithTableViewFetchedResultsController:self.fetchedResultsController];
-   // self.tableViewFetchedResultsAdapter = [self newFetchedResultsController];
+   // self.fetchedResultsTableViewControllerImpl = [self newFetchedResultsController];
     
    // [self configureView];
 }
@@ -112,38 +154,14 @@
     return appController.persistentContainer.viewContext;
 }
 
-#pragma mark - Table Data
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-//    cell.textLabel.opaque = NO;
-//    cell.textLabel.backgroundColor = UIColor.clearColor;
-//    return cell;
-//}
+
 
 #pragma mark - Fetched results controller
 
-//- (MMSTableViewFetchedResultsAdapter *)tableViewFetchedResultsAdapter{
-//    if(_tableViewFetchedResultsAdapter){
-//        return _tableViewFetchedResultsAdapter;
-//    }
-//    _tableViewFetchedResultsAdapter = [MMSTableViewFetchedResultsAdapter.alloc init];//WithTableView:self.tableView];
-//    _tableViewFetchedResultsAdapter.fetchedResultsController = self.fetchedResultsController;
-//    _tableViewFetchedResultsAdapter.delegate = self;
-//
-//    return _tableViewFetchedResultsAdapter;
-//}
-
 - (NSFetchedResultsController *)fetchedResultsController {
-//- (MMSTableViewFetchedResultsAdapter *)newFetchedResultsController {
-//- (void)createFetchedResultsController{
-  //  id i = self.parentViewController;
-    //NSPersistentContainer *pc = [self mcd_persistentContainerWithSender:self];
-    //NSManagedObjectContext *moc = pc.viewContext;
-    //    NSAssert(moc, @"createFetchedResultsController called without managedObjectContext");
-    NSFetchedResultsController *fetchedResultsController = super.fetchedResultsController;
-    if (fetchedResultsController) {
-        return fetchedResultsController;
+    if (_fetchedResultsController) {
+        return _fetchedResultsController;
     }
     
     NSFetchRequest<Event *> *fetchRequest = Event.fetchRequest;
@@ -162,19 +180,34 @@
 
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-    fetchedResultsController.delegate = self;
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    _fetchedResultsController.delegate = self;
 
     NSError *error = nil;
-    if (![fetchedResultsController performFetch:&error]) {
+    if (![_fetchedResultsController performFetch:&error]) {
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }
-    super.fetchedResultsController = fetchedResultsController;
-    return fetchedResultsController;
+    return _fetchedResultsController;
 }
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
+    [self.fetchedResultsTableViewControllerImpl controllerWillChangeContent:controller];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)object atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath{
+    [self.fetchedResultsTableViewControllerImpl controller:controller didChangeObject:object atIndexPath:indexPath forChangeType:type newIndexPath:newIndexPath];
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller{
+    [self.fetchedResultsTableViewControllerImpl controllerDidChangeContent:controller];
+ //   [self configureView];
+ //   [self updateMaster];
+}
+
+
 
 - (IBAction)trashVenue:(id)sender{
     NSManagedObjectContext *moc = self.managedObjectContext;

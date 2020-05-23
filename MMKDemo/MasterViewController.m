@@ -12,7 +12,8 @@
 @interface MasterViewController ()
 
 @property NSMutableArray *objects;
-@property (nonatomic, strong) MMKMapTypeBarButtonItem *item;
+@property (nonatomic, strong) MMSMapTypeBarButtonItem *item;
+
 @end
 
 @implementation MasterViewController
@@ -26,7 +27,7 @@
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
-    MMKMapTypeBarButtonItem *item = [[MMKMapTypeBarButtonItem alloc] initWithMapView:self.mapView];
+    MMSMapTypeBarButtonItem *item = [[MMSMapTypeBarButtonItem alloc] initWithMapView:self.mapView];
     item.target = self;
     item.action = @selector(changed);
     self.toolbarItems = @[item];
@@ -40,7 +41,7 @@
         [self.objects addObject:annotation];
     }
     
-    self.annotationsTablePresentationStyle = MMKAnnotationsTablePresentationStyleSheet;
+    self.annotationsTablePresentationStyle = MMSAnnotationsTablePresentationStyleSheet;
 }
 
 -(NSInteger)numberOfAnnotations{

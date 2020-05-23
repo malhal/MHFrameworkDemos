@@ -12,7 +12,7 @@
 
 @class DetailViewController, PersistentContainer;
 
-@interface MasterViewController : MMSFetchedTableViewController //<UIDataSourceModelAssociation>
+@interface MasterViewController : UITableViewController //<UIDataSourceModelAssociation>
 
 //@property (strong, nonatomic) DetailViewController *detailViewController;
 
@@ -21,7 +21,7 @@
 //@property (strong, nonatomic) Venue *masterItem;
 @property (strong, nonatomic) NSManagedObject *masterItem;
 
-//@property (weak, nonatomic) IBOutlet MMSTableViewFetchedResultsAdapter *tableViewFetchedResultsAdapter;
+//@property (weak, nonatomic) IBOutlet MMSFetchedResultsTableViewControllerImpl *fetchedResultsTableViewControllerImpl;
 
 //- (instancetype)initWithCoder:(NSCoder *)coder masterItem:(Venue *)masterItem persistentContainer:(PersistentContainer *)persistentContainer;
 

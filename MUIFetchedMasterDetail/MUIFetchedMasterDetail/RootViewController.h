@@ -14,12 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class MasterViewController, PersistentContainer;
 
-@interface RootViewController : MMSFetchedTableViewController //
+@interface RootViewController : UITableViewController //
 
 //@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 //@property (strong, nonatomic) MasterViewController *masterViewController;
 
-//@property (weak, nonatomic) IBOutlet MMSTableViewFetchedResultsAdapter *tableViewFetchedResultsAdapter;
+//@property (weak, nonatomic) IBOutlet MMSFetchedResultsTableViewControllerImpl *fetchedResultsTableViewControllerImpl;
 
 @end
 

@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MMapKit/MMapKit.h>
+#import <MMShared/MMShared.h>
 
 @class DetailViewController;
 
-@interface MasterViewController : MMKMapViewController
+@interface MasterViewController : MMSMapViewController
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
