@@ -21,7 +21,7 @@
 //@property (strong, nonatomic) Venue *masterItem;
 @property (strong, nonatomic) NSManagedObject *masterItem;
 
-//@property (weak, nonatomic) IBOutlet MMSFetchedResultsTableViewControllerImpl *fetchedResultsTableViewControllerImpl;
+//@property (weak, nonatomic) IBOutlet MMSFetchedTableViewController *fetchedResultsTableViewControllerImpl;
 
 //- (instancetype)initWithCoder:(NSCoder *)coder masterItem:(Venue *)masterItem persistentContainer:(PersistentContainer *)persistentContainer;
 

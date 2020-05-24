@@ -10,7 +10,8 @@
 #import "DetailViewController.h"
 #import "AppController.h"
 
-@interface MasterViewController () <MMSFetchedResultsTableViewController> // <NSFetchedResultsControllerDelegate>//, UIViewControllerRestoration> // MUIFetchedTableViewControllerDelegate, MCDManagedObjectChangeControllerDelegate
+@interface MasterViewController () <MMSTableViewControllerDataDelegate>
+//, UIViewControllerRestoration> // , MCDManagedObjectChangeControllerDelegate
 
 @property (strong, nonatomic, null_resettable) MMSManagedObjectChangeController *masterItemChangeController;
 
@@ -18,72 +19,74 @@
 @property (strong, nonatomic) UIBarButtonItem *addButton;
 @property (strong, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
-//@property (strong, nonatomic) FetchedResultsViewUpdater *fetchedResultsViewUpdater;
-@property (strong, nonatomic) MMSFetchedResultsTableViewControllerImpl *fetchedResultsTableViewControllerImpl;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+//@property (strong, nonatomic) MMSFetchedTableViewController *fetchedResultsTableViewControllerImpl;
+
+@property (strong, nonatomic) MMSTableViewControllerDataFetchedImpl *data;
 
 @end
 
 
 @implementation MasterViewController
-@synthesize fetchedResultsController = _fetchedResultsController;
+//@synthesize fetchedResultsController = _fetchedResultsController;
 
-- (instancetype)initWithCoder:(NSCoder *)coder{
-    self = [super initWithCoder:coder];
-    if (self) {
-        _fetchedResultsTableViewControllerImpl = [MMSFetchedResultsTableViewControllerImpl.alloc initWithTableViewController:self];
-    }
-    return self;
-}
+//- (instancetype)initWithCoder:(NSCoder *)coder{
+//    self = [super initWithCoder:coder];
+//    if (self) {
+//        _fetchedResultsTableViewControllerImpl = [MMSFetchedTableViewController.alloc initWithTableViewController:self];
+//    }
+//    return self;
+//}
 
 #pragma mark - Table Data
 
-- (id)forwardingTargetForSelector:(SEL)aSelector{
-   // if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDelegate), aSelector)){
-//        if([self.delegate respondsToSelector:aSelector]){
-//            return self.delegate;
-//        }
- //   }
-    if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDataSource), aSelector)){
-        return self.fetchedResultsTableViewControllerImpl;
-    }
-    else if(MMSProtocolHasInstanceMethod(@protocol(NSFetchedResultsControllerDelegate), aSelector)){
-        return self.fetchedResultsTableViewControllerImpl;
-    }
-    return [super forwardingTargetForSelector:aSelector];
-}
-
-- (BOOL)respondsToSelector:(SEL)aSelector{
-    if([super respondsToSelector:aSelector]){
-        return YES;
-    }
-//    else if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDelegate), aSelector)){
-//        return [self.delegate respondsToSelector:aSelector];
+//- (id)forwardingTargetForSelector:(SEL)aSelector{
+//   // if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDelegate), aSelector)){
+////        if([self.delegate respondsToSelector:aSelector]){
+////            return self.delegate;
+////        }
+// //   }
+//    if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDataSource), aSelector)){
+//        return self.fetchedResultsTableViewControllerImpl;
 //    }
-    if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDataSource), aSelector)){
-        return [self.fetchedResultsTableViewControllerImpl respondsToSelector:aSelector];
-    }
-    else if(MMSProtocolHasInstanceMethod(@protocol(NSFetchedResultsControllerDelegate), aSelector)){
-        return [self.fetchedResultsTableViewControllerImpl respondsToSelector:aSelector];
-    }
-    return NO;
-}
+//    else if(MMSProtocolHasInstanceMethod(@protocol(NSFetchedResultsControllerDelegate), aSelector)){
+//        return self.fetchedResultsTableViewControllerImpl;
+//    }
+//    return [super forwardingTargetForSelector:aSelector];
+//}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [self.fetchedResultsTableViewControllerImpl tableView:tableView cellForRowAtIndexPath:indexPath];
-}
+//- (BOOL)respondsToSelector:(SEL)aSelector{
+//    if([super respondsToSelector:aSelector]){
+//        return YES;
+//    }
+////    else if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDelegate), aSelector)){
+////        return [self.delegate respondsToSelector:aSelector];
+////    }
+//    if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDataSource), aSelector)){
+//        return [self.fetchedResultsTableViewControllerImpl respondsToSelector:aSelector];
+//    }
+//    else if(MMSProtocolHasInstanceMethod(@protocol(NSFetchedResultsControllerDelegate), aSelector)){
+//        return [self.fetchedResultsTableViewControllerImpl respondsToSelector:aSelector];
+//    }
+//    return NO;
+//}
 
-// must override the table view controller's impl
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return [self.fetchedResultsTableViewControllerImpl numberOfSectionsInTableView:tableView];
-}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return [self.fetchedResultsTableViewControllerImpl tableView:tableView cellForRowAtIndexPath:indexPath];
+//}
+//
+//// must override the table view controller's impl
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+//    return [self.fetchedResultsTableViewControllerImpl numberOfSectionsInTableView:tableView];
+//}
+//
+//// must override the table view controller's impl
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//    return [self.fetchedResultsTableViewControllerImpl tableView:tableView numberOfRowsInSection:section];
+//}
 
-// must override the table view controller's impl
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.fetchedResultsTableViewControllerImpl tableView:tableView numberOfRowsInSection:section];
-}
 
-
-- (void)updateCell:(UITableViewCell *)cell withObject:(Event *)object{
+- (void)configureCell:(UITableViewCell *)cell withObject:(Event *)object{
     Event *event = (Event *)object;
     cell.textLabel.text = event.timestamp.description;
 }
@@ -144,9 +147,18 @@
   //  self.fetchedResultsTableViewControllerImpl.fetchedResultsController = self.fetchedResultsController;
 
     //self.tableViewFetchedResultsUpdater = [MMSFetchedResultsTableViewController.alloc initWithTableViewFetchedResultsController:self.fetchedResultsController];
-   // self.fetchedResultsTableViewControllerImpl = [self newFetchedResultsController];
-    
+   // self.fetchedResultsController = [self newFetchedResultsController];
+    self.tableView.dataSource = self.data;
    // [self configureView];
+}
+
+- (MMSTableViewControllerDataFetchedImpl *)data{
+    if(_data){
+        return _data;
+    }
+    _data = [MMSTableViewControllerDataFetchedImpl.alloc initWithTableViewController:self];
+    _data.fetchedResultsController = self.fetchedResultsController;
+    return _data;
 }
 
 - (NSManagedObjectContext *)managedObjectContext{
@@ -154,12 +166,10 @@
     return appController.persistentContainer.viewContext;
 }
 
-
-
-
 #pragma mark - Fetched results controller
 
 - (NSFetchedResultsController *)fetchedResultsController {
+//- (NSFetchedResultsController *)fetchedResultsController {
     if (_fetchedResultsController) {
         return _fetchedResultsController;
     }
@@ -181,7 +191,7 @@
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-    _fetchedResultsController.delegate = self;
+   // _fetchedResultsController.delegate = self;
 
     NSError *error = nil;
     if (![_fetchedResultsController performFetch:&error]) {
@@ -193,19 +203,19 @@
     return _fetchedResultsController;
 }
 
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
-    [self.fetchedResultsTableViewControllerImpl controllerWillChangeContent:controller];
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)object atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath{
-    [self.fetchedResultsTableViewControllerImpl controller:controller didChangeObject:object atIndexPath:indexPath forChangeType:type newIndexPath:newIndexPath];
-}
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller{
-    [self.fetchedResultsTableViewControllerImpl controllerDidChangeContent:controller];
- //   [self configureView];
- //   [self updateMaster];
-}
+//- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
+//    [self.fetchedResultsTableViewControllerImpl controllerWillChangeContent:controller];
+//}
+//
+//- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)object atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath{
+//    [self.fetchedResultsTableViewControllerImpl controller:controller didChangeObject:object atIndexPath:indexPath forChangeType:type newIndexPath:newIndexPath];
+//}
+//
+//- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller{
+//    [self.fetchedResultsTableViewControllerImpl controllerDidChangeContent:controller];
+// //   [self configureView];
+// //   [self updateMaster];
+//}
 
 
 
