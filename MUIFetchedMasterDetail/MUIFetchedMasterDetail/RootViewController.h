@@ -16,12 +16,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RootViewController : UITableViewController //
 
-//@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-//@property (strong, nonatomic) MasterViewController *masterViewController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
+@property (strong, nonatomic) MasterViewController *masterViewController;
 
 //@property (weak, nonatomic) IBOutlet MMSFetchedTableViewController *fetchedResultsTableViewControllerImpl;
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
 
 @end
 

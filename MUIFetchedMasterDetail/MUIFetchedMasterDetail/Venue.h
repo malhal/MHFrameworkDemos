@@ -15,7 +15,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Venue : NSManagedObject<MMSCellObject>
+@interface Venue : NSManagedObject
+
+- (NSInteger)numberOfEvents;
 
 @end
 

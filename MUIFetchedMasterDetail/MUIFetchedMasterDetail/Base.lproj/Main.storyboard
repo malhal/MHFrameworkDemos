@@ -98,8 +98,16 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="fetchedResultsSupport" destination="rVq-lD-sNW" id="mR8-XQ-DHK"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eDf-No-3yA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="rVq-lD-sNW" customClass="MMSUpdatingTableViewControllerFetchedResultsSupport">
+                    <connections>
+                        <outlet property="viewController" destination="QST-cv-3sF" id="YWN-Mc-IWK"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="727" y="-640"/>
         </scene>
@@ -153,8 +161,16 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="QIP-Kl-UaH"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="fetchedResultsSupport" destination="Q7S-Ws-hMe" id="CYw-Iu-ZHg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fB9-aq-Gxi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Q7S-Ws-hMe" customClass="MMSUpdatingTableViewControllerFetchedResultsSupport">
+                    <connections>
+                        <outlet property="viewController" destination="Vmf-XO-Dtx" id="bSp-1q-nbW"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="1673" y="-640"/>
         </scene>

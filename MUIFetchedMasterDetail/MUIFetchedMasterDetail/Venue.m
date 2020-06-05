@@ -11,22 +11,22 @@
 
 @implementation Venue
 
-+ (NSSet<NSString *> *)keyPathsForValuesAffectingTitle
-{
-    return [NSSet setWithObjects:@"timestamp", nil];
-}
+//+ (NSSet<NSString *> *)keyPathsForValuesAffectingTitle
+//{
+//    return [NSSet setWithObjects:@"timestamp", nil];
+//}
+//
+//- (NSString *)title{
+//    return self.timestamp.description;
+//}
 
-- (NSString *)title{
-    return self.timestamp.description;
-}
-
-+ (NSSet<NSString *> *)keyPathsForValuesAffectingSubtitle
++ (NSSet<NSString *> *)keyPathsForValuesAffectingNumberOfEvents
 {
     return [NSSet setWithObjects:@"events.@count", nil];
 }
 
-- (NSString *)subtitle{
-    return [NSString stringWithFormat:@"%ld", self.events.count];
+- (NSInteger)numberOfEvents{
+    return self.events.count;
 }
 
 

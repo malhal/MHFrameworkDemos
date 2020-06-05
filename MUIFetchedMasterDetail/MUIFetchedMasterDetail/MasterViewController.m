@@ -10,7 +10,8 @@
 #import "DetailViewController.h"
 #import "AppController.h"
 
-@interface MasterViewController () <MMSTableViewControllerDataDelegate>
+@interface MasterViewController () <MMSTableViewControllerCellUpdating>
+
 //, UIViewControllerRestoration> // , MCDManagedObjectChangeControllerDelegate
 
 @property (strong, nonatomic, null_resettable) MMSManagedObjectChangeController *masterItemChangeController;
@@ -20,75 +21,26 @@
 @property (strong, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-//@property (strong, nonatomic) MMSFetchedTableViewController *fetchedResultsTableViewControllerImpl;
-
-@property (strong, nonatomic) MMSTableViewControllerDataFetchedImpl *data;
+@property (strong, nonatomic) IBOutlet MMSUpdatingTableViewControllerFetchedResultsSupport *fetchedResultsSupport;
 
 @end
 
 
 @implementation MasterViewController
-//@synthesize fetchedResultsController = _fetchedResultsController;
 
-//- (instancetype)initWithCoder:(NSCoder *)coder{
-//    self = [super initWithCoder:coder];
-//    if (self) {
-//        _fetchedResultsTableViewControllerImpl = [MMSFetchedTableViewController.alloc initWithTableViewController:self];
-//    }
-//    return self;
-//}
+
 
 #pragma mark - Table Data
 
-//- (id)forwardingTargetForSelector:(SEL)aSelector{
-//   // if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDelegate), aSelector)){
-////        if([self.delegate respondsToSelector:aSelector]){
-////            return self.delegate;
-////        }
-// //   }
-//    if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDataSource), aSelector)){
-//        return self.fetchedResultsTableViewControllerImpl;
-//    }
-//    else if(MMSProtocolHasInstanceMethod(@protocol(NSFetchedResultsControllerDelegate), aSelector)){
-//        return self.fetchedResultsTableViewControllerImpl;
-//    }
-//    return [super forwardingTargetForSelector:aSelector];
-//}
-
-//- (BOOL)respondsToSelector:(SEL)aSelector{
-//    if([super respondsToSelector:aSelector]){
-//        return YES;
-//    }
-////    else if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDelegate), aSelector)){
-////        return [self.delegate respondsToSelector:aSelector];
-////    }
-//    if(MMSProtocolHasInstanceMethod(@protocol(UITableViewDataSource), aSelector)){
-//        return [self.fetchedResultsTableViewControllerImpl respondsToSelector:aSelector];
-//    }
-//    else if(MMSProtocolHasInstanceMethod(@protocol(NSFetchedResultsControllerDelegate), aSelector)){
-//        return [self.fetchedResultsTableViewControllerImpl respondsToSelector:aSelector];
-//    }
-//    return NO;
-//}
-
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return [self.fetchedResultsTableViewControllerImpl tableView:tableView cellForRowAtIndexPath:indexPath];
-//}
-//
-//// must override the table view controller's impl
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-//    return [self.fetchedResultsTableViewControllerImpl numberOfSectionsInTableView:tableView];
-//}
-//
-//// must override the table view controller's impl
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    return [self.fetchedResultsTableViewControllerImpl tableView:tableView numberOfRowsInSection:section];
-//}
 
 
-- (void)configureCell:(UITableViewCell *)cell withObject:(Event *)object{
-    Event *event = (Event *)object;
-    cell.textLabel.text = event.timestamp.description;
+- (void)updateCell:(UITableViewCell *)cell withObject:(Event *)object{
+    cell.textLabel.text = object.timestamp.description;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    Event *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self updateCell:cell withObject:object];
 }
 
 - (void)insertNewObject:(id)sender {
@@ -121,44 +73,16 @@
      // Do any additional setup after loading the view.
         //self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-        self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     //    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(buttonTapped:)];
         NSArray *rightBarButtonItems = @[self.addButton, self.editButtonItem]; // button
     //    [rightBarButtonItems enumerateObjectsUsingBlock:^(UIBarButtonItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
     //        //obj.enabled = NO;
     //    }];
-        self.navigationItem.rightBarButtonItems = rightBarButtonItems;
+    self.navigationItem.rightBarButtonItems = rightBarButtonItems;
         
-       
-    
-   // self.fetchedResultsViewUpdater = [FetchedResultsViewUpdater.alloc initWithTableView:self.tableView];
-  //  self.fetchedResultsViewUpdater.fetchedResultsController = self.fetchedResultsController;
-   // self.fetchedResultsViewUpdater.cellUpdater = self;
-    //NSAssert(self.mui_persistentContainer, @"requires persistentContainer");
-    
-   
-    
-    //self.fetchedTableViewController.fetchedResultsController = self.fetchedResultsController;
-    //self.fetchedTableViewController.tableView.delegate = self;
-    //self.fetchedTableViewController.tableView.dataSource = self; // these can't be done until the self.fetchedTableViewController is set so the forwarding works.
-   // self.fetchedResultsController.tableView = self.tableView;
-    
-    //self.tableView.dataSource = self.fetchedResultsTableViewControllerImpl;
-  //  self.fetchedResultsTableViewControllerImpl.fetchedResultsController = self.fetchedResultsController;
-
-    //self.tableViewFetchedResultsUpdater = [MMSFetchedResultsTableViewController.alloc initWithTableViewFetchedResultsController:self.fetchedResultsController];
-   // self.fetchedResultsController = [self newFetchedResultsController];
-    self.tableView.dataSource = self.data;
-   // [self configureView];
-}
-
-- (MMSTableViewControllerDataFetchedImpl *)data{
-    if(_data){
-        return _data;
-    }
-    _data = [MMSTableViewControllerDataFetchedImpl.alloc initWithTableViewController:self];
-    _data.fetchedResultsController = self.fetchedResultsController;
-    return _data;
+    self.fetchedResultsSupport.fetchedResultsController = self.fetchedResultsController;
+  //  self.tableView.dataSource = self.fetchedResultsController;
 }
 
 - (NSManagedObjectContext *)managedObjectContext{
@@ -203,21 +127,42 @@
     return _fetchedResultsController;
 }
 
-//- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
-//    [self.fetchedResultsTableViewControllerImpl controllerWillChangeContent:controller];
-//}
-//
-//- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)object atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath{
-//    [self.fetchedResultsTableViewControllerImpl controller:controller didChangeObject:object atIndexPath:indexPath forChangeType:type newIndexPath:newIndexPath];
-//}
-//
-//- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller{
-//    [self.fetchedResultsTableViewControllerImpl controllerDidChangeContent:controller];
-// //   [self configureView];
-// //   [self updateMaster];
-//}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.fetchedResultsController.sections.count;
+}
 
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    id <NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[section];
+    return sectionInfo.numberOfObjects;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //NSLog(@"%@ %@", NSStringFromClass(self.class), NSStringFromSelector(_cmd));
+    return [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSManagedObjectContext *context = self.managedObjectContext;
+        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+            
+        NSError *error = nil;
+        if (![context save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+            abort();
+        }
+    }
+}
 
 - (IBAction)trashVenue:(id)sender{
     NSManagedObjectContext *moc = self.managedObjectContext;

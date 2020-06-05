@@ -15,7 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Event : NSManagedObject<MMSCellObject>
+@interface Event : NSManagedObject
 
 @end
 
